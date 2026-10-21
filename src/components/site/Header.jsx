@@ -59,7 +59,7 @@ export const Header = () => {
     };
   }, [mobile]);
   const solid = scrolled || pathname !== "/" || mobile;
-  return <header data-testid="site-header" className={`site-header fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300 border-b ${solid ? "backdrop-blur-xl border-white/10" : "border-transparent"}`}>
+  return <header data-testid="site-header" className={`site-header ${pathname === "/" ? "lily-home-header" : ""} fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300 border-b ${solid ? "backdrop-blur-xl border-white/10" : "border-transparent"}`}>
       <div className="site-header-inner flex items-center justify-between gap-4">
         <Link to={copy["Header_jsx_6"]} onClick={() => setMobile(false)} aria-label={copy["Header_jsx_7"]} data-testid="header-logo-link"><Logo /></Link>
         <nav className="hidden lg:flex items-center gap-1" aria-label={copy["Header_jsx_8"]}>
