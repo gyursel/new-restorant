@@ -26,18 +26,9 @@ export function stripeClient() {
   return new Stripe(process.env.STRIPE_SECRET_KEY!);
 }
 
-// Production CMS is the authoritative pricing source for the staging branch.
+// This project's CMS database is the authoritative pricing source in every environment.
 // Never accept product names, amounts or currency from the browser.
 export async function publishedStorefront(): Promise<any> {
-  if (process.env.VERCEL_ENV === 'preview') {
-    const response = await fetch('https://apex-drive-bulgaria.vercel.app/api/content', {
-      cache: 'no-store',
-      headers: {Accept:'application/json'},
-      signal: AbortSignal.timeout(10000),
-    });
-    if (!response.ok) throw new HttpError(503,'Менюто не е достъпно. Опитайте пак.');
-    return response.json();
-  }
   return JSON.parse((await state()).published);
 }
 

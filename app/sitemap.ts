@@ -5,7 +5,7 @@ export const dynamic='force-dynamic';
 
 export default async function sitemap():Promise<MetadataRoute.Sitemap>{
   if(process.env.VERCEL_ENV==='preview')return [];
-  const base='https://apex-drive-bulgaria.vercel.app';
+  const base='https://new-restorant-backend.vercel.app';
   const data=await publishedContent();
   const fixed:MetadataRoute.Sitemap=[
     {url:base+'/',changeFrequency:'weekly',priority:1},
