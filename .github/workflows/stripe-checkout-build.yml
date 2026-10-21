@@ -1,0 +1,28 @@
+name: APEX DRIVE build and site audit
+
+on:
+  push:
+    branches:
+      - feature/stripe-checkout-test
+      - feature/official-orders-admin-v1
+      - optimize/site-audit-2026-10
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  next-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Build Next.js
+        run: npm run build
+      - name: Verify required pages and security guards
+        run: npm run check:files

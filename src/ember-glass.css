@@ -1,0 +1,218 @@
+/* EMBER GLASS — visual layer only. Dark warm glass + orange accents. */
+html .site-experience.lily-experience{
+  --eg-bg:#0e0c0b;--eg-bg-2:#161210;--eg-glass:rgba(255,255,255,.055);--eg-glass-2:rgba(255,255,255,.09);
+  --eg-line:rgba(255,255,255,.11);--eg-line-2:rgba(255,255,255,.18);
+  --eg-orange:#ff8a1e;--eg-orange-2:#f2650c;--eg-amber:#ffb547;--eg-text:#f8f3ed;--eg-muted:#bdb3a8;
+  --eg-grad:linear-gradient(135deg,#ffa53a 0%,#ff8a1e 45%,#ef5f0a 100%);
+  --eg-display:'Onest Variable',system-ui,sans-serif;--eg-body:'Onest Variable',system-ui,sans-serif;
+  --eg-radius:24px;--eg-ease:cubic-bezier(.16,1,.3,1);
+  --lily-red:var(--eg-orange);--lily-ink:var(--eg-bg);--lily-paper:var(--eg-text);--lily-muted:var(--eg-muted);
+  background:
+    radial-gradient(70vw 45vw at 88% -8%,rgba(255,128,30,.16),transparent 62%),
+    radial-gradient(55vw 45vw at -12% 55%,rgba(255,96,16,.09),transparent 62%),
+    radial-gradient(60vw 40vw at 70% 115%,rgba(255,140,40,.08),transparent 60%),
+    var(--eg-bg)!important;
+  background-attachment:fixed!important;color:var(--eg-text)!important;font-family:var(--eg-body)
+}
+html .site-experience.lily-experience ::selection{background:var(--eg-orange);color:#1a0d02}
+html .site-experience.lily-experience::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* glass primitive */
+html .site-experience.lily-experience :is(.glass,.food-card,#location .glass,#how-it-works .glass,.premium-cart-list,.premium-checkout-form,.premium-order-status-card,.premium-cart-empty){
+  background:linear-gradient(160deg,rgba(255,255,255,.085),rgba(255,255,255,.025))!important;
+  border:1px solid var(--eg-line)!important;border-radius:var(--eg-radius)!important;
+  backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);
+  box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 24px 50px -22px rgba(0,0,0,.7)!important
+}
+
+/* type */
+html .site-experience.lily-experience :is(.font-editorial,.section-title,h1,.hero-copy h1,.hero-copy h1.font-editorial){font-family:var(--eg-display)!important;font-weight:800;letter-spacing:-.04em;font-style:normal}
+html .site-experience.lily-experience .section-title{font-size:clamp(30px,4vw,54px)!important;line-height:1.05}
+html .site-experience.lily-experience .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--eg-amber)!important;font-family:var(--eg-body);font-size:11px!important;font-weight:600;letter-spacing:.24em!important;text-transform:uppercase}
+html .site-experience.lily-experience .eyebrow:not(.flex)::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--eg-grad);box-shadow:0 0 14px var(--eg-orange)}
+html .site-experience.lily-experience .text-slate-400{color:var(--eg-muted)}
+html .site-experience.lily-experience .text-slate-500,html .site-experience.lily-experience .text-slate-600{color:#a39a90}
+html .site-experience.lily-experience .price{font-family:var(--eg-body)!important;font-weight:700!important;color:var(--eg-amber)!important;letter-spacing:-.01em}
+
+/* buttons */
+html .site-experience.lily-experience :is(.btn-primary,.btn-cream){border-radius:999px!important;min-height:52px;padding:14px 28px;font-family:var(--eg-body)!important;font-size:15px;font-weight:600!important;letter-spacing:0;
+  transition:transform .4s var(--eg-ease),box-shadow .4s var(--eg-ease),background-color .3s ease,border-color .3s ease}
+html .site-experience.lily-experience .btn-primary{background:var(--eg-grad)!important;color:#fff!important;border:1px solid rgba(255,200,140,.45)!important;
+  box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 14px 34px -10px rgba(255,120,20,.65)!important}
+html .site-experience.lily-experience .btn-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 20px 44px -10px rgba(255,120,20,.8)!important}
+html .site-experience.lily-experience .btn-cream{background:rgba(255,255,255,.07)!important;color:var(--eg-text)!important;border:1px solid var(--eg-line-2)!important;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+html .site-experience.lily-experience .btn-cream:hover{background:rgba(255,255,255,.12)!important;border-color:rgba(255,170,90,.55)!important;transform:translateY(-3px)}
+
+/* header */
+html .site-experience.lily-experience .site-header{background:linear-gradient(180deg,rgba(14,12,11,.82),rgba(14,12,11,.45))!important;border-bottom-color:rgba(255,255,255,.06)!important;backdrop-filter:blur(20px) saturate(150%);-webkit-backdrop-filter:blur(20px) saturate(150%)}
+html .site-experience.lily-experience .site-header nav a{font-family:var(--eg-body)!important;font-size:14px;font-weight:500;color:#d8d0c7}
+html .site-experience.lily-experience .site-header nav a::after{background:var(--eg-orange)!important;height:2px;border-radius:2px}
+html .site-experience.lily-experience .site-header nav a[aria-current=page]{color:#fff}
+html .site-experience.lily-experience .site-header :is(.premium-mobile-toggle,[data-testid=header-cart-button]){width:46px;height:46px;border-radius:50%!important;background:rgba(255,255,255,.07)!important;border:1px solid var(--eg-line-2)!important;backdrop-filter:blur(14px);transition:transform .3s var(--eg-ease),border-color .3s}
+html .site-experience.lily-experience .site-header [data-testid=header-cart-button]:hover{transform:scale(1.06);border-color:rgba(255,160,70,.6)!important}
+html .site-experience.lily-experience [data-testid=header-cart-count]{background:var(--eg-grad)!important;box-shadow:0 0 0 2px var(--eg-bg)}
+html .site-experience.lily-experience [data-testid=header-kiosk-link]{min-height:44px!important;font-size:13px!important}
+html .site-experience.lily-experience .premium-mobile-menu{background:rgba(14,12,11,.94)!important;backdrop-filter:blur(24px)}
+html .site-experience.lily-experience .premium-mobile-menu-link{font-family:var(--eg-display)!important;font-weight:600}
+
+/* brand */
+.eg-brand{display:inline-flex;align-items:center;gap:12px}
+.eg-mark{flex-shrink:0;filter:drop-shadow(0 6px 16px rgba(255,120,20,.35));transition:transform .6s var(--eg-ease,ease)}
+a:hover .eg-mark{transform:rotate(-8deg) scale(1.06)}
+html .site-experience.lily-experience .brand-wordmark{font-family:var(--eg-display)!important;font-weight:800!important;font-size:20px!important;letter-spacing:-.02em!important}
+html .site-experience.lily-experience .brand-wordmark .text-\[\#f05255\],html .site-experience.lily-experience .brand-wordmark .brand-period{color:var(--eg-orange)!important}
+html .site-experience.lily-experience .brand-tagline{color:var(--eg-muted);font-family:var(--eg-body);font-size:7px!important;letter-spacing:.28em!important}
+html .site-experience.lily-experience footer .brand-wordmark{font-size:24px!important}
+
+/* hero */
+html .site-experience.lily-experience .hero-section{background:transparent!important}
+html .site-experience.lily-experience .hero-frame{background:transparent!important;overflow:hidden;position:relative}
+.eg-hero-parallax{position:absolute;inset:0;z-index:0;will-change:transform}
+html .site-experience.lily-experience .hero-video-tint{background:
+  linear-gradient(0deg,var(--eg-bg) 0%,rgba(14,12,11,.25) 22%,transparent 55%),
+  linear-gradient(90deg,rgba(14,12,11,.92) 0%,rgba(14,12,11,.45) 38%,transparent 70%),
+  radial-gradient(60% 60% at 70% 55%,rgba(255,120,30,.18),transparent 70%)!important}
+html .site-experience.lily-experience .hero-copy h1{font-size:clamp(46px,5.4vw,84px)!important;line-height:1.02!important;letter-spacing:-.045em!important;text-shadow:0 10px 40px rgba(0,0,0,.55)}
+.eg-line{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.eg-line-inner{display:inline-block;will-change:transform}
+html .site-experience.lily-experience .hero-title-last{font-style:normal!important;background:var(--eg-grad);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+html .site-experience.lily-experience .hero-copy>p:not(.eyebrow){color:#e2d9cf!important;font-size:15px!important;max-width:380px!important}
+html .site-experience.lily-experience .hero-copy .eyebrow{font-size:11px!important;color:var(--eg-amber)!important}
+html .site-experience.lily-experience .hero-copy .eyebrow .h-px{background:var(--eg-orange)}
+html .site-experience.lily-experience .hero-benefits{gap:12px!important}
+html .site-experience.lily-experience .hero-benefits>span{padding:10px 16px;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid var(--eg-line);backdrop-filter:blur(14px);font-size:11px!important;color:#cfc5ba!important}
+html .site-experience.lily-experience .hero-benefits svg{color:var(--eg-orange)!important}
+html .site-experience.lily-experience .hero-caption{font-size:10px!important;color:#cbbfb2;border-top-color:rgba(255,255,255,.08)!important}
+html .site-experience.lily-experience .hero-caption a{border-radius:50%!important;background:rgba(255,255,255,.07)!important;border:1px solid var(--eg-line-2)!important}
+html .site-experience.lily-experience .hero-video-toggle{border-radius:999px!important;background:rgba(14,12,11,.6)!important;backdrop-filter:blur(12px)}
+html .site-experience.lily-experience .hero-featured-shell{background:transparent!important}
+html .site-experience.lily-experience .hero-favorites h2{font-family:var(--eg-display)!important;font-weight:700;font-size:26px!important;letter-spacing:-.03em}
+html .site-experience.lily-experience .hero-favorites .h-px{background:var(--eg-orange)!important}
+
+/* ember particles */
+.eg-embers{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.eg-embers i{position:absolute;bottom:-10px;left:calc(var(--i) * 7.3% + 3%);width:calc(3px + (var(--i) * 7 % 4) * 1px);height:calc(3px + (var(--i) * 7 % 4) * 1px);border-radius:50%;
+  background:#ffb04a;box-shadow:0 0 10px 2px rgba(255,140,30,.8);opacity:0;animation:eg-rise calc(9s + var(--i) * .7s) linear calc(var(--i) * -1.3s) infinite}
+@keyframes eg-rise{0%{transform:translate3d(0,0,0);opacity:0}10%{opacity:.9}80%{opacity:.5}100%{transform:translate3d(calc((var(--i) - 7) * 6px),-105vh,0);opacity:0}}
+
+/* marquee */
+.eg-marquee{position:relative;z-index:3;overflow:hidden;border-block:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.025);padding:22px 0;
+  mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.eg-marquee-track{display:flex;width:max-content;animation:eg-marquee 60s linear infinite}
+.eg-marquee:hover .eg-marquee-track{animation-play-state:paused}
+.eg-marquee-track span{display:inline-flex;align-items:center;gap:36px;padding-right:36px;font-family:var(--eg-display);font-weight:800;font-size:clamp(24px,3.2vw,44px);letter-spacing:-.04em;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgba(248,243,237,.5)}
+.eg-marquee-track span:nth-child(3n+1){color:var(--eg-text);-webkit-text-stroke:0}
+.eg-marquee-track span:nth-child(3n+2){color:var(--eg-orange);-webkit-text-stroke:0}
+.eg-marquee-track i{width:10px;height:10px;border-radius:50%;background:var(--eg-grad);box-shadow:0 0 14px var(--eg-orange)}
+@keyframes eg-marquee{to{transform:translateX(-50%)}}
+
+/* sections */
+html .site-experience.lily-experience :is(#how-it-works,[data-testid=menu-section],footer){background:transparent!important}
+html .site-experience.lily-experience #how-it-works{border-color:rgba(255,255,255,.06)!important}
+html .site-experience.lily-experience .home-section-wrap:not(:first-child)::before{display:none}
+html .site-experience.lily-experience #how-it-works li:hover{border-color:rgba(255,150,60,.45)!important;transform:translateY(-6px)}
+html .site-experience.lily-experience #how-it-works li>span:first-child{font-family:var(--eg-display);color:rgba(255,138,30,.14)!important}
+html .site-experience.lily-experience #how-it-works li>span.grid{border-radius:16px;border-color:rgba(255,150,60,.35)!important;background:rgba(255,138,30,.1)!important}
+html .site-experience.lily-experience :is(#how-it-works,#location,[data-testid=kiosk-teaser-section]) svg{color:var(--eg-orange)!important}
+html .site-experience.lily-experience :is(#how-it-works h3,#location h3,.premium-cart-section-title h2){font-family:var(--eg-display)!important;font-weight:600!important;letter-spacing:-.02em;text-transform:none!important}
+html .site-experience.lily-experience :is(#offers .metal-edge,[data-testid=kiosk-teaser-section] .metal-edge,#location .metal-edge){border-radius:28px!important;border-color:var(--eg-line-2)!important;box-shadow:0 30px 70px -30px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.03) inset!important}
+html .site-experience.lily-experience #offers article .bg-gradient-to-t{background:linear-gradient(0deg,rgba(14,12,11,.95),rgba(14,12,11,.55) 45%,rgba(14,12,11,.05))!important}
+html .site-experience.lily-experience #offers article>div>span:first-child{background:var(--eg-grad)!important;border-radius:999px;box-shadow:0 8px 20px -6px rgba(255,120,20,.7)}
+html .site-experience.lily-experience #offers h3{font-family:var(--eg-display)!important;font-weight:700!important;text-transform:none!important;letter-spacing:-.03em}
+html .site-experience.lily-experience #offers [data-testid^=promo-code]{color:var(--eg-amber)!important}
+html .site-experience.lily-experience [data-testid=kiosk-teaser-section] img{filter:saturate(1.05) contrast(1.05)!important}
+html .site-experience.lily-experience [data-testid=kiosk-orb] span{border-color:rgba(255,138,30,.45)!important}
+html .site-experience.lily-experience [data-testid^=sample-]{border-color:rgba(255,170,80,.35)!important;background:rgba(255,138,30,.08)!important;color:var(--eg-amber)!important;backdrop-filter:blur(10px)}
+html .site-experience.lily-experience [data-testid^=sample-] span{background:var(--eg-orange)!important}
+html .site-experience.lily-experience #location ul li{border-color:rgba(255,255,255,.06)}
+
+/* category tiles */
+html .site-experience.lily-experience .category-nav{background:rgba(14,12,11,.6)!important;border:1px solid rgba(255,255,255,.07)!important;border-radius:22px!important;padding:8px!important;backdrop-filter:blur(20px) saturate(150%);-webkit-backdrop-filter:blur(20px) saturate(150%)}
+html .site-experience.lily-experience .category-nav button{border-radius:16px!important;background:rgba(255,255,255,.05)!important;border:1px solid rgba(255,255,255,.08)!important;color:#ddd3c9!important;font-family:var(--eg-body)!important;font-size:14px!important;font-weight:600!important;min-height:46px;
+  transition:transform .35s var(--eg-ease),border-color .3s,background-color .3s,box-shadow .3s!important}
+html .site-experience.lily-experience .category-nav button:hover{transform:translateY(-2px);border-color:rgba(255,160,70,.4)!important}
+html .site-experience.lily-experience .category-nav button[aria-selected=true]{background:linear-gradient(160deg,rgba(255,150,50,.35),rgba(255,110,20,.12))!important;color:#fff!important;border-color:rgba(255,160,70,.75)!important;box-shadow:0 0 0 1px rgba(255,140,40,.25) inset,0 10px 26px -10px rgba(255,120,20,.7)!important}
+
+/* product cards */
+html .site-experience.lily-experience .food-card{overflow:hidden;padding:10px;margin-top:0!important;height:100%!important;transition:transform .5s var(--eg-ease),border-color .4s,box-shadow .5s!important}
+html .site-experience.lily-experience .food-card:hover{transform:translateY(-8px)!important;border-color:rgba(255,160,70,.45)!important;box-shadow:0 1px 0 rgba(255,255,255,.1) inset,0 30px 60px -25px rgba(255,110,20,.45)!important}
+html .site-experience.lily-experience .food-card-photo{width:100%!important;margin:0!important;border:0!important;border-radius:18px!important;aspect-ratio:1.12!important;overflow:hidden;position:relative;box-shadow:none!important;
+  background:radial-gradient(70% 70% at 50% 45%,rgba(255,140,40,.28),transparent 70%),#1a1512!important}
+html .site-experience.lily-experience .food-card-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(14,12,11,.55));pointer-events:none}
+html .site-experience.lily-experience .food-card-photo img{transition:transform 1.1s var(--eg-ease)!important}
+html .site-experience.lily-experience .food-card:hover .food-card-photo img{transform:scale(1.08)}
+html .site-experience.lily-experience .food-card-content{padding:16px 8px 6px!important}
+html .site-experience.lily-experience .food-card-content h3{font-family:var(--eg-body)!important;font-weight:700!important;font-size:18px!important;letter-spacing:-.01em}
+html .site-experience.lily-experience .food-card-badge{align-self:flex-start;padding:4px 10px;border-radius:999px;background:rgba(230,60,40,.22);border:1px solid rgba(255,110,80,.45);color:#ffb3a1!important;font-size:10px!important;font-weight:700;letter-spacing:.06em!important;text-transform:none!important}
+html .site-experience.lily-experience .food-add-button{width:42px!important;height:42px!important;min-width:42px;border-radius:13px!important;background:var(--eg-grad)!important;border:1px solid rgba(255,200,140,.5)!important;color:#fff!important;
+  box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 10px 22px -8px rgba(255,120,20,.8)!important;transition:transform .35s var(--eg-ease),box-shadow .35s!important}
+html .site-experience.lily-experience .food-add-button:hover{transform:rotate(90deg) scale(1.08)!important}
+
+/* product detail */
+html .site-experience.lily-experience .lily-product-detail>.grid{position:relative;align-items:stretch}
+html .site-experience.lily-experience .lily-product-detail .product-photo{border-radius:36px!important;border:1px solid var(--eg-line-2)!important;
+  background:radial-gradient(60% 60% at 50% 45%,rgba(255,140,40,.35),transparent 70%),#1a1512;box-shadow:0 40px 90px -30px rgba(255,110,20,.45),0 30px 60px -20px rgba(0,0,0,.8)!important}
+html .site-experience.lily-experience .lily-product-detail .grid>div{padding:clamp(24px,4vw,44px);border-radius:32px;border:1px solid var(--eg-line);
+  background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.025));backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 30px 60px -25px rgba(0,0,0,.8)}
+html .site-experience.lily-experience .lily-product-detail h1{font-size:clamp(32px,4vw,52px)!important;line-height:1.05}
+html .site-experience.lily-experience .lily-product-detail .price{font-size:32px!important}
+html .site-experience.lily-experience .lily-product-detail .btn-primary{width:100%;justify-content:center;min-height:58px;margin-top:28px!important}
+html .site-experience.lily-experience .lily-product-detail .premium-back-link{display:inline-flex;margin-top:16px;color:var(--eg-amber)!important;font-weight:600}
+html .site-experience.lily-experience .lily-product-detail>a{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid var(--eg-line-2);backdrop-filter:blur(12px);color:#e5dcd2!important}
+
+/* cart */
+html .site-experience.lily-experience .premium-cart-page{background:transparent!important}
+html .site-experience.lily-experience .premium-cart-heading h1{font-family:var(--eg-display)!important;font-weight:700!important}
+html .site-experience.lily-experience .premium-cart-heading h1 em{font-style:normal;background:var(--eg-grad);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+html .site-experience.lily-experience .premium-cart-section-title{color:var(--eg-orange)!important}
+html .site-experience.lily-experience .premium-cart-product>img{border-radius:18px!important}
+html .site-experience.lily-experience .premium-cart-product-name{font-family:var(--eg-body)!important;font-weight:700!important;font-size:17px!important}
+html .site-experience.lily-experience .premium-cart-quantity{background:rgba(255,255,255,.06)!important;border:1px solid var(--eg-line);border-radius:999px!important}
+html .site-experience.lily-experience .premium-cart-quantity button{border-radius:50%!important;background:rgba(255,255,255,.07)}
+html .site-experience.lily-experience .premium-cart-quantity button:hover{background:rgba(255,138,30,.25)!important}
+html .site-experience.lily-experience :is(.premium-checkout-field input,.premium-checkout-field textarea){background:rgba(0,0,0,.25)!important;border-color:var(--eg-line-2)!important;border-radius:16px!important}
+html .site-experience.lily-experience :is(.premium-checkout-field input,.premium-checkout-field textarea):focus{border-color:var(--eg-orange)!important;box-shadow:0 0 0 3px rgba(255,138,30,.18)!important}
+html .site-experience.lily-experience .premium-pickup-box{border-radius:18px!important;background:rgba(255,138,30,.07)!important;border-color:rgba(255,160,70,.25)!important;color:var(--eg-amber)!important}
+html .site-experience.lily-experience .premium-total strong:last-child{font-family:var(--eg-body)!important;font-weight:800!important;color:var(--eg-amber)!important}
+html .site-experience.lily-experience .premium-pay-button{border-radius:999px!important;background:var(--eg-grad)!important;box-shadow:0 14px 34px -10px rgba(255,120,20,.65)}
+html .site-experience.lily-experience .premium-back-link{color:#d9cfc4!important}
+
+/* mobile dock: floating glass bar */
+html .site-experience.lily-experience .premium-mobile-dock{left:12px!important;right:12px!important;bottom:max(12px,env(safe-area-inset-bottom))!important;border-radius:26px!important;
+  background:rgba(28,23,20,.72)!important;border:1px solid rgba(255,255,255,.12)!important;backdrop-filter:blur(24px) saturate(160%)!important;-webkit-backdrop-filter:blur(24px) saturate(160%)!important;
+  box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 20px 40px -10px rgba(0,0,0,.8)!important;padding:8px!important}
+html .site-experience.lily-experience .premium-dock-item{border-radius:18px!important;color:#c9bfb4!important;background:transparent!important}
+html .site-experience.lily-experience .premium-dock-item.is-active{background:transparent!important;color:var(--eg-orange)!important}
+html .site-experience.lily-experience .premium-dock-item.is-active .premium-dock-icon{filter:drop-shadow(0 0 8px rgba(255,138,30,.7))}
+html .site-experience.lily-experience .premium-dock-icon b{background:var(--eg-grad)!important}
+
+/* footer */
+html .site-experience.lily-experience footer{border-top:1px solid rgba(255,255,255,.07)!important;position:relative;overflow:hidden}
+html .site-experience.lily-experience footer a:hover{color:var(--eg-orange)!important}
+
+/* route transition */
+html .site-experience.lily-experience .lily-route-scene{animation:eg-scene .9s var(--eg-ease) both}
+@keyframes eg-scene{0%{opacity:.4;transform:translateY(14px)}100%{opacity:1;transform:none}}
+
+@media(max-width:767px){
+  html .site-experience.lily-experience .hero-copy h1,html .site-experience.lily-experience .hero-copy h1.font-editorial{font-size:clamp(34px,9.6vw,52px)!important;letter-spacing:-.045em!important}
+  html .site-experience.lily-experience .hero-copy>p:not(.eyebrow){font-size:14px!important}
+  html .site-experience.lily-experience .hero-copy .eyebrow{font-size:10px!important}
+  html .site-experience.lily-experience .hero-caption{font-size:9px!important}
+  html .site-experience.lily-experience .section-title{font-size:30px!important}
+  html .site-experience.lily-experience .brand-wordmark{font-size:16px!important}
+  html .site-experience.lily-experience .eg-brand{gap:8px}
+  html .site-experience.lily-experience .food-card{padding:7px;border-radius:20px!important}
+  html .site-experience.lily-experience .food-card-photo{border-radius:14px!important;aspect-ratio:1!important}
+  html .site-experience.lily-experience .food-card-content{padding:12px 4px 4px!important}
+  html .site-experience.lily-experience .food-card-content h3{font-size:15px!important}
+  html .site-experience.lily-experience .food-card-content>p{font-size:12px!important}
+  html .site-experience.lily-experience .food-add-button{width:38px!important;height:38px!important;min-width:38px;min-height:38px!important;border-radius:11px!important}
+  html .site-experience.lily-experience .category-nav{border-radius:18px!important;margin-inline:0!important}
+  html .site-experience.lily-experience .category-nav button{font-size:13px!important;padding-inline:16px!important}
+  html .site-experience.lily-experience .premium-dock-item{font-size:11px!important}
+  .eg-marquee{padding:16px 0}
+}
+@media(prefers-reduced-motion:reduce){.eg-marquee-track,.eg-embers i{animation:none!important}.eg-embers{display:none}}
+html .site-experience.lily-experience[data-motion=reduced] :is(.eg-marquee-track,.eg-embers i){animation:none}
