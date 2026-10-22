@@ -21,7 +21,7 @@ const getLinks = () => [{
   to: "/terms",
   label: copy["Footer_jsx_6"]
 }, {
-  to: "/admin",
+  to: "https://new-restorant-backend.vercel.app/admin",
   label: "Админ панел"
 }];
 export const Footer = () => <footer className="relative border-t border-white/5 bg-[#101010] pb-28 lg:pb-12 pt-16" data-testid="site-footer">
@@ -32,8 +32,8 @@ export const Footer = () => <footer className="relative border-t border-white/5 
         <p className="mt-4 max-w-md text-xs text-slate-500"><CmsText field="Footer_jsx_9"/></p>
       </div>
       <ul className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
-        {getLinks().map(l => <li key={l.to} className={l.to === "/admin" ? "col-start-2" : undefined}>
-            {l.to === "/admin" ? <a href="https://new-restorant-backend.vercel.app/admin" className="text-slate-400 hover:text-[#f05255] transition-colors" data-testid={`footer-link-${l.to.replace(/\//g, "")}`}>{l.label}</a> : <Link to={l.to} className="text-slate-400 hover:text-[#f05255] transition-colors">{l.label}</Link>}
+        {getLinks().map(l => <li key={l.to} className={l.label === "Админ панел" ? "col-start-2" : undefined}>
+            {l.label === "Админ панел" ? <a href={l.to} className="text-slate-400 hover:text-[#f05255] transition-colors" data-testid={`footer-link-${l.to.replace(/\//g, "")}`}>{l.label}</a> : <Link to={l.to} className="text-slate-400 hover:text-[#f05255] transition-colors">{l.label}</Link>}
           </li>)}
       </ul>
     </div>
