@@ -80,7 +80,7 @@ export const Header = () => {
         </div>
       </div>
       {mobile && <nav id="premium-mobile-navigation" className="premium-mobile-menu lg:hidden" aria-label="Мобилно меню" data-testid="mobile-nav">
-          <p className="premium-mobile-menu-label">НАВИГАЦИЯ / LILY DRIVE</p>
+          <p className="premium-mobile-menu-label">НАВИГАЦИЯ / CHEF'S BURGER</p>
           {[...NAV, {
         label: copy["Header_jsx_12"],
         to: "/kiosk",

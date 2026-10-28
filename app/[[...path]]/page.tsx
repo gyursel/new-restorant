@@ -6,13 +6,13 @@ export const dynamic='force-dynamic';
 
 const base='https://new-restorant-backend.vercel.app';
 type Props={params:Promise<{path?:string[]}>};
-const description='Премиум Drive-Thru ресторант. Бургери, меню и вземане от място в LILY DRIVE.';
+const description='Премиум Drive-Thru ресторант. Бургери, меню и вземане от място в CHEF\'S BURGER.';
 
 export async function generateMetadata({params}:Props):Promise<Metadata>{
   const segments=(await params).path||[];
   const [section,slug]=segments;
   const data=await publishedContent();
-  const siteName=String(data?.meta?.title||'LILY DRIVE');
+  const siteName=String(data?.meta?.title||'CHEF\'S BURGER');
   const metaDescription=String(data?.meta?.description||description).slice(0,300);
   const canonicalPath='/'+segments.map(encodeURIComponent).join('/');
   let title=siteName;
@@ -23,7 +23,7 @@ export async function generateMetadata({params}:Props):Promise<Metadata>{
   const known=!segments.length || (section==='menu'&&segments.length===1) || Boolean(product);
   if(section==='menu'&&segments.length===1){
     title='Меню и цени | '+siteName;
-    details='Разгледай менюто на LILY DRIVE: бургери, картофки, напитки и оферти.';
+    details='Разгледай менюто на CHEF\'S BURGER: бургери, картофки, напитки и оферти.';
   }
   if(product){
     title=String(product.name)+' | '+siteName;

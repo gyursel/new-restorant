@@ -48,7 +48,7 @@ export function CartPage() {
     <div className="premium-cart-container">
       <Link to="/menu" className="premium-back-link"><ArrowLeft size={16}/> Обратно към менюто</Link>
       <div className="premium-cart-heading">
-        <p className="eyebrow">ТВОЯТ ИЗБОР · LILY DRIVE</p>
+        <p className="eyebrow">ТВОЯТ ИЗБОР · CHEF'S BURGER</p>
         <h1>Твоята <em>поръчка.</em></h1>
         <p>Поръчай онлайн и вземи от място. Плащането се извършва сигурно през Stripe.</p>
       </div>

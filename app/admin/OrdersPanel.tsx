@@ -132,7 +132,7 @@ export default function OrdersPanel() {
 
   return <section className="apex-orders" aria-label="Управление на онлайн поръчки">
     <header className="apex-orders-head">
-      <div><p className="cms-eyebrow">LIVE ORDER DESK · APEX DRIVE</p>
+      <div><p className="cms-eyebrow">LIVE ORDER DESK · CHEF'S BURGER</p>
         <h2>Онлайн поръчки <span>и кухня.</span></h2>
         <p>Платени поръчки, изпълнение и предаване на място. Обновяване на всеки 12 секунди.</p>
       </div>

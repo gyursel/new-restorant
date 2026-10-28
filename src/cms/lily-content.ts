@@ -4,7 +4,7 @@
  */
 export function lilyContent<T extends Record<string, any>>(source:T):T {
   if (!source || typeof source !== 'object' || Array.isArray(source)) return source;
-  if (source.designVersion === 'lily-v1') return source;
+  if (source.designVersion === 'lily-v1') return chefContent(source);
   const next:any = structuredClone(source);
   const brand = (value:any) => typeof value === 'string' && !/^(?:https?:|\/|mailto:|tel:)/i.test(value) ? value.replace(/APEX/gi, 'LILY') : value;
   next.copy = Object.fromEntries(Object.entries(next.copy || {}).map(([key,value]) => [key,brand(value)]));
@@ -22,5 +22,30 @@ export function lilyContent<T extends Record<string, any>>(source:T):T {
     if(!media.hero_video || media.hero_video === '/videos/food-burger.mp4') media.hero_video = '/videos/lily-atmosphere.mp4';
   }
   next.designVersion = 'lily-v1';
+  return chefContent(next);
+}
+
+/** Rename existing CMS snapshots once; subsequent owner edits stay editable. */
+function chefContent<T extends Record<string, any>>(source:T):T {
+  if (source.brandVersion === 'chefs-burger-v1') return source;
+  const next:any = structuredClone(source);
+  const rename = (value:any):any => {
+    if (typeof value === 'string') {
+      if (/^(?:https?:|\/|mailto:|tel:)/i.test(value)) return value;
+      return value.replace(/\b(?:APEX|LILY)(?:\s+DRIVE)?(?:\s+BULGARIA)?\b/gi, "CHEF'S BURGER");
+    }
+    if (Array.isArray(value)) return value.map(rename);
+    if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).map(([key,item]) => [key,rename(item)]));
+    return value;
+  };
+  // Text only: media paths, product identifiers and design settings stay intact.
+  next.copy = rename(next.copy || {});
+  Object.assign(next.copy, {Primitives_jsx_1:"CHEF'S",Primitives_jsx_2:' BURGER',Lily_wordmark:"CHEF'S",Lily_submark:'BURGER'});
+  if (next.meta) next.meta = rename(next.meta);
+  if (next.settings) next.settings.restaurant_name = "CHEF'S BURGER";
+  if (next.pages) next.pages = rename(next.pages);
+  if (next.navigation) next.navigation = rename(next.navigation);
+  if (next.buttons) next.buttons = rename(next.buttons);
+  next.brandVersion = 'chefs-burger-v1';
   return next;
 }

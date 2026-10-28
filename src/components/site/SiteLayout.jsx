@@ -21,12 +21,12 @@ export default function SiteLayout() {
     const product=pathname.startsWith('/product/')
       ? content.menu?.products?.find(p=>p.slug===pathname.slice('/product/'.length))
       : null;
-    const homeTitle=content.meta?.title||'LILY DRIVE BULGARIA';
+    const homeTitle=content.meta?.title||'CHEF\'S BURGER';
     document.title=product
       ? product.name+' | '+homeTitle
       : pathname==='/menu' ? 'Меню и цени | '+homeTitle : homeTitle;
     const description=product?.description||
-      (pathname==='/menu'?'Разгледай актуалното меню, цени и предложения в LILY DRIVE BULGARIA.':content.meta?.description);
+      (pathname==='/menu'?'Разгледай актуалното меню, цени и предложения в CHEF\'S BURGER.':content.meta?.description);
     const meta=document.querySelector('meta[name="description"]');
     if(meta&&description)meta.setAttribute('content',description);
   },[pathname]);
