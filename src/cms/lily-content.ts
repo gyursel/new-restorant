@@ -61,6 +61,7 @@ function restaurantContent<T extends Record<string, any>>(source:T):T {
   next.settings.media.head_chef_visible ??= true;
   next.pages.home.sections=next.pages.home.sections.filter((s:any)=>s.type!=='assistant');
   next.navigation.header=next.navigation.header.filter((n:any)=>!n.to.includes('kiosk'));
+  next.copy.Location_jsx_4='Очакваме ви на бул. Владислав Варненчик 260 във Варна.';
   next.copy.Hero_jsx_12='/#location';
   next.copy.Hero_jsx_13='Как да ни намериш';
   next.copy.Sections_jsx_7='Разгледайте менюто онлайн и изберете любимия си вкус.';
