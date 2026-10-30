@@ -20,3 +20,9 @@ html .site-experience.lily-experience #contact li{overflow-wrap:anywhere}#contac
  html .site-experience.lily-experience .site-header :is(.premium-mobile-toggle,[data-testid=header-cart-button]){width:44px;height:44px}
  .head-chef figcaption>span{font-size:8px;letter-spacing:.12em}.head-chef strong{font-size:14px}
 }
+@media(max-width:767px){
+ html .site-experience.lily-experience .site-header-inner>[data-testid=header-logo-link]{position:relative;left:auto;transform:none;animation:none;flex:1 1 auto;min-width:0}
+ html .site-experience.lily-experience .site-header-inner>div{width:auto;flex:0 0 auto;flex-direction:row;justify-content:flex-end;gap:8px}
+ html .site-experience.lily-experience .site-header-inner .eg-mark{width:34px;height:34px}
+ html .site-experience.lily-experience .site-header-inner .eg-brand{gap:7px}
+}
