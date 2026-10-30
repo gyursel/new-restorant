@@ -4,7 +4,7 @@
  */
 export function lilyContent<T extends Record<string, any>>(source:T):T {
   if (!source || typeof source !== 'object' || Array.isArray(source)) return source;
-  if (source.designVersion === 'lily-v1') return chefContent(source);
+  if (source.designVersion === 'lily-v1') return restaurantContent(chefContent(source));
   const next:any = structuredClone(source);
   const brand = (value:any) => typeof value === 'string' && !/^(?:https?:|\/|mailto:|tel:)/i.test(value) ? value.replace(/APEX/gi, 'LILY') : value;
   next.copy = Object.fromEntries(Object.entries(next.copy || {}).map(([key,value]) => [key,brand(value)]));
@@ -22,7 +22,7 @@ export function lilyContent<T extends Record<string, any>>(source:T):T {
     if(!media.hero_video || media.hero_video === '/videos/food-burger.mp4') media.hero_video = '/videos/lily-atmosphere.mp4';
   }
   next.designVersion = 'lily-v1';
-  return chefContent(next);
+  return restaurantContent(chefContent(next));
 }
 
 /** Rename existing CMS snapshots once; subsequent owner edits stay editable. */
@@ -47,5 +47,24 @@ function chefContent<T extends Record<string, any>>(source:T):T {
   if (next.navigation) next.navigation = rename(next.navigation);
   if (next.buttons) next.buttons = rename(next.buttons);
   next.brandVersion = 'chefs-burger-v1';
+  return next;
+}
+
+/** Apply the restaurant update once, retaining subsequent admin edits. */
+function restaurantContent<T extends Record<string, any>>(source:T):T {
+  if(source.restaurantVersion === 'chef-portrait-v1') return source;
+  const next:any = structuredClone(source);
+  const address='бул. Владислав Варненчик 260, 9009 Варна, България';
+  next.settings.address=address;
+  next.settings.map_query=address;
+  next.settings.media.head_chef_image ??= '/images/head-chef.jpeg';
+  next.settings.media.head_chef_visible ??= true;
+  next.pages.home.sections=next.pages.home.sections.filter((s:any)=>s.type!=='assistant');
+  next.navigation.header=next.navigation.header.filter((n:any)=>!n.to.includes('kiosk'));
+  next.copy.Hero_jsx_12='/#location';
+  next.copy.Hero_jsx_13='Как да ни намериш';
+  next.copy.Sections_jsx_7='Разгледайте менюто онлайн и изберете любимия си вкус.';
+  next.copy.Preview_jsx_3='Тази страница все още се подготвя. Разгледайте нашето меню и актуалните предложения.';
+  next.restaurantVersion='chef-portrait-v1';
   return next;
 }

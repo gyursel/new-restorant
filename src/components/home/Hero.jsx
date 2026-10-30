@@ -65,12 +65,16 @@ export const Hero = () => {
             <motion.p {...rise(0.3)} className="mt-6 max-w-sm text-sm sm:text-base text-slate-400 leading-relaxed" data-testid="hero-subtitle">{section.description||<><CmsText field="Hero_jsx_8"/><br /><CmsText field="Hero_jsx_9"/></>}</motion.p>
             <motion.div {...rise(0.4)} className="mt-8 flex flex-wrap gap-3">
               <ConfigurableButton slot="hero-primary" to={copy["Hero_jsx_10"]} className="btn-primary" data-testid="hero-order-now-button"><CmsText field="Hero_jsx_11"/><ArrowRight className="h-4 w-4" /></ConfigurableButton>
-              <ConfigurableButton slot="hero-secondary" to={copy["Hero_jsx_12"]} className="btn-cream" data-testid="hero-kiosk-widget"><CmsText field="Hero_jsx_13"/></ConfigurableButton>
+              <ConfigurableButton slot="hero-secondary" to={copy["Hero_jsx_12"]} className="btn-cream" data-testid="hero-location-button"><CmsText field="Hero_jsx_13"/></ConfigurableButton>
             </motion.div>
             <motion.div {...rise(0.5)} className="hero-benefits" data-testid="hero-benefits">
               <span><ChefHat className="h-5 w-5" /><span><CmsText field="Hero_jsx_14"/><br /><strong><CmsText field="Hero_jsx_15"/></strong></span></span>
               <span><Timer className="h-5 w-5" /><span><CmsText field="Hero_jsx_16"/><br /><strong><CmsText field="Hero_jsx_17"/></strong></span></span>
             </motion.div>
+            {settings?.media?.head_chef_visible && settings.media.head_chef_image && <motion.figure {...rise(0.6)} className="head-chef" data-testid="head-chef-portrait">
+              <img src={settings.media.head_chef_image} alt="Главният шеф-готвач на CHEF’S BURGER" width="447" height="447" decoding="async" />
+              <figcaption><span>ЗАД ВСЕКИ ВКУС</span><strong>Нашият шеф-готвач</strong><p>С внимание към всеки детайл.</p></figcaption>
+            </motion.figure>}
           </motion.div>
         </div>
         <div className="hero-caption"><span><CmsText field="Hero_jsx_18"/></span><Link to={copy["Hero_jsx_21"]} aria-label={copy["Hero_jsx_22"]}><ArrowDownRight size={24}/></Link></div>

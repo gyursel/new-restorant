@@ -1,13 +1,11 @@
 import {CmsText} from "@/components/site/PublicText";
-import { copy } from "@/components/site/public-copy";
+import { copy, getContent } from "@/components/site/public-copy";
 import { Link } from "react-router-dom";
 import { Logo } from "@/components/site/Primitives";
 const getLinks = () => [{
   to: "/menu",
   label: copy["Footer_jsx_1"]
-}, {
-  to: "/kiosk",
-  label: copy["Footer_jsx_2"]
+
 }, {
   to: "/track",
   label: copy["Footer_jsx_3"]
@@ -21,13 +19,13 @@ const getLinks = () => [{
   to: "/terms",
   label: copy["Footer_jsx_6"]
 }, {
-  to: "https://new-restorant-backend.vercel.app/admin",
+  to: "/admin",
   label: "Админ панел"
 }];
 export const Footer = () => <footer className="relative border-t border-white/5 bg-[#101010] pb-28 lg:pb-12 pt-16" data-testid="site-footer">
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-10 md:grid-cols-[1.4fr_1fr]">
       <div>
-        <Logo />
+        <Logo /><p className="footer-address">{getContent()?.settings?.address}</p>
         <p className="mt-5 max-w-md text-sm text-slate-400 leading-relaxed"><CmsText field="Footer_jsx_8"/></p>
         <p className="mt-4 max-w-md text-xs text-slate-500"><CmsText field="Footer_jsx_9"/></p>
       </div>

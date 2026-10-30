@@ -11,6 +11,7 @@ export class HttpError extends Error {
 
 // The database client is created lazily, allowing a Vercel build before storage is configured.
 export function db() {
+  if (process.env.VERCEL_ENV === 'preview' && process.env.CMS_ISOLATED_PREVIEW !== 'true') throw new HttpError(403, 'Preview използва изолирани примерни данни. Записът е изключен.');
   if (!process.env.DATABASE_URL) throw new HttpError(503, 'DATABASE_URL не е настроен.');
   return neon(process.env.DATABASE_URL);
 }
@@ -28,7 +29,7 @@ function upgradedRow(row:Row):Row {
 }
 export async function state(): Promise<Row> {
   // Local preview only: no database configured outside production.
-  if (!process.env.DATABASE_URL && process.env.CMS_LOCAL_SEED === 'true') {
+  if ((process.env.VERCEL_ENV === 'preview' && process.env.CMS_ISOLATED_PREVIEW !== 'true') || (!process.env.DATABASE_URL && process.env.CMS_LOCAL_SEED === 'true')) {
     const content = JSON.stringify(seed);
     return upgradedRow({draft:content,published:content,version:0,published_version:0,updated_at:new Date(0).toISOString(),updated_by:'local'});
   }

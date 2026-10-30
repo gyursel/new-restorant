@@ -68,8 +68,6 @@ export const Header = () => {
             </Link>)}
         </nav>
         <div className="flex items-center gap-2">
-          <ConfigurableButton slot="header-assist" to={copy["Header_jsx_9"]} data-testid="header-kiosk-link" className="btn-primary !min-h-11 !px-5 !text-xs hidden md:inline-flex"><CmsText field="Header_jsx_10"/><span className="h-1.5 w-1.5 rounded-full bg-white" />
-          </ConfigurableButton>
           <ConfigurableButton slot="header-cart" onClick={() => setOpen(true)} data-testid="header-cart-button" aria-label={`Количка, ${count} продукта`} className="relative grid h-11 w-11 place-items-center rounded-full glass hover:border-[#f05255]/60 transition-colors">
             <ShoppingBag className="h-5 w-5" />
             {count > 0 && <span data-testid="header-cart-count" className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-[#e62429] px-1 text-[10px] font-bold text-white">{count}</span>}
@@ -82,10 +80,6 @@ export const Header = () => {
       {mobile && <nav id="premium-mobile-navigation" className="premium-mobile-menu lg:hidden" aria-label="Мобилно меню" data-testid="mobile-nav">
           <p className="premium-mobile-menu-label">НАВИГАЦИЯ / CHEF'S BURGER</p>
           {[...NAV, {
-        label: copy["Header_jsx_12"],
-        to: "/kiosk",
-        testid: "mobile-nav-kiosk"
-      }, {
         label: copy["Header_jsx_13"],
         to: "/track",
         testid: "mobile-nav-track"

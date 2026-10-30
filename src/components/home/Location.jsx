@@ -15,7 +15,7 @@ export const HoursList = ({
 export const Location = () => {
   const s = usePublicSettings();
   if (!s) return <section id="location" className="min-h-[400px]" />;
-  const q = encodeURIComponent(s.map_query || "Bulgaria");
+  const q = encodeURIComponent(s.map_query || s.address);
   return <section id="location" className="scroll-mt-20 py-20 md:py-28" data-testid="location-section">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading eyebrow={copy["Location_jsx_2"]} title={copy["Location_jsx_3"]} text={copy["Location_jsx_4"]} />
@@ -23,7 +23,7 @@ export const Location = () => {
           <Reveal className="lg:col-span-7">
             <div className="relative overflow-hidden rounded-3xl border border-white/10 metal-edge aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[320px]">
               <iframe title={copy["Location_jsx_5"]} data-testid="google-map-iframe" src={`https://www.google.com/maps?q=${q}&output=embed`} className="absolute inset-0 h-full w-full [filter:invert(0.9)_hue-rotate(180deg)_saturate(0.6)_brightness(0.9)]" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
-              <span className="absolute left-4 top-4"><SampleTag testid="sample-location-tag"><CmsText field="Location_jsx_6"/></SampleTag></span>
+
             </div>
           </Reveal>
           <div id="contact" className="lg:col-span-5 grid gap-6 scroll-mt-24" data-testid="contact-section">
@@ -41,6 +41,7 @@ export const Location = () => {
                 <li className="flex gap-3" data-testid="contact-phone"><Phone className="h-4 w-4 text-[#f05255] mt-0.5" /> {s.phone}</li>
                 <li className="flex gap-3" data-testid="contact-email"><Mail className="h-4 w-4 text-[#f05255] mt-0.5" /> {s.email}</li>
               </ul>
+              <a className="btn-cream map-directions" href={`https://www.google.com/maps/dir/?api=1&destination=${q}`} target="_blank" rel="noopener noreferrer">Маршрут до нас <MapPin size={16}/></a>
             </Reveal>
           </div>
         </div>

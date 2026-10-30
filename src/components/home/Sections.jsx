@@ -4,9 +4,8 @@ import {CmsText} from "@/components/site/PublicText";
 import { copy } from "@/components/site/public-copy";
 import { Link } from "react-router-dom";
 import { ArrowRight, Car, ClipboardCheck, MousePointerClick, Utensils } from "lucide-react";
-import { usePromotions, usePublicSettings } from "@/hooks/useMenu";
+import { usePromotions } from "@/hooks/useMenu";
 import { mediaSrc } from "@/lib/media";
-import { KioskOrb } from "@/components/site/KioskOrb";
 import { Reveal, SampleTag, SectionHeading } from "@/components/site/Primitives";
 export const Promotions = () => {
   const promos = usePromotions();
@@ -80,24 +79,3 @@ export const HowItWorks = () => <section id="how-it-works" className="relative s
       </ol>
     </div>
   </section>;
-export const KioskTeaser = () => {
-  const settings = usePublicSettings();
-  return <section className="relative py-20 md:py-28 overflow-hidden" data-testid="kiosk-teaser-section">
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
-      <Reveal className="relative order-2 lg:order-1">
-        <div className="relative mx-auto max-w-md aspect-[3/4] overflow-hidden rounded-3xl border border-white/10 metal-edge">
-          {settings?.media?.kiosk_image && <CmsImage src={mediaSrc(settings.media.kiosk_image)} alt={copy["Sections_jsx_16"]} loading="lazy" className="h-full w-full object-cover grayscale" data-testid="kiosk-teaser-image" />}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#171717]/80 to-transparent" />
-        </div>
-      </Reveal>
-      <div className="order-1 lg:order-2">
-        <SectionHeading eyebrow={copy["Sections_jsx_17"]} title={copy["Sections_jsx_18"]} text={copy["Sections_jsx_19"]} />
-        <Reveal delay={0.15} className="mt-8 flex items-center gap-6">
-          <KioskOrb state="listening" size={110} />
-          <ConfigurableButton slot="assistant-cta" to={copy["Sections_jsx_20"]} className="btn-primary" data-testid="kiosk-teaser-cta"><CmsText field="Sections_jsx_21"/><ArrowRight className="h-4 w-4" /></ConfigurableButton>
-        </Reveal>
-        <p className="mt-6 text-xs text-slate-500"><CmsText field="Sections_jsx_22"/></p>
-      </div>
-    </div>
-  </section>;
-};

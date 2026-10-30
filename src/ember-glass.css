@@ -1,6 +1,6 @@
 /* EMBER GLASS — visual layer only. Dark warm glass + orange accents. */
 html .site-experience.lily-experience{
-  --eg-bg:#0e0c0b;--eg-bg-2:#161210;--eg-glass:rgba(255,255,255,.055);--eg-glass-2:rgba(255,255,255,.09);
+  --eg-bg:#1b1411;--eg-bg-2:#261c17;--eg-glass:rgba(255,255,255,.055);--eg-glass-2:rgba(255,255,255,.09);
   --eg-line:rgba(255,255,255,.11);--eg-line-2:rgba(255,255,255,.18);
   --eg-orange:#ff8a1e;--eg-orange-2:#f2650c;--eg-amber:#ffb547;--eg-text:#f8f3ed;--eg-muted:#bdb3a8;
   --eg-grad:linear-gradient(135deg,#ffa53a 0%,#ff8a1e 45%,#ef5f0a 100%);
