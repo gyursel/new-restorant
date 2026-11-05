@@ -56,6 +56,9 @@ export const Hero = () => {
         <motion.div className="eg-hero-parallax" style={reduce ? undefined : { y: bgY, scale: bgScale }}>
           <HeroBackground media={{...settings?.media,...(section.backgroundImage?{hero_image:section.backgroundImage}:{})}} mode="backdrop" />
         </motion.div>
+        {settings?.media?.head_chef_visible && settings.media.head_chef_image && <div className="chef-backdrop" data-testid="head-chef-portrait">
+          <img src={settings.media.head_chef_image} alt="Главният шеф-готвач на CHEF’S BURGER" width="447" height="447" decoding="async" />
+        </div>}
         {!reduce && <Embers />}
         <div className="hero-main">
           <motion.div className="hero-copy" style={reduce ? undefined : { y: copyY }}>
@@ -71,10 +74,7 @@ export const Hero = () => {
               <span><ChefHat className="h-5 w-5" /><span><CmsText field="Hero_jsx_14"/><br /><strong><CmsText field="Hero_jsx_15"/></strong></span></span>
               <span><Timer className="h-5 w-5" /><span><CmsText field="Hero_jsx_16"/><br /><strong><CmsText field="Hero_jsx_17"/></strong></span></span>
             </motion.div>
-            {settings?.media?.head_chef_visible && settings.media.head_chef_image && <motion.figure {...rise(0.6)} className="head-chef" data-testid="head-chef-portrait">
-              <img src={settings.media.head_chef_image} alt="Главният шеф-готвач на CHEF’S BURGER" width="447" height="447" decoding="async" />
-              <figcaption><span>ЗАД ВСЕКИ ВКУС</span><strong>Нашият шеф-готвач</strong><p>С внимание към всеки детайл.</p></figcaption>
-            </motion.figure>}
+
           </motion.div>
         </div>
         <div className="hero-caption"><span><CmsText field="Hero_jsx_18"/></span><Link to={copy["Hero_jsx_21"]} aria-label={copy["Hero_jsx_22"]}><ArrowDownRight size={24}/></Link></div>
