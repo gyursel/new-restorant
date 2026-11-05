@@ -23,7 +23,7 @@ html .site-experience.lily-experience #contact li{overflow-wrap:anywhere}#contac
 
 /* Portrait behind the original burger media; no glow, shadow or light backdrop. */
 html .site-experience.lily-experience .chef-backdrop{
- position:absolute;z-index:0;pointer-events:none;top:48px;left:calc(50% - 380px);width:min(50vw,680px);aspect-ratio:1;
+ position:absolute;z-index:0;pointer-events:none;top:48px;left:calc(50% - 480px);width:min(50vw,680px);aspect-ratio:1;
  opacity:.94;mask-image:radial-gradient(ellipse 52% 60% at 50% 42%,#000 58%,transparent 100%);
 }
 .chef-backdrop img{display:block;width:100%;height:100%;object-fit:contain;filter:none}
@@ -35,7 +35,7 @@ html .site-experience.lily-experience .hero-main{position:relative;z-index:2}
 /* Match the photo and silhouette mask without cover-cropping on ultrawide screens. */
 @media(min-width:768px){
  html .site-experience.lily-experience .has-chef-backdrop :is(.hero-video-poster,.hero-video-element){
-  left:auto;right:max(0px,calc((100% - 1500px)/2));width:min(100%,1500px);object-fit:contain;object-position:right bottom;mask-size:contain;mask-position:right bottom;
+  left:auto;right:max(0px,calc((100% - 1500px)/2));width:min(90%,1350px);height:74%;object-fit:contain;object-position:right bottom;mask-size:contain;mask-position:right bottom;
  }
 }
 @media(min-width:768px) and (max-width:1100px){
@@ -44,9 +44,9 @@ html .site-experience.lily-experience .hero-main{position:relative;z-index:2}
 @media(max-width:767px){
  html .site-experience.lily-experience .chef-backdrop{top:72px;left:0;width:100%;max-width:none;opacity:1}
  html .site-experience.lily-experience .has-chef-backdrop :is(.hero-video-poster,.hero-video-element){
-  inset:245px 0 auto!important;height:300px!important;object-position:100% center;
+  inset:calc(245px + 16vw) 0 auto!important;height:276px!important;object-position:100% center;
   mask-image:url('/images/hero-burger-mask.svg'),linear-gradient(to bottom,#000 76%,transparent 100%);
   mask-size:cover,100% 100%;mask-position:100% center,center;mask-repeat:no-repeat;mask-composite:intersect;
  }
- html .site-experience.lily-experience .hero-frame:has(.has-chef-backdrop) .hero-main{padding-top:480px!important}
+ html .site-experience.lily-experience .hero-frame:has(.has-chef-backdrop) .hero-main{padding-top:520px!important}
 }
