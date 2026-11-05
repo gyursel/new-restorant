@@ -57,7 +57,7 @@ function restaurantContent<T extends Record<string, any>>(source:T):T {
   const address='бул. Владислав Варненчик 260, 9009 Варна, България';
   next.settings.address=address;
   next.settings.map_query=address;
-  next.settings.media.head_chef_image ??= '/images/head-chef.jpeg';
+  next.settings.media.head_chef_image ??= '/images/head-chef-monochrome.webp';
   next.settings.media.head_chef_visible ??= true;
   next.pages.home.sections=next.pages.home.sections.filter((s:any)=>s.type!=='assistant');
   next.navigation.header=next.navigation.header.filter((n:any)=>!n.to.includes('kiosk'));

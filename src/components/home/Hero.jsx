@@ -56,9 +56,6 @@ export const Hero = () => {
         <motion.div className="eg-hero-parallax" style={reduce ? undefined : { y: bgY, scale: bgScale }}>
           <HeroBackground media={{...settings?.media,...(section.backgroundImage?{hero_image:section.backgroundImage}:{})}} mode="backdrop" />
         </motion.div>
-        {settings?.media?.head_chef_visible && settings.media.head_chef_image && <div className="chef-backdrop" data-testid="head-chef-portrait">
-          <img src={settings.media.head_chef_image} alt="Главният шеф-готвач на CHEF’S BURGER" width="447" height="447" decoding="async" />
-        </div>}
         {!reduce && <Embers />}
         <div className="hero-main">
           <motion.div className="hero-copy" style={reduce ? undefined : { y: copyY }}>
