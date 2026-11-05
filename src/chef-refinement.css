@@ -23,8 +23,8 @@ html .site-experience.lily-experience #contact li{overflow-wrap:anywhere}#contac
 
 /* Portrait behind the original burger media; no glow, shadow or light backdrop. */
 html .site-experience.lily-experience .chef-backdrop{
- position:absolute;z-index:0;pointer-events:none;top:40px;left:32%;width:min(57vw,800px);aspect-ratio:1;
- opacity:.94;mask-image:linear-gradient(#000 75%,transparent 100%);
+ position:absolute;z-index:0;pointer-events:none;top:48px;left:24%;width:min(50vw,680px);aspect-ratio:1;
+ opacity:.94;mask-image:radial-gradient(ellipse 52% 60% at 50% 42%,#000 58%,transparent 100%);
 }
 .chef-backdrop img{display:block;width:100%;height:100%;object-fit:contain;filter:none}
 html .site-experience.lily-experience .has-chef-backdrop :is(.hero-video-poster,.hero-video-element){
@@ -38,7 +38,7 @@ html .site-experience.lily-experience .hero-main{position:relative;z-index:2}
 @media(max-width:767px){
  html .site-experience.lily-experience .chef-backdrop{top:72px;left:0;width:100%;max-width:none;opacity:1}
  html .site-experience.lily-experience .has-chef-backdrop :is(.hero-video-poster,.hero-video-element){
-  inset:245px 0 auto!important;height:300px!important;object-position:69% center;mask-position:69% center;
+  inset:245px 0 auto!important;height:300px!important;object-position:100% center;mask-position:100% center;
  }
  html .site-experience.lily-experience .hero-frame:has(.has-chef-backdrop) .hero-main{padding-top:480px!important}
 }
