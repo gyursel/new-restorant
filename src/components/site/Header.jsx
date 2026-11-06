@@ -33,6 +33,12 @@ export const Header = () => {
     setMobile(false);
   }, [pathname, hash]);
   useEffect(() => {
+    const desktop=window.matchMedia('(min-width: 1024px)');
+    const closeOnDesktop=()=>{if(desktop.matches)setMobile(false)};
+    desktop.addEventListener('change',closeOnDesktop);
+    return()=>desktop.removeEventListener('change',closeOnDesktop);
+  }, []);
+  useEffect(() => {
     if (!mobile) return;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";

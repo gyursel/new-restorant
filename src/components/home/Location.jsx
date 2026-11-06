@@ -1,3 +1,4 @@
+import {useCompactViewport} from '@/hooks/useCompactViewport';
 import {CmsText} from "@/components/site/PublicText";
 import { copy } from "@/components/site/public-copy";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
@@ -13,6 +14,7 @@ export const HoursList = ({
       </li>)}
   </ul>;
 export const Location = () => {
+  const compact = useCompactViewport();
   const s = usePublicSettings();
   if (!s) return <section id="location" className="min-h-[400px]" />;
   const q = encodeURIComponent(s.map_query || s.address);
@@ -22,7 +24,7 @@ export const Location = () => {
         <div className="mt-12 grid lg:grid-cols-12 gap-6">
           <Reveal className="lg:col-span-7">
             <div className="relative overflow-hidden rounded-3xl border border-white/10 metal-edge aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[320px]">
-              <iframe title={copy["Location_jsx_5"]} data-testid="google-map-iframe" src={`https://www.google.com/maps?q=${q}&output=embed`} className="absolute inset-0 h-full w-full [filter:invert(0.9)_hue-rotate(180deg)_saturate(0.6)_brightness(0.9)]" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+              {compact ? <div className="mobile-map-card" data-testid="mobile-map-card"><MapPin size={32} aria-hidden="true"/><p>{s.address}</p><a className="btn-cream" href={`https://www.google.com/maps/search/?api=1&query=${q}`} target="_blank" rel="noopener noreferrer">Отвори картата</a></div> : <iframe title={copy["Location_jsx_5"]} data-testid="google-map-iframe" src={`https://www.google.com/maps?q=${q}&output=embed`} className="absolute inset-0 h-full w-full [filter:invert(0.9)_hue-rotate(180deg)_saturate(0.6)_brightness(0.9)]" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />}
 
             </div>
           </Reveal>

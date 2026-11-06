@@ -1,3 +1,4 @@
+import {useCompactViewport} from '@/hooks/useCompactViewport';
 import {useSectionConfig} from '@/content/SectionConfig';
 import {ConfigurableButton} from "@/components/site/ConfigurableButton";
 import {CmsText} from "@/components/site/PublicText";
@@ -30,7 +31,8 @@ export const Hero = () => {
   const bgScale = useTransform(scrollYProgress, [0, 1], [1.02, 1.14]);
   const copyY = useTransform(scrollYProgress, [0, 1], ["0%", "-12%"]);
   const userReducedMotion = useReducedMotion();
-  const reduce = userReducedMotion || getContent()?.appearance?.motion === "reduced";
+  const compact = useCompactViewport();
+  const reduce = compact || userReducedMotion || getContent()?.appearance?.motion === "reduced";
   const settings = usePublicSettings();
   const section = useSectionConfig();
   const {
@@ -63,7 +65,7 @@ export const Hero = () => {
             <motion.h1 {...rise(0.2)} id="hero-title" data-testid="hero-title" className="font-editorial mt-6 text-4xl sm:text-5xl lg:text-6xl leading-[1.13]">{section.title?<Line reduce={reduce} delay={0.25}>{section.title}</Line>:<><Line reduce={reduce} delay={0.25}><CmsText field="Hero_jsx_5"/></Line><Line reduce={reduce} delay={0.37}><CmsText field="Hero_jsx_6"/></Line><Line reduce={reduce} delay={0.49}><span className="hero-title-last"><CmsText field="Hero_jsx_7"/></span></Line></>}
             </motion.h1>
             <motion.p {...rise(0.3)} className="mt-6 max-w-sm text-sm sm:text-base text-slate-400 leading-relaxed" data-testid="hero-subtitle">{section.description||<><CmsText field="Hero_jsx_8"/><br /><CmsText field="Hero_jsx_9"/></>}</motion.p>
-            <motion.div {...rise(0.4)} className="mt-8 flex flex-wrap gap-3">
+            <motion.div {...rise(0.4)} className="hero-actions mt-8 flex flex-wrap gap-3">
               <ConfigurableButton slot="hero-primary" to={copy["Hero_jsx_10"]} className="btn-primary" data-testid="hero-order-now-button"><CmsText field="Hero_jsx_11"/><ArrowRight className="h-4 w-4" /></ConfigurableButton>
               <ConfigurableButton slot="hero-secondary" to={copy["Hero_jsx_12"]} className="btn-cream" data-testid="hero-location-button"><CmsText field="Hero_jsx_13"/></ConfigurableButton>
             </motion.div>

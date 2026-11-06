@@ -68,13 +68,13 @@ export const HowItWorks = () => <section id="how-it-works" className="relative s
         icon: Icon,
         title,
         text
-      }, i) => <Reveal key={title} delay={i * 0.08}>
-            <li className="relative h-full rounded-2xl glass p-6 transition-[border-color,transform] duration-500 hover:-translate-y-1 hover:border-[#f05255]/30" data-testid={`how-step-${i + 1}`}>
+      }, i) => <Reveal as="li" key={title} delay={i * 0.08}>
+            <div className="relative h-full rounded-2xl glass p-6 transition-[border-color,transform] duration-500 hover:-translate-y-1 hover:border-[#f05255]/30" data-testid={`how-step-${i + 1}`}>
               <span className="font-display text-5xl font-black text-white/[0.06] absolute right-5 top-4">0{i + 1}</span>
               <span className="grid h-12 w-12 place-items-center rounded-xl border border-[#f05255]/30 bg-[#f05255]/5"><Icon className="h-5 w-5 text-[#f05255]" /></span>
               <h3 className="mt-6 font-display text-base font-bold uppercase">{title}</h3>
               <p className="mt-2 text-sm text-slate-400 leading-relaxed">{text}</p>
-            </li>
+            </div>
           </Reveal>)}
       </ol>
     </div>

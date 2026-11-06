@@ -1,0 +1,38 @@
+TASTESKILL · LINT   6 file(s)
+
+FAIL
+  [shadow] Shadow. Elements at rest carry none; only real overlays (menu, dialog, sticky bar) may.  (8×)
+      src/mobile-layout.css:39  box-shadow:
+      src/mobile-layout.css:44  box-shadow:
+      src/mobile-layout.css:118  text-shadow:
+      src/mobile-layout.css:139  box-shadow:
+      src/mobile-layout.css:164  box-shadow:
+      src/mobile-layout.css:170  box-shadow:
+      … 2 more
+  [gradient] Gradient fill. Use a flat colour or a real image (a neutral scrim over a photo is the one exception).  (4×)
+      src/mobile-layout.css:77  radial-gradient(
+      src/mobile-layout.css:89  linear-gradient(
+      src/mobile-layout.css:98  linear-gradient(
+      src/mobile-layout.css:221  linear-gradient(
+  [eyebrow] Eyebrow / kicker label above a heading.  (2×)
+      src/mobile-layout.css:120  .eyebrow {
+      src/components/home/Hero.jsx:64  className="eyebrow
+  [hairline] Thin rule / divider line. Separate with space, tone or scale; lines belong to real tables and form fields.  (3×)
+      src/mobile-layout.css:121  h-px
+      src/components/home/Hero.jsx:17  h-px
+      src/components/home/Hero.jsx:64  h-px
+
+WARN
+  [glass] Backdrop blur. One sticky bar at most; glass cards are a tell.  (7×)
+      src/mobile-layout.css:11  backdrop-filter:
+      src/mobile-layout.css:18  backdrop-filter:
+      src/mobile-layout.css:37  backdrop-filter:
+      src/mobile-layout.css:38  backdrop-filter:
+      src/mobile-layout.css:142  backdrop-filter:
+      src/mobile-layout.css:162  backdrop-filter:
+      … 1 more
+  [h-screen] 100vh jumps on mobile. Use 100svh / 100dvh.  (1×)
+      src/components/site/SiteLayout.jsx:67  h-screen
+
+RESULT: 17 FAIL, 8 WARN — fix the FAILs before rendering.
+Interface fragments marked data-ui keep their own borders and shadows. Any other line that must keep a flagged pattern for a real reason can carry the comment taste-skill-ignore.

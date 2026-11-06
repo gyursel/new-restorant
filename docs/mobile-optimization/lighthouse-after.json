@@ -1,0 +1,31 @@
+{
+  "lighthouseVersion": "13.6.0",
+  "fetchTime": "2026-11-06T00:59:18.636Z",
+  "formFactor": "mobile",
+  "throttlingMethod": "simulate",
+  "scores": {
+    "performance": 80,
+    "accessibility": 96,
+    "best-practices": 100,
+    "seo": 100
+  },
+  "metrics": {
+    "largest-contentful-paint": {
+      "value": 4324.410400000001,
+      "display": "4.3 s"
+    },
+    "cumulative-layout-shift": {
+      "value": 0,
+      "display": "0"
+    },
+    "total-blocking-time": {
+      "value": 250.5,
+      "display": "250 ms"
+    },
+    "total-byte-weight": {
+      "value": 565650,
+      "display": "Total size was 552 KiB"
+    }
+  },
+  "javascriptBytes": 240206
+}

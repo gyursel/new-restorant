@@ -1,0 +1,3177 @@
+{
+ "url": "http://127.0.0.1:3000",
+ "at": "2026-11-06T00:58:00.351Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 9,
+   "filled": [
+    0.95,
+    1,
+    1,
+    1,
+    1,
+    0.67,
+    1,
+    1,
+    1
+   ],
+   "motion": {
+    "elements": 58,
+    "css": 16,
+    "transitions": 1,
+    "scripted": 41,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 7308,
+     "screens": 8.1,
+     "words": 662,
+     "img": 26,
+     "video": 0,
+     "canvas": 0,
+     "svg": 44,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 26,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "head-chef-monochrome.webp",
+      "lily-hero.webp",
+      "fd_burger_classic.webp",
+      "fd_chicken_burger.webp",
+      "fd_fries.webp",
+      "fd_combo.webp",
+      "fd_burger_classic.webp",
+      "fd_chicken_burger.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": null,
+    "h1": {
+     "text": "Не просто храна. Изживяване.",
+     "words": 4,
+     "lines": 3,
+     "size": 77.8,
+     "font": "Onest Variable"
+    },
+    "headings": [
+     {
+      "text": "Quantum Classic",
+      "words": 2,
+      "chars": 15,
+      "lines": 1,
+      "size": 44,
+      "vw": 3.1,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.28,
+      "top": 923,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Crispy Pulse",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 44,
+      "vw": 3.1,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.23,
+      "top": 923,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Класически картофки",
+      "words": 2,
+      "chars": 19,
+      "lines": 1,
+      "size": 44,
+      "vw": 3.1,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 923,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Кола с лед",
+      "words": 3,
+      "chars": 10,
+      "lines": 1,
+      "size": 44,
+      "vw": 3.1,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.21,
+      "top": 923,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Лава кейк",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 44,
+      "vw": 3.1,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.2,
+      "top": 923,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Drive Combo",
+      "words": 2,
+      "chars": 11,
+      "lines": 1,
+      "size": 44,
+      "vw": 3.1,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.23,
+      "top": 923,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Double Turbo",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 44,
+      "vw": 3.1,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.24,
+      "top": 923,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Nitro Wings (8 бр.)",
+      "words": 4,
+      "chars": 19,
+      "lines": 1,
+      "size": 44,
+      "vw": 3.1,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.31,
+      "top": 923,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Loaded Cheese Fries",
+      "words": 3,
+      "chars": 19,
+      "lines": 1,
+      "size": 44,
+      "vw": 3.1,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.34,
+      "top": 923,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Цитрусова лимонада",
+      "words": 2,
+      "chars": 18,
+      "lines": 1,
+      "size": 44,
+      "vw": 3.1,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.36,
+      "top": 923,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Quantum Classic",
+      "words": 2,
+      "chars": 15,
+      "lines": 1,
+      "size": 44,
+      "vw": 3.1,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.28,
+      "top": 923,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Crispy Pulse",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 44,
+      "vw": 3.1,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.23,
+      "top": 923,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Класически картофки",
+      "words": 2,
+      "chars": 19,
+      "lines": 1,
+      "size": 44,
+      "vw": 3.1,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.37,
+      "top": 923,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Кола с лед",
+      "words": 3,
+      "chars": 10,
+      "lines": 1,
+      "size": 44,
+      "vw": 3.1,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.21,
+      "top": 923,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Лава кейк",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 44,
+      "vw": 3.1,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.2,
+      "top": 923,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Drive Combo",
+      "words": 2,
+      "chars": 11,
+      "lines": 1,
+      "size": 44,
+      "vw": 3.1,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.23,
+      "top": 923,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Double Turbo",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 44,
+      "vw": 3.1,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.24,
+      "top": 923,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Nitro Wings (8 бр.)",
+      "words": 4,
+      "chars": 19,
+      "lines": 1,
+      "size": 44,
+      "vw": 3.1,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.31,
+      "top": 923,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Loaded Cheese Fries",
+      "words": 3,
+      "chars": 19,
+      "lines": 1,
+      "size": 44,
+      "vw": 3.1,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.34,
+      "top": 923,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Цитрусова лимонада",
+      "words": 2,
+      "chars": 18,
+      "lines": 1,
+      "size": 44,
+      "vw": 3.1,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.36,
+      "top": 923,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Избери своя вкус",
+      "words": 3,
+      "chars": 16,
+      "lines": 1,
+      "size": 54,
+      "vw": 3.8,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.47,
+      "top": 1697,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Специални оферти",
+      "words": 2,
+      "chars": 16,
+      "lines": 1,
+      "size": 54,
+      "vw": 3.8,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.33,
+      "top": 4531,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Първа поръчка",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 34,
+      "vw": 2.4,
+      "font": "Onest Variable",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 0.82,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.31,
+      "top": 4748,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Вечерно Drive Combo",
+      "words": 3,
+      "chars": 19,
+      "lines": 1,
+      "size": 34,
+      "vw": 2.4,
+      "font": "Onest Variable",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1.06,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.45,
+      "top": 4944,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Truffle Noir седмица",
+      "words": 3,
+      "chars": 20,
+      "lines": 1,
+      "size": 34,
+      "vw": 2.4,
+      "font": "Onest Variable",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 0.82,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.31,
+      "top": 5008,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Четири стъпки до вашата поръчка",
+      "words": 5,
+      "chars": 31,
+      "lines": 2,
+      "size": 54,
+      "vw": 3.8,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.47,
+      "top": 5349,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "01",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Onest Variable",
+      "weight": 900,
+      "tracking": 0.01,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.04,
+      "top": 5535,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "02",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Onest Variable",
+      "weight": 900,
+      "tracking": 0.01,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.04,
+      "top": 5535,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "03",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Onest Variable",
+      "weight": 900,
+      "tracking": 0.01,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.04,
+      "top": 5535,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "04",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Onest Variable",
+      "weight": 900,
+      "tracking": 0.01,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.04,
+      "top": 5535,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Намерете ни",
+      "words": 2,
+      "chars": 11,
+      "lines": 1,
+      "size": 54,
+      "vw": 3.8,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.47,
+      "top": 5949,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 31,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 4,
+     "centered": 0,
+     "medianWords": 2,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Onest Variable",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      10,
+      11,
+      12,
+      14,
+      15,
+      16,
+      18,
+      19,
+      23,
+      34,
+      44,
+      48,
+      54
+     ],
+     "sizeCount": 13,
+     "notLoaded": [],
+     "body": {
+      "font": "Onest Variable",
+      "size": 12,
+      "leading": 1.65,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": null
+     },
+     "measureChars": 42,
+     "max": {
+      "size": 54,
+      "vw": 3.8,
+      "font": "Onest Variable",
+      "text": "Избери своя вкус"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 6,
+     "microLabelShare": 0.013,
+     "microSamples": [
+      "Меню",
+      "Промоции",
+      "DRIVE15",
+      "FIRST10",
+      "Как работи",
+      "Локация"
+     ],
+     "upperShare": 0.02,
+     "centerShare": 0.02,
+     "smallText": 29
+    },
+    "eyebrows": [
+     {
+      "text": "Меню",
+      "above": "Избери своя вкус",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 11,
+      "top": 1662
+     },
+     {
+      "text": "Промоции",
+      "above": "Специални оферти",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 11,
+      "top": 4496
+     },
+     {
+      "text": "-10%",
+      "above": "Първа поръчка",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 4708
+     },
+     {
+      "text": "-15%",
+      "above": "Вечерно Drive Combo",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 4904
+     },
+     {
+      "text": "Ново",
+      "above": "Truffle Noir седмица",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 4968
+     },
+     {
+      "text": "Как работи",
+      "above": "Четири стъпки до вашата поръчка",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 11,
+      "top": 5314
+     },
+     {
+      "text": "Локация",
+      "above": "Намерете ни",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 11,
+      "top": 5914
+     }
+    ],
+    "numbered": [
+     {
+      "text": "01",
+      "size": 48,
+      "top": 5535
+     },
+     {
+      "text": "02",
+      "size": 48,
+      "top": 5535
+     },
+     {
+      "text": "03",
+      "size": 48,
+      "top": 5535
+     },
+     {
+      "text": "04",
+      "size": 48,
+      "top": 5535
+     }
+    ],
+    "color": {
+     "bodyBg": "#171717",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 0.09
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#1b1411",
+       "top": 0,
+       "hsl": {
+        "h": 18,
+        "s": 0.23,
+        "l": 0.09
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#bdb3a8",
+       "share": 0.51
+      },
+      {
+       "color": "#f8f3ed",
+       "share": 0.12
+      },
+      {
+       "color": "#f3efe8",
+       "share": 0.11
+      },
+      {
+       "color": "#cbc7c1",
+       "share": 0.08
+      },
+      {
+       "color": "#ffb547",
+       "share": 0.05
+      }
+     ],
+     "button": {
+      "bg": "#ffa53a",
+      "hsl": {
+       "h": 33,
+       "s": 1,
+       "l": 0.61
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 10,
+     "inHero": 2,
+     "radius": 16,
+     "height": 46,
+     "withShadow": 2,
+     "withGradient": 2,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Виж менюто",
+      "Как да ни намериш"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 53,
+     "shadowOverlay": 2,
+     "shadowSamples": [
+      "a.btn-primary → rgba(255, 255, 255, 0.35) 0px 1px 0px 0px inset, rgba(255, 120, 20, 0.65) 0px 14",
+      "article.food-card.group → rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.7) 0px 24px 50p",
+      "button.food-add-button → rgba(255, 255, 255, 0.35) 0px 1px 0px 0px inset, rgba(255, 120, 20, 0.8) 0px 10p",
+      "article.food-card.group → rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.7) 0px 24px 50p"
+     ],
+     "gradients": 22,
+     "scrims": 32,
+     "gradientSamples": [
+      "div.site-experience.lily-experience → radial-gradient(70vw 45vw at 88% -8%, rgba(255, 128, 30, 0.16), rgba(0, 0, 0, 0) 62%), radial-gradient(55vw 45",
+      "a.food-card-photo → radial-gradient(70% 70% at 50% 45%, rgba(255, 140, 40, 0.28), rgba(0, 0, 0, 0) 70%), none",
+      "a.food-card-photo → radial-gradient(70% 70% at 50% 45%, rgba(255, 140, 40, 0.28), rgba(0, 0, 0, 0) 70%), none",
+      "a.food-card-photo → radial-gradient(70% 70% at 50% 45%, rgba(255, 140, 40, 0.28), rgba(0, 0, 0, 0) 70%), none"
+     ],
+     "gradientText": 1,
+     "hairlines": 11,
+     "hairlineSamples": [
+      "header.site-header.lily-home-header 1440px",
+      "div.hero-caption 1344px",
+      "div.eg-marquee 1440px",
+      "section#how-it-works.relative.scroll-mt-20 1440px",
+      "li.flex.justify-between 440px"
+     ],
+     "outlinedBoxes": 31,
+     "dashed": 0,
+     "blurred": 8,
+     "roundedBoxes": 52,
+     "boxRadius": 24,
+     "squareMedia": 2,
+     "roundedMedia": 24,
+     "mediaRadius": 18,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 1110
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.68
+     },
+     {
+      "type": "img",
+      "ratio": 0.37
+     }
+    ],
+    "nav": {
+     "links": 6,
+     "fixed": true,
+     "height": 83,
+     "floatingPill": false,
+     "blur": true
+    },
+    "fontsLoaded": [
+     "onest variable"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 7308,
+    "margins": {
+     "left": 96,
+     "right": 107
+    },
+    "sections": [
+     {
+      "sel": "main#main",
+      "tag": "main",
+      "top": 0,
+      "height": 6881,
+      "words": 559,
+      "media": 27,
+      "middle": 0,
+      "heading": {
+       "text": "Не просто",
+       "size": 78,
+       "tag": "h1"
+      },
+      "left": 37,
+      "right": 0,
+      "textLeft": 37,
+      "textRight": 24,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.relative.border-t",
+      "tag": "footer",
+      "top": 6881,
+      "height": 427,
+      "words": 67,
+      "media": 0,
+      "middle": 286,
+      "heading": {
+       "text": "CHEF'S",
+       "size": 24,
+       "tag": "span"
+      },
+      "left": 112,
+      "right": 219,
+      "textLeft": 112,
+      "textRight": 219,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Не просто храна. Изживяване.",
+      "size": 78,
+      "top": 316,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 96,
+      "n": 8
+     },
+     {
+      "x": 115,
+      "n": 6
+     },
+     {
+      "x": 433,
+      "n": 5
+     },
+     {
+      "x": 751,
+      "n": 5
+     },
+     {
+      "x": 871,
+      "n": 5
+     },
+     {
+      "x": 1069,
+      "n": 5
+     },
+     {
+      "x": 129,
+      "n": 2
+     },
+     {
+      "x": 140,
+      "n": 1
+     },
+     {
+      "x": 895,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 38,
+    "bodySize": 12,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0.03,
+    "voidBox": {
+     "x": 0,
+     "y": 120,
+     "w": 60,
+     "h": 720
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 11,
+   "filled": [
+    0.98,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0.36,
+    1,
+    1,
+    1
+   ],
+   "motion": {
+    "elements": 58,
+    "css": 16,
+    "transitions": 1,
+    "scripted": 41,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 11043,
+     "screens": 10.8,
+     "words": 656,
+     "img": 26,
+     "video": 0,
+     "canvas": 0,
+     "svg": 44,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 26,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "head-chef-monochrome.webp",
+      "lily-hero.webp",
+      "fd_burger_classic.webp",
+      "fd_chicken_burger.webp",
+      "fd_fries.webp",
+      "fd_combo.webp",
+      "fd_burger_classic.webp",
+      "fd_chicken_burger.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 1,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Quantum Classic",
+     "words": 2,
+     "chars": 15,
+     "lines": 1,
+     "size": 24.6,
+     "vw": 3.2,
+     "font": "Onest Variable",
+     "weight": 800,
+     "tracking": -0.04,
+     "leading": 1.5,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.35,
+     "top": 784,
+     "tag": "span",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Не просто храна. Изживяване.",
+     "words": 4,
+     "lines": 3,
+     "size": 38.4,
+     "font": "Onest Variable"
+    },
+    "headings": [
+     {
+      "text": "Избери своя вкус",
+      "words": 3,
+      "chars": 16,
+      "lines": 1,
+      "size": 30.7,
+      "vw": 4,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.68,
+      "top": 2093,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Специални оферти",
+      "words": 2,
+      "chars": 16,
+      "lines": 1,
+      "size": 30.7,
+      "vw": 4,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.59,
+      "top": 7087,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Четири стъпки до вашата поръчка",
+      "words": 5,
+      "chars": 31,
+      "lines": 1,
+      "size": 30.7,
+      "vw": 4,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 8327,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "01",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 48,
+      "vw": 6.3,
+      "font": "Onest Variable",
+      "weight": 900,
+      "tracking": 0.01,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.07,
+      "top": 8432,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "02",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 48,
+      "vw": 6.3,
+      "font": "Onest Variable",
+      "weight": 900,
+      "tracking": 0.01,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.08,
+      "top": 8432,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "03",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 48,
+      "vw": 6.3,
+      "font": "Onest Variable",
+      "weight": 900,
+      "tracking": 0.01,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.08,
+      "top": 8655,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "04",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 48,
+      "vw": 6.3,
+      "font": "Onest Variable",
+      "weight": 900,
+      "tracking": 0.01,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.08,
+      "top": 8655,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Намерете ни",
+      "words": 2,
+      "chars": 11,
+      "lines": 1,
+      "size": 30.7,
+      "vw": 4,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 9069,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 8,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 4,
+     "centered": 0,
+     "medianWords": 2,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Onest Variable",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      10,
+      11,
+      12,
+      14,
+      15,
+      16,
+      18,
+      19,
+      23,
+      25,
+      31,
+      48
+     ],
+     "sizeCount": 12,
+     "notLoaded": [],
+     "body": {
+      "font": "Onest Variable",
+      "size": 12,
+      "leading": 1.65,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": null
+     },
+     "measureChars": 51,
+     "max": {
+      "size": 48,
+      "vw": 6.3,
+      "font": "Onest Variable",
+      "text": "01"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 6,
+     "microLabelShare": 0.013,
+     "microSamples": [
+      "Меню",
+      "Промоции",
+      "DRIVE15",
+      "FIRST10",
+      "Как работи",
+      "Локация"
+     ],
+     "upperShare": 0.02,
+     "centerShare": 0.02,
+     "smallText": 29
+    },
+    "eyebrows": [
+     {
+      "text": "Меню",
+      "above": "Избери своя вкус",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 11,
+      "top": 2058
+     },
+     {
+      "text": "Промоции",
+      "above": "Специални оферти",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 11,
+      "top": 7052
+     },
+     {
+      "text": "Как работи",
+      "above": "Четири стъпки до вашата поръчка",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 11,
+      "top": 8292
+     },
+     {
+      "text": "Локация",
+      "above": "Намерете ни",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 11,
+      "top": 9034
+     }
+    ],
+    "numbered": [
+     {
+      "text": "01",
+      "size": 48,
+      "top": 8432
+     },
+     {
+      "text": "02",
+      "size": 48,
+      "top": 8432
+     },
+     {
+      "text": "03",
+      "size": 48,
+      "top": 8655
+     },
+     {
+      "text": "04",
+      "size": 48,
+      "top": 8655
+     }
+    ],
+    "color": {
+     "bodyBg": "#171717",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 0.09
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#1b1411",
+       "top": 0,
+       "hsl": {
+        "h": 18,
+        "s": 0.23,
+        "l": 0.09
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#bdb3a8",
+       "share": 0.52
+      },
+      {
+       "color": "#f8f3ed",
+       "share": 0.12
+      },
+      {
+       "color": "#f3efe8",
+       "share": 0.12
+      },
+      {
+       "color": "#cbc7c1",
+       "share": 0.08
+      },
+      {
+       "color": "#ffb547",
+       "share": 0.05
+      }
+     ],
+     "button": {
+      "bg": "#ffa53a",
+      "hsl": {
+       "h": 33,
+       "s": 1,
+       "l": 0.61
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 10,
+     "inHero": 2,
+     "radius": 16,
+     "height": 46,
+     "withShadow": 2,
+     "withGradient": 2,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Виж менюто",
+      "Как да ни намериш"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 53,
+     "shadowOverlay": 3,
+     "shadowSamples": [
+      "a.btn-primary → rgba(255, 255, 255, 0.35) 0px 1px 0px 0px inset, rgba(255, 120, 20, 0.65) 0px 14",
+      "article.food-card.group → rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.7) 0px 24px 50p",
+      "button.food-add-button → rgba(255, 255, 255, 0.35) 0px 1px 0px 0px inset, rgba(255, 120, 20, 0.8) 0px 10p",
+      "article.food-card.group → rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.7) 0px 24px 50p"
+     ],
+     "gradients": 22,
+     "scrims": 31,
+     "gradientSamples": [
+      "div.site-experience.lily-experience → radial-gradient(70vw 45vw at 88% -8%, rgba(255, 128, 30, 0.16), rgba(0, 0, 0, 0) 62%), radial-gradient(55vw 45",
+      "a.food-card-photo → radial-gradient(70% 70% at 50% 45%, rgba(255, 140, 40, 0.28), rgba(0, 0, 0, 0) 70%), none",
+      "a.food-card-photo → radial-gradient(70% 70% at 50% 45%, rgba(255, 140, 40, 0.28), rgba(0, 0, 0, 0) 70%), none",
+      "a.food-card-photo → radial-gradient(70% 70% at 50% 45%, rgba(255, 140, 40, 0.28), rgba(0, 0, 0, 0) 70%), none"
+     ],
+     "gradientText": 1,
+     "hairlines": 11,
+     "hairlineSamples": [
+      "header.site-header.lily-home-header 768px",
+      "div.hero-caption 672px",
+      "div.eg-marquee 768px",
+      "section#how-it-works.relative.scroll-mt-20 768px",
+      "li.flex.justify-between 638px"
+     ],
+     "outlinedBoxes": 31,
+     "dashed": 0,
+     "blurred": 8,
+     "roundedBoxes": 52,
+     "boxRadius": 24,
+     "squareMedia": 2,
+     "roundedMedia": 24,
+     "mediaRadius": 18,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 942
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.22
+     },
+     {
+      "type": "img",
+      "ratio": 0.18
+     }
+    ],
+    "nav": {
+     "links": 1,
+     "fixed": true,
+     "height": 71,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "onest variable"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 11043,
+    "margins": {
+     "left": 32,
+     "right": 33
+    },
+    "sections": [
+     {
+      "sel": "main#main",
+      "tag": "main",
+      "top": 0,
+      "height": 10528,
+      "words": 557,
+      "media": 27,
+      "middle": 0,
+      "heading": {
+       "text": "Не просто",
+       "size": 38,
+       "tag": "h1"
+      },
+      "left": 0,
+      "right": 0,
+      "textLeft": 0,
+      "textRight": 0,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.relative.border-t",
+      "tag": "footer",
+      "top": 10528,
+      "height": 514,
+      "words": 67,
+      "media": 0,
+      "middle": 56,
+      "heading": {
+       "text": "CHEF'S",
+       "size": 24,
+       "tag": "span"
+      },
+      "left": 24,
+      "right": 28,
+      "textLeft": 24,
+      "textRight": 28,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Не просто храна. Изживяване.",
+      "size": 38,
+      "top": 228,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 51,
+      "n": 11
+     },
+     {
+      "x": 413,
+      "n": 10
+     },
+     {
+      "x": 32,
+      "n": 8
+     },
+     {
+      "x": 65,
+      "n": 7
+     },
+     {
+      "x": 76,
+      "n": 1
+     },
+     {
+      "x": 89,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 38,
+    "bodySize": 12,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 12,
+   "filled": [
+    0.92,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "motion": {
+    "elements": 3,
+    "css": 2,
+    "transitions": 1,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 9700,
+     "screens": 11.5,
+     "words": 664,
+     "img": 26,
+     "video": 0,
+     "canvas": 0,
+     "svg": 45,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 26,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "image?url=%2Fimages%2Fhead-chef-monochrome.webp&",
+      "image?url=%2Fimages%2Flily-hero.webp&w=750&q=75",
+      "image?url=%2Fimages%2Ffd_burger_classic.webp&w=3",
+      "image?url=%2Fimages%2Ffd_chicken_burger.webp&w=3",
+      "image?url=%2Fimages%2Ffd_fries.webp&w=384&q=75",
+      "image?url=%2Fimages%2Ffd_combo.webp&w=384&q=75",
+      "image?url=%2Fimages%2Ffd_burger_classic.webp&w=3",
+      "image?url=%2Fimages%2Ffd_chicken_burger.webp&w=3"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": null,
+    "h1": {
+     "text": "Не просто храна. Изживяване.",
+     "words": 4,
+     "lines": 3,
+     "size": 32,
+     "font": "Onest Variable"
+    },
+    "headings": [
+     {
+      "text": "Quantum Classic",
+      "words": 2,
+      "chars": 15,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.67,
+      "top": 839,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Crispy Pulse",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.55,
+      "top": 839,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Класически картофки",
+      "words": 2,
+      "chars": 19,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.85,
+      "top": 839,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Кола с лед",
+      "words": 3,
+      "chars": 10,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.51,
+      "top": 839,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Лава кейк",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.5,
+      "top": 839,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Drive Combo",
+      "words": 2,
+      "chars": 11,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.57,
+      "top": 839,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Double Turbo",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.58,
+      "top": 839,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Nitro Wings (8 бр.)",
+      "words": 4,
+      "chars": 19,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.72,
+      "top": 839,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Loaded Cheese Fries",
+      "words": 3,
+      "chars": 19,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.79,
+      "top": 839,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Цитрусова лимонада",
+      "words": 2,
+      "chars": 18,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.82,
+      "top": 839,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Quantum Classic",
+      "words": 2,
+      "chars": 15,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.67,
+      "top": 839,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Crispy Pulse",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.55,
+      "top": 839,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Класически картофки",
+      "words": 2,
+      "chars": 19,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.85,
+      "top": 839,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Кола с лед",
+      "words": 3,
+      "chars": 10,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.51,
+      "top": 839,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Лава кейк",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.5,
+      "top": 839,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Drive Combo",
+      "words": 2,
+      "chars": 11,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.57,
+      "top": 839,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Double Turbo",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.58,
+      "top": 839,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Nitro Wings (8 бр.)",
+      "words": 4,
+      "chars": 19,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.72,
+      "top": 839,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Loaded Cheese Fries",
+      "words": 3,
+      "chars": 19,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.79,
+      "top": 839,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Цитрусова лимонада",
+      "words": 2,
+      "chars": 18,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.82,
+      "top": 839,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Избери своя вкус",
+      "words": 3,
+      "chars": 16,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 1852,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Специални оферти",
+      "words": 2,
+      "chars": 16,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 5652,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Вечерно Drive Combo",
+      "words": 3,
+      "chars": 19,
+      "lines": 1,
+      "size": 23,
+      "vw": 5.9,
+      "font": "Onest Variable",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 5941,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Първа поръчка",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 23,
+      "vw": 5.9,
+      "font": "Onest Variable",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 6199,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Truffle Noir седмица",
+      "words": 3,
+      "chars": 20,
+      "lines": 1,
+      "size": 23,
+      "vw": 5.9,
+      "font": "Onest Variable",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 6533,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Четири стъпки до вашата поръчка",
+      "words": 5,
+      "chars": 31,
+      "lines": 2,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 6805,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "01",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Onest Variable",
+      "weight": 900,
+      "tracking": 0.01,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.13,
+      "top": 6913,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Изберете",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Onest Variable",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.09,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 6989,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "02",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Onest Variable",
+      "weight": 900,
+      "tracking": 0.01,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.15,
+      "top": 7117,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Персонализирайте",
+      "words": 1,
+      "chars": 16,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Onest Variable",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.09,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 7193,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "03",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Onest Variable",
+      "weight": 900,
+      "tracking": 0.01,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.16,
+      "top": 7320,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Час за взимане",
+      "words": 3,
+      "chars": 14,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Onest Variable",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.09,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 7396,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "04",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Onest Variable",
+      "weight": 900,
+      "tracking": 0.01,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.16,
+      "top": 7524,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Вземете",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Onest Variable",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.09,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 7600,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Намерете ни",
+      "words": 2,
+      "chars": 11,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Onest Variable",
+      "weight": 800,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 7872,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 35,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 4,
+     "centered": 0,
+     "medianWords": 2,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Onest Variable",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      22,
+      23,
+      24,
+      30,
+      48
+     ],
+     "sizeCount": 13,
+     "notLoaded": [],
+     "body": {
+      "font": "Onest Variable",
+      "size": 14,
+      "leading": 1.5,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 8.1
+     },
+     "measureChars": 21,
+     "max": {
+      "size": 48,
+      "vw": 12.3,
+      "font": "Onest Variable",
+      "text": "01"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 6,
+     "microLabelShare": 0.013,
+     "microSamples": [
+      "Меню",
+      "Промоции",
+      "DRIVE15",
+      "FIRST10",
+      "Как работи",
+      "Локация"
+     ],
+     "upperShare": 0.02,
+     "centerShare": 0.03,
+     "smallText": 8
+    },
+    "eyebrows": [
+     {
+      "text": "Меню",
+      "above": "Избери своя вкус",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 11,
+      "top": 1817
+     },
+     {
+      "text": "Промоции",
+      "above": "Специални оферти",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 11,
+      "top": 5617
+     },
+     {
+      "text": "Как работи",
+      "above": "Четири стъпки до вашата поръчка",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 11,
+      "top": 6771
+     },
+     {
+      "text": "Локация",
+      "above": "Намерете ни",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 11,
+      "top": 7837
+     }
+    ],
+    "numbered": [
+     {
+      "text": "01",
+      "size": 48,
+      "top": 6913
+     },
+     {
+      "text": "02",
+      "size": 48,
+      "top": 7117
+     },
+     {
+      "text": "03",
+      "size": 48,
+      "top": 7320
+     },
+     {
+      "text": "04",
+      "size": 48,
+      "top": 7524
+     }
+    ],
+    "color": {
+     "bodyBg": "#171717",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 0.09
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#1b1411",
+       "top": 0,
+       "hsl": {
+        "h": 18,
+        "s": 0.23,
+        "l": 0.09
+       }
+      },
+      {
+       "color": "#261c17",
+       "top": 8284,
+       "hsl": {
+        "h": 20,
+        "s": 0.25,
+        "l": 0.12
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#bdb3a8",
+       "share": 0.5
+      },
+      {
+       "color": "#f8f3ed",
+       "share": 0.14
+      },
+      {
+       "color": "#f3efe8",
+       "share": 0.11
+      },
+      {
+       "color": "#cbc7c1",
+       "share": 0.08
+      },
+      {
+       "color": "#ffb547",
+       "share": 0.05
+      }
+     ],
+     "button": {
+      "bg": "#ff8a1e",
+      "hsl": {
+       "h": 29,
+       "s": 1,
+       "l": 0.56
+      },
+      "fg": "#1b1411"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 11,
+     "inHero": 2,
+     "radius": 16,
+     "height": 44,
+     "withShadow": 1,
+     "withGradient": 1,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Виж менюто",
+      "Как да ни намериш"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 1,
+     "shadowOverlay": 2,
+     "shadowSamples": [
+      "button.shrink-0.rounded-full → rgba(255, 140, 40, 0.25) 0px 0px 0px 1px inset, rgba(255, 120, 20, 0.7) 0px 10px"
+     ],
+     "gradients": 21,
+     "scrims": 4,
+     "gradientSamples": [
+      "a.food-card-photo → radial-gradient(70% 70% at 50% 45%, rgba(255, 140, 40, 0.28), rgba(0, 0, 0, 0) 70%), none",
+      "a.food-card-photo → radial-gradient(70% 70% at 50% 45%, rgba(255, 140, 40, 0.28), rgba(0, 0, 0, 0) 70%), none",
+      "a.food-card-photo → radial-gradient(70% 70% at 50% 45%, rgba(255, 140, 40, 0.28), rgba(0, 0, 0, 0) 70%), none",
+      "a.food-card-photo → radial-gradient(70% 70% at 50% 45%, rgba(255, 140, 40, 0.28), rgba(0, 0, 0, 0) 70%), none"
+     ],
+     "gradientText": 0,
+     "hairlines": 10,
+     "hairlineSamples": [
+      "header.site-header.lily-home-header 390px",
+      "div.eg-marquee 390px",
+      "section#how-it-works.relative.scroll-mt-20 390px",
+      "li.flex.justify-between 318px",
+      "li.flex.justify-between 318px"
+     ],
+     "outlinedBoxes": 31,
+     "dashed": 0,
+     "blurred": 7,
+     "roundedBoxes": 53,
+     "boxRadius": 24,
+     "squareMedia": 2,
+     "roundedMedia": 3,
+     "mediaRadius": 28,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 1016
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.33
+     },
+     {
+      "type": "img",
+      "ratio": 0.29
+     }
+    ],
+    "nav": {
+     "links": 1,
+     "fixed": true,
+     "height": 71,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "onest variable"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 9700,
+    "margins": {
+     "left": 16,
+     "right": 17
+    },
+    "sections": [
+     {
+      "sel": "main#main",
+      "tag": "main",
+      "top": 0,
+      "height": 9010,
+      "words": 564,
+      "media": 26,
+      "middle": 0,
+      "heading": {
+       "text": "Не просто",
+       "size": 32,
+       "tag": "h1"
+      },
+      "left": 0,
+      "right": 0,
+      "textLeft": 0,
+      "textRight": 0,
+      "fullBleed": true,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.relative.border-t",
+      "tag": "footer",
+      "top": 9010,
+      "height": 622,
+      "words": 67,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "CHEF'S",
+       "size": 24,
+       "tag": "span"
+      },
+      "left": 16,
+      "right": 17,
+      "textLeft": 16,
+      "textRight": 17,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Не просто храна. Изживяване.",
+      "size": 32,
+      "top": 430,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 29,
+      "n": 17
+     },
+     {
+      "x": 214,
+      "n": 12
+     },
+     {
+      "x": 16,
+      "n": 9
+     },
+     {
+      "x": 41,
+      "n": 6
+     },
+     {
+      "x": 60,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 45,
+    "bodySize": 14,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "eyebrow",
+   "width": 1440,
+   "message": "7 eyebrow/kicker label(s) above headings: \"Меню\" above \"Избери своя вкус\"; \"Промоции\" above \"Специални оферти\"; \"-10%\" above \"Първа поръчка\"; \"-15%\" above \"Вечерно Drive Combo\"; \"Ново\" above \"Truffle Noir седмица\"",
+   "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "numbering",
+   "width": 1440,
+   "message": "Decorative index numbers: \"01\", \"02\", \"03\", \"04\"",
+   "fix": "Remove them. If order truly matters, write it into the words (\"First, …\") or use a real <ol>.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "micro-label",
+   "width": 1440,
+   "message": "6 tiny uppercase letter-spaced labels (e.g. \"Меню\", \"Промоции\", \"DRIVE15\", \"FIRST10\").",
+   "fix": "Use sentence-case text at a readable size, or delete the label.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "gradient",
+   "width": 1440,
+   "message": "22 gradient fill(s): div.site-experience.lily-experience → radial-gradient(70vw 45vw at 88% -8%, rgba(255, 128, 30, 0.16), rgba(0, 0, 0, 0) 62%), radial-gradient(55vw 45 | a.food-card-photo → radial-gradient(70% 70% at 50% 45%, rgba(255, 140, 40, 0.28), rgba(0, 0, 0, 0) 70%), none | a.food-card-photo → radial-gradient(70% 70% at 50% 45%, rgba(255, 140, 40, 0.28), rgba(0, 0, 0, 0) 70%), none",
+   "fix": "Use a flat colour or a real image. The only gradient allowed by default is a neutral scrim over a photo for legibility.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "gradient-text",
+   "width": 1440,
+   "message": "1 gradient-filled text element(s).",
+   "fix": "Solid colour text.",
+   "alsoAt": [
+    768
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "shadow",
+   "width": 1440,
+   "message": "53 box-shadow(s) on elements at rest: a.btn-primary → rgba(255, 255, 255, 0.35) 0px 1px 0px 0px inset, rgba(255, 120, 20, 0.65) 0px 14 | article.food-card.group → rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.7) 0px 24px 50p | button.food-add-button → rgba(255, 255, 255, 0.35) 0px 1px 0px 0px inset, rgba(255, 120, 20, 0.8) 0px 10p",
+   "fix": "Remove. Separate surfaces with a tone step or space. Shadows are for things that really float (menus, dialogs, sticky bars).",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "button-fx",
+   "width": 1440,
+   "message": "Buttons with gradient fill and shadow/glow.",
+   "fix": "Flat fill, one colour.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "hairline",
+   "width": 1440,
+   "message": "11 thin rule(s)/divider line(s): header.site-header.lily-home-header 1440px | div.hero-caption 1344px | div.eg-marquee 1440px | section#how-it-works.relative.scroll-mt-20 1440px",
+   "fix": "Delete. Separate with space, a tone change, or scale. Lines are only for real tables and form fields.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "outlined-box",
+   "width": 1440,
+   "message": "31 boxes drawn with a 1px outline.",
+   "fix": "Define a surface by its fill (one tone step from the page) or leave the content unboxed.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "glass",
+   "width": 1440,
+   "message": "8 backdrop-blur surfaces.",
+   "fix": "One blurred sticky bar at most; glass cards are a tell.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (text #f8f3ed, text #f3efe8).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "13 different font sizes (10, 11, 12, 14, 15, 16, 18, 19, 23, 34, 44, 48, 54).",
+   "fix": "A page needs about five: display, heading, lead, body, small.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "body-size",
+   "width": 1440,
+   "message": "Body text is 12px (the size most of the running text is set in).",
+   "fix": "Body copy 16–20px. Map small sizes from blueprints onto your body step.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "FAIL",
+   "id": "small-text",
+   "width": 1440,
+   "message": "29 text blocks under 13px.",
+   "fix": "Nothing meant to be read goes below 13px.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "no-hero",
+   "width": 1440,
+   "message": "No headline found in the first viewport.",
+   "fix": "The first screen needs a clear focal statement or image.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "ragged-edges",
+   "width": 1440,
+   "message": "Left-aligned text starts at 9 different lines (96px, 115px, 433px, 751px, 871px, 1069px, 129px); the three most used hold only 50% of it.",
+   "fix": "Pick two or three anchor lines from the grid and start every heading and paragraph on one of them."
+  },
+  {
+   "level": "WARN",
+   "id": "side-scroll",
+   "width": 768,
+   "message": "1 row(s) scroll sideways with content past their edge.",
+   "fix": "Jurors and most visitors read a row cut at the edge as clipped, not as scrollable. Wrap it onto more lines, or end it inside the grid."
+  },
+  {
+   "level": "FAIL",
+   "id": "focal-point",
+   "width": 768,
+   "message": "The first screen has no dominant element: the largest type is 24.6px (3.2vw) and no single picture holds a third of the viewport.",
+   "fix": "Make one thing lead: the headline at display size, or one large picture. A grid of many small pictures is not one thing; in blind tests jurors marked a first screen without a headline down every time. On the strongest studied sites the largest type has a median of 8.4vw."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/workspace/mobile-review/final/desktop-fold.jpg",
+   "pages": [
+    "/workspace/mobile-review/final/desktop-page-01.jpg",
+    "/workspace/mobile-review/final/desktop-page-02.jpg",
+    "/workspace/mobile-review/final/desktop-page-03.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/workspace/mobile-review/final/tablet-fold.jpg",
+   "pages": [
+    "/workspace/mobile-review/final/tablet-page-01.jpg",
+    "/workspace/mobile-review/final/tablet-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/workspace/mobile-review/final/mobile-fold.jpg",
+   "pages": [
+    "/workspace/mobile-review/final/mobile-page-01.jpg",
+    "/workspace/mobile-review/final/mobile-page-02.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

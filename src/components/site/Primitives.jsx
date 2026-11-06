@@ -4,6 +4,7 @@ import { copy, getContent } from "@/components/site/public-copy";
 import { motion, useReducedMotion } from "framer-motion";
 export const Reveal = ({
   children,
+  as: Tag = "div",
   delay = 0,
   className = "",
   y = 24
@@ -11,8 +12,9 @@ export const Reveal = ({
   const userReducedMotion = useReducedMotion();
   const reduce = userReducedMotion || getContent()?.appearance?.motion === "reduced";
   const compact = typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches;
-  if (reduce || compact) return <div className={className}>{children}</div>;
-  return <motion.div className={className} initial={reduce ? false : {
+  if (reduce || compact) return <Tag className={className}>{children}</Tag>;
+  const AnimatedTag = motion[Tag];
+  return <AnimatedTag className={className} initial={reduce ? false : {
     opacity: 0,
     y
   }} whileInView={{
@@ -27,7 +29,7 @@ export const Reveal = ({
     ease: [0.22, 1, 0.36, 1]
   }}>
       {children}
-    </motion.div>;
+    </AnimatedTag>;
 };
 export const SectionHeading = ({
   eyebrow,

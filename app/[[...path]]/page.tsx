@@ -1,3 +1,4 @@
+import {getImageProps} from 'next/image';
 import type {Metadata} from 'next';
 import PublicSite from '../public-site';
 import {publishedContent} from '../../server/public-content';
@@ -43,7 +44,18 @@ export async function generateMetadata({params}:Props):Promise<Metadata>{
   };
 }
 
-export default async function Page(){
+export default async function Page({params}:Props){
+  const isHome=!(await params).path?.length;
   const initialContent=await publishedContent();
-  return <PublicSite initialContent={initialContent}/>;
+  const media=initialContent?.settings?.media;
+  const photo=(src:string,width:number,height:number,sizes:string)=>src.startsWith('/images/')?getImageProps({src,alt:'',width,height,sizes,quality:75}).props:null;
+  const heroSection=initialContent?.pages?.home?.sections?.find((section:any)=>section.type==='hero'&&section.visible);
+  const heroSource=heroSection?.backgroundImage||media?.hero_image;
+  const hero=heroSource?photo(heroSource,1672,941,'110vw'):null;
+  const chef=media?.head_chef_image?photo(media.head_chef_image,1254,1254,'88vw'):null;
+  return <>
+    {isHome && heroSection && heroSource?.startsWith('/') && <link rel="preload" as="image" href={hero?undefined:heroSource} imageSrcSet={hero?.srcSet} imageSizes={hero?.sizes} fetchPriority="high" media="(max-width: 767px)"/>}
+    {isHome && heroSection && media?.head_chef_visible && media?.head_chef_image?.startsWith('/') && <link rel="preload" as="image" href={chef?undefined:media.head_chef_image} imageSrcSet={chef?.srcSet} imageSizes={chef?.sizes} fetchPriority="high" media="(max-width: 767px)"/>}
+    <PublicSite initialContent={initialContent}/>
+  </>;
 }

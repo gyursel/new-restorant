@@ -1,3 +1,4 @@
+import {ResponsivePhoto} from '@/lib/ResponsivePhoto';
 import {getContent} from '@/components/site/public-copy';
 import { useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "framer-motion";
@@ -79,9 +80,9 @@ export const HeroBackground = ({ media, mode = "backdrop" }) => {
   return <>
     <div className={"hero-video-backdrop" + (chefVisible ? " has-chef-backdrop" : "")} ref={host} data-video-state={enabled && !failed ? (playing ? "playing" : "paused") : "poster"} aria-hidden="true">
       {chefVisible && <div className="chef-backdrop" data-testid="head-chef-portrait">
-        <img src={mediaSrc(media.head_chef_image)} alt="Главният шеф-готвач на CHEF’S BURGER" width="1254" height="1254" decoding="async" />
+        <ResponsivePhoto sizes="88vw" src={mediaSrc(media.head_chef_image)} alt="Главният шеф-готвач на CHEF’S BURGER" width="1254" height="1254" decoding="async" fetchPriority="high" />
       </div>}
-      <img src={poster} alt="" className="hero-video-poster" data-cms-media="hero_image" fetchPriority="high" />
+      <ResponsivePhoto width="1672" height="941" sizes="110vw" src={poster} alt="" className="hero-video-poster" data-cms-media="hero_image" fetchPriority="high" />
       {enabled && !failed && (
         <video
           ref={video}

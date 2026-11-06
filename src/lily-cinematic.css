@@ -73,17 +73,8 @@
 .site-experience.lily-experience .site-header-inner{height:70px;padding-inline:16px;position:relative}.site-experience.lily-experience .site-header-inner>a{position:absolute;left:50%;transform:translateX(-50%)}.site-experience.lily-experience .site-header-inner>div{width:100%;justify-content:space-between;flex-direction:row-reverse}.site-experience.lily-experience .site-header .brand-wordmark{font-size:21px}.site-experience.lily-experience .site-header .brand-tagline{display:none}
 .site-experience.lily-experience .site-header :is(.premium-mobile-toggle,[data-testid=header-cart-button]){min-width:42px;min-height:42px;width:42px;height:42px;border-radius:2px;background:#ffffff06;border-color:#ffffff10}
 .site-experience.lily-experience .premium-mobile-menu{height:calc(100dvh - 70px);background:#0b0d0e;padding-bottom:140px}
-.site-experience.lily-experience .hero-frame{height:auto;min-height:850px;max-height:none;padding-top:70px}
 .site-experience.lily-experience .lily-monument{top:100px;width:90%}.site-experience.lily-experience .lily-monument>span{font-size:clamp(100px,31vw,230px)}.site-experience.lily-experience .lily-monument small{margin-top:10px;font-size:7px;letter-spacing:.9em}
-.site-experience.lily-experience :is(.hero-video-poster,.hero-video-element){height:520px;width:100%;top:70px;object-position:69% center;object-fit:cover}
-.site-experience.lily-experience .hero-video-tint{background:linear-gradient(0deg,#080a0b 0%,#080a0b 23%,#080a0b55 48%,transparent 70%,#080a0b33 100%)}
-.site-experience.lily-experience .hero-main{height:auto;min-height:0;padding:360px 24px 105px;display:block}
-.site-experience.lily-experience .hero-copy{width:100%;max-width:none}.site-experience.lily-experience .hero-copy h1{font-size:clamp(43px,10.8vw,65px);line-height:1.05;margin-top:17px;letter-spacing:-.03em}
-.site-experience.lily-experience .hero-copy>p:not(.eyebrow){font-size:12px;line-height:1.7;max-width:310px;margin-top:20px}.site-experience.lily-experience .hero-copy .eyebrow{font-size:7px;letter-spacing:.19em}
-.site-experience.lily-experience .hero-copy .mt-8{display:flex;flex-direction:column;gap:10px;margin-top:24px}.site-experience.lily-experience .hero-copy :is(.btn-primary,.btn-cream){width:100%;min-height:48px;font-size:14px;padding:12px 18px}
-.site-experience.lily-experience .hero-benefits{display:none}.site-experience.lily-experience .hero-caption{inset:auto 24px 0;padding:15px 0;font-size:6px;letter-spacing:.12em}.site-experience.lily-experience .hero-caption>span{max-width:55%;line-height:1.6}.site-experience.lily-experience .hero-video-toggle{bottom:17px;right:72px;padding:7px 9px;font-size:8px}
-.site-experience.lily-experience .hero-featured-shell{padding:32px 16px 0}.site-experience.lily-experience .hero-favorites h2{font-size:21px}.site-experience.lily-experience .hero-favorites>div:first-child{margin-bottom:20px}.site-experience.lily-experience .hero-favorites>div:first-child>a{font-size:9px;white-space:nowrap}.site-experience.lily-experience .hero-favorites .grid{gap:12px}.site-experience.lily-experience .hero-favorites .food-card-photo{aspect-ratio:1.1}
-.site-experience.lily-experience section>.max-w-7xl{padding-inline:16px}.site-experience.lily-experience main section:not(.hero-section){padding-block:64px}.site-experience.lily-experience #menu.pt-28{padding-top:115px}.site-experience.lily-experience .section-title{font-size:36px}.site-experience.lily-experience .category-nav{top:69px;margin-top:26px;padding:10px 0}.site-experience.lily-experience .category-nav button{font-size:13px;padding-inline:20px;min-height:44px}
+.site-experience.lily-experience section>.max-w-7xl{padding-inline:16px}.site-experience.lily-experience #menu.pt-28{padding-top:115px}.site-experience.lily-experience .section-title{font-size:36px}.site-experience.lily-experience .category-nav{top:69px;margin-top:26px;padding:10px 0}.site-experience.lily-experience .category-nav button{font-size:13px;padding-inline:20px;min-height:44px}
 .site-experience.lily-experience #menu [data-testid=product-grid]{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:24px}
 .site-experience.lily-experience .food-card{border-radius:2px}.site-experience.lily-experience .food-card-content{padding:12px 10px}.site-experience.lily-experience .food-card-content h3{font-size:17px;line-height:1.18}.site-experience.lily-experience .food-card-content>p{font-size:10px;line-height:1.5;min-height:30px;margin-top:8px}.site-experience.lily-experience .food-card-content .pt-5{padding-top:14px}.site-experience.lily-experience .price{font-size:16px}.site-experience.lily-experience .food-add-button{width:44px;height:44px;min-width:44px;border-radius:2px}
 .site-experience.lily-experience .food-card-badge{font-size:7px;margin-bottom:6px}.site-experience.lily-experience #how-it-works ol{gap:12px}.site-experience.lily-experience #how-it-works h3{font-size:22px}
@@ -94,21 +85,6 @@
 .site-experience.lily-experience[data-motion=reduced] .lily-route-scene{animation:none}
 @media(min-width:768px){.site-experience.lily-experience :is(.hero-video-poster,.hero-video-element){height:82%;top:auto;bottom:0;object-position:center bottom;mask-image:linear-gradient(180deg,transparent,#000 17%)}.site-experience.lily-experience .hero-video-tint{background:linear-gradient(0deg,#080a0b 0%,#080a0b22 20%,transparent 60%),linear-gradient(90deg,#06090ba6 0%,#06090b44 36%,transparent 70%)}}
 /* Resolve older mobile overrides without editing the shared legacy styles. */
-@media(max-width:767px){
-.site-experience.lily-experience .hero-frame{padding:70px 0 0!important;min-height:850px!important}
-.site-experience.lily-experience .hero-main{padding:340px 24px 105px!important;display:block!important}
-.site-experience.lily-experience .hero-copy h1,.site-experience.lily-experience .hero-copy h1.font-editorial{font-size:clamp(40px,10.8vw,65px)!important;line-height:1.05!important;letter-spacing:-.03em!important;margin-top:17px!important}
-.site-experience.lily-experience .hero-copy .eyebrow{font-size:7px!important;letter-spacing:.19em!important}
-.site-experience.lily-experience .hero-copy>p:not(.eyebrow){margin-top:20px!important;font-size:12px!important;line-height:1.7!important}
-.site-experience.lily-experience .hero-copy>div:has(>.btn-primary){display:flex!important;flex-direction:column;gap:10px!important;margin-top:24px!important}
-.site-experience.lily-experience .hero-copy .btn-primary,.site-experience.lily-experience .hero-copy .btn-cream{min-height:48px!important;font-size:14px!important;padding:12px 18px!important}
-.site-experience.lily-experience .hero-video-backdrop{z-index:0!important}
-.site-experience.lily-experience .hero-video-poster,.site-experience.lily-experience .hero-video-element{inset:70px 0 auto!important;height:480px!important;object-position:69% center;transform:none}
-.site-experience.lily-experience .hero-caption{padding:15px 0!important;font-size:6px!important}
-.site-experience.lily-experience .hero-video-toggle{bottom:17px!important;right:72px!important}
-.site-experience.lily-experience .hero-featured-shell{padding:32px 16px 0!important}.site-experience.lily-experience .hero-favorites{padding-top:0!important}
-.site-experience.lily-experience .hero-favorites .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
 /* Checkout presentation retains every existing handler, total and state. */
 .site-experience.lily-experience :is(.premium-cart-list,.premium-checkout-form,.premium-order-status-card){background:linear-gradient(145deg,#171a1b,#101213);border-color:#ffffff16;border-radius:4px;box-shadow:0 20px 45px #0003}
 .site-experience.lily-experience :is(.premium-cart-heading h1,.premium-order-status-card h1,.premium-cart-empty h2){font-family:var(--apx-heading);font-weight:400;letter-spacing:-.035em;color:var(--lily-paper)}

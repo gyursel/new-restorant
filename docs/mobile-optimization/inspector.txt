@@ -1,0 +1,66 @@
+TASTESKILL · INSPECT   http://127.0.0.1:3000
+
+MEASURED (first viewport listed)
+  @768px          1 line(s) · 24.6px
+  typefaces       Onest Variable 100%
+  sizes in use    10 / 11 / 12 / 14 / 15 / 16 / 18 / 19 / 23 / 34 / 44 / 48 / 54 px   body 12px / 1.65
+  colour          page #171717 · sections #1b1411 · button #ffa53a
+  page            8.1 screens · 662 words · 26 images · hero media 68% img
+  headings        31 · longest 2 line(s) · median 2 words
+
+FAIL — fix every one of these
+  [eyebrow] @1440px (+768, 390)  7 eyebrow/kicker label(s) above headings: "Меню" above "Избери своя вкус"; "Промоции" above "Специални оферти"; "-10%" above "Първа поръчка"; "-15%" above "Вечерно Drive Combo"; "Ново" above "Truffle Noir седмица"
+      → Delete them. If the label carried real information, fold it into the headline or the supporting sentence.
+  [numbering] @1440px (+768, 390)  Decorative index numbers: "01", "02", "03", "04"
+      → Remove them. If order truly matters, write it into the words ("First, …") or use a real <ol>.
+  [micro-label] @1440px (+768, 390)  6 tiny uppercase letter-spaced labels (e.g. "Меню", "Промоции", "DRIVE15", "FIRST10").
+      → Use sentence-case text at a readable size, or delete the label.
+  [gradient] @1440px (+768, 390)  22 gradient fill(s): div.site-experience.lily-experience → radial-gradient(70vw 45vw at 88% -8%, rgba(255, 128, 30, 0.16), rgba(0, 0, 0, 0) 62%), radial-gradient(55vw 45 | a.food-card-photo → radial-gradient(70% 70% at 50% 45%, rgba(255, 140, 40, 0.28), rgba(0, 0, 0, 0) 70%), none | a.food-card-photo → radial-gradient(70% 70% at 50% 45%, rgba(255, 140, 40, 0.28), rgba(0, 0, 0, 0) 70%), none
+      → Use a flat colour or a real image. The only gradient allowed by default is a neutral scrim over a photo for legibility.
+  [gradient-text] @1440px (+768)  1 gradient-filled text element(s).
+      → Solid colour text.
+  [shadow] @1440px (+768, 390)  53 box-shadow(s) on elements at rest: a.btn-primary → rgba(255, 255, 255, 0.35) 0px 1px 0px 0px inset, rgba(255, 120, 20, 0.65) 0px 14 | article.food-card.group → rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.7) 0px 24px 50p | button.food-add-button → rgba(255, 255, 255, 0.35) 0px 1px 0px 0px inset, rgba(255, 120, 20, 0.8) 0px 10p
+      → Remove. Separate surfaces with a tone step or space. Shadows are for things that really float (menus, dialogs, sticky bars).
+  [button-fx] @1440px (+768, 390)  Buttons with gradient fill and shadow/glow.
+      → Flat fill, one colour.
+  [hairline] @1440px (+768, 390)  11 thin rule(s)/divider line(s): header.site-header.lily-home-header 1440px | div.hero-caption 1344px | div.eg-marquee 1440px | section#how-it-works.relative.scroll-mt-20 1440px
+      → Delete. Separate with space, a tone change, or scale. Lines are only for real tables and form fields.
+  [outlined-box] @1440px (+768, 390)  31 boxes drawn with a 1px outline.
+      → Define a surface by its fill (one tone step from the page) or leave the content unboxed.
+  [body-size] @1440px (+768, 390)  Body text is 12px (the size most of the running text is set in).
+      → Body copy 16–20px. Map small sizes from blueprints onto your body step.
+  [small-text] @1440px (+768, 390)  29 text blocks under 13px.
+      → Nothing meant to be read goes below 13px.
+  [focal-point] @768px  The first screen has no dominant element: the largest type is 24.6px (3.2vw) and no single picture holds a third of the viewport.
+      → Make one thing lead: the headline at display size, or one large picture. A grid of many small pictures is not one thing; in blind tests jurors marked a first screen without a headline down every time. On the strongest studied sites the largest type has a median of 8.4vw.
+
+WARN — fix, or be able to defend
+  [glass] @1440px (+768, 390)  8 backdrop-blur surfaces.
+      → One blurred sticky bar at most; glass cards are a tell.
+  [palette-cream] @1440px (+768, 390)  Yellow-cream background (text #f8f3ed, text #f3efe8).
+      → Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.
+  [size-count] @1440px (+768, 390)  13 different font sizes (10, 11, 12, 14, 15, 16, 18, 19, 23, 34, 44, 48, 54).
+      → A page needs about five: display, heading, lead, body, small.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [no-hero] @1440px (+390)  No headline found in the first viewport.
+      → The first screen needs a clear focal statement or image.
+  [ragged-edges] @1440px  Left-aligned text starts at 9 different lines (96px, 115px, 433px, 751px, 871px, 1069px, 129px); the three most used hold only 50% of it.
+      → Pick two or three anchor lines from the grid and start every heading and paragraph on one of them.
+  [side-scroll] @768px  1 row(s) scroll sideways with content past their edge.
+      → Jurors and most visitors read a row cut at the edge as clipped, not as scrollable. Wrap it onto more lines, or end it inside the grid.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  ../mobile-review/final/desktop-fold.jpg
+                  ../mobile-review/final/desktop-page-01.jpg
+                  ../mobile-review/final/desktop-page-02.jpg
+                  ../mobile-review/final/desktop-page-03.jpg
+  tablet 768px    ../mobile-review/final/tablet-fold.jpg
+                  ../mobile-review/final/tablet-page-01.jpg
+                  ../mobile-review/final/tablet-page-02.jpg
+  mobile 390px    ../mobile-review/final/mobile-fold.jpg
+                  ../mobile-review/final/mobile-page-01.jpg
+                  ../mobile-review/final/mobile-page-02.jpg
+
+report: ../mobile-review/final/report.json
+RESULT: 12 FAIL, 7 WARN — not done.

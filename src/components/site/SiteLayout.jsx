@@ -1,3 +1,4 @@
+import {fontOptions} from '@/cms/design';
 import {lilyAppearance} from "./lily-appearance";
 import {CmsText} from "@/components/site/PublicText";
 import { copy, getContent } from "@/components/site/public-copy";
@@ -13,6 +14,21 @@ export default function SiteLayout() {
     pathname,
     hash
   } = useLocation();
+  useEffect(() => {
+    // Bundled brand fonts need no external stylesheet. Fetch only optional
+    // CMS-selected families instead of blocking every visit on 18 families.
+    const appearance=getContent()?.appearance;
+    const bundled=new Set(['onest','manrope','playfair','montserrat']);
+    const families=[...new Set([appearance?.bodyFont,appearance?.headingFont])]
+      .filter(id=>id&&!bundled.has(id))
+      .map(id=>fontOptions.find(([key])=>key===id)?.[1]).filter(Boolean);
+    if(!families.length)return;
+    const link=document.createElement('link');
+    link.rel='stylesheet';
+    link.href='https://fonts.googleapis.com/css2?'+families.map(name=>'family='+name.replace(/ /g,'+')+':wght@400;500;600;700').join('&')+'&display=swap';
+    document.head.append(link);
+    return()=>link.remove();
+  },[]);
   useEffect(() => {
     // BrowserRouter navigation is client-side; keep the tab title and page
     // description in sync with server-rendered product metadata.
@@ -31,7 +47,7 @@ export default function SiteLayout() {
     if(meta&&description)meta.setAttribute('content',description);
   },[pathname]);
   useEffect(() => {
-    if (new URLSearchParams(window.location.search).has("editor") || window.matchMedia("(prefers-reduced-motion: reduce)").matches || getContent()?.appearance?.motion === "reduced") return undefined;
+    if (new URLSearchParams(window.location.search).has("editor") || window.matchMedia("(prefers-reduced-motion: reduce), (pointer: coarse)").matches || getContent()?.appearance?.motion === "reduced") return undefined;
     const lenis = new Lenis({ lerp: 0.085, smoothWheel: true });
     let frame = requestAnimationFrame(function loop(t) { lenis.raf(t); frame = requestAnimationFrame(loop); });
     return () => { cancelAnimationFrame(frame); lenis.destroy(); };

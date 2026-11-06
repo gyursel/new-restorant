@@ -1,0 +1,48 @@
+{
+  "viewports": [
+    {
+      "viewport": "320x640",
+      "ctaBottom": 519,
+      "dockTop": 572
+    },
+    {
+      "viewport": "360x780",
+      "ctaBottom": 639,
+      "dockTop": 712
+    },
+    {
+      "viewport": "375x667",
+      "ctaBottom": 521,
+      "dockTop": 599
+    },
+    {
+      "viewport": "390x844",
+      "ctaBottom": 671,
+      "dockTop": 776
+    },
+    {
+      "viewport": "414x896",
+      "ctaBottom": 697,
+      "dockTop": 828
+    },
+    {
+      "viewport": "430x932",
+      "ctaBottom": 709,
+      "dockTop": 864
+    },
+    {
+      "viewport": "667x375",
+      "ctaBottom": 616,
+      "dockTop": 307
+    },
+    {
+      "viewport": "390x600",
+      "ctaBottom": 509,
+      "dockTop": 532
+    }
+  ],
+  "routesChecked": 52,
+  "flows": "PASS: menu open/close/Escape/navigation; categories; product; add/quantity/remove; empty cart; field validation; keyboard dock hiding; reduced motion",
+  "checkout": "Disabled credentials mode verified; no Stripe transaction performed",
+  "errors": []
+}
