@@ -18,7 +18,7 @@ export const HeroBackground = ({ media, mode = "backdrop" }) => {
   const [failed, setFailed] = useState(false);
   const [pausedByUser, setPausedByUser] = useState(false);
   const [inView, setInView] = useState(true);
-  const chefVisible = Boolean(media?.head_chef_visible && media?.head_chef_image);
+  const chefVisible = true;
   const poster = mediaSrc(media?.hero_image || '/images/lily-hero.webp');
 
   const connection = typeof navigator !== "undefined" ? navigator.connection : null;
@@ -79,8 +79,8 @@ export const HeroBackground = ({ media, mode = "backdrop" }) => {
 
   return <>
     <div className={"hero-video-backdrop" + (chefVisible ? " has-chef-backdrop" : "")} ref={host} data-video-state={enabled && !failed ? (playing ? "playing" : "paused") : "poster"} aria-hidden="true">
-      {chefVisible && <div className="chef-backdrop" data-testid="head-chef-portrait">
-        <ResponsivePhoto sizes="88vw" src={mediaSrc(media.head_chef_image)} alt="Главният шеф-готвач на CHEF’S BURGER" width="1254" height="1254" decoding="async" fetchPriority="high" />
+      {chefVisible && <div className="chef-backdrop chef-kitchen-scene" data-testid="head-chef-portrait">
+        <ResponsivePhoto sizes="100vw" src="/images/chef-kitchen-background.webp" alt="Главният шеф-готвач на CHEF’S BURGER" width="1376" height="768" decoding="async" fetchPriority="high" />
       </div>}
       <ResponsivePhoto width="1672" height="941" sizes="110vw" src={poster} alt="" className="hero-video-poster" data-cms-media="hero_image" fetchPriority="high" />
       {enabled && !failed && (
