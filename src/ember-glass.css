@@ -151,6 +151,13 @@ html .site-experience.lily-experience .food-add-button:hover{transform:rotate(90
 
 /* product detail */
 html .site-experience.lily-experience .lily-product-detail>.grid{position:relative;align-items:stretch}
+/* Keep ResponsivePhoto's picture/source elements in a single grid cell. */
+html .site-experience.lily-experience .lily-product-detail>.grid>picture{display:block!important;min-width:0}
+html .site-experience.lily-experience .lily-product-detail>.grid>picture>.product-photo{display:block;width:100%;height:auto}
+@media(min-width:1024px){
+  html .site-experience.lily-experience .lily-product-detail>.grid>picture{grid-column:2;grid-row:1;align-self:start}
+  html .site-experience.lily-experience .lily-product-detail>.grid>div{grid-column:1;grid-row:1;min-width:0}
+}
 html .site-experience.lily-experience .lily-product-detail .product-photo{border-radius:36px!important;border:1px solid var(--eg-line-2)!important;
   background:radial-gradient(60% 60% at 50% 45%,rgba(255,140,40,.35),transparent 70%),#1a1512;box-shadow:0 40px 90px -30px rgba(255,110,20,.45),0 30px 60px -20px rgba(0,0,0,.8)!important}
 html .site-experience.lily-experience .lily-product-detail .grid>div{padding:clamp(24px,4vw,44px);border-radius:32px;border:1px solid var(--eg-line);
