@@ -40,6 +40,7 @@ export type Slip = {
   missing: number;
 };
 export type Dashboard = {
+  budget: number | string | null;
   warnings: {
     employee_id: string;
     work_day: string;
@@ -58,7 +59,14 @@ export type Dashboard = {
     today: number;
     absent: number;
   };
-  payroll: { id: string; slip: Slip; mode?: string; rate?: number }[];
+  payroll: {
+    id: string;
+    slip: Slip;
+    due?: string;
+    planned?: number | string;
+    mode?: string;
+    rate?: number;
+  }[];
   owner: boolean;
 };
 export type Profile = {

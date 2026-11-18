@@ -34,6 +34,29 @@ export async function POST(req: Request) {
     const raw = await req.text();
     if (raw.length > 6000) throw new HttpError(413, "Твърде голяма заявка.");
     const body = JSON.parse(raw);
+    if (body.action === "budget" || body.action === "payDate") {
+      if (!user.owner) throw new HttpError(403, "Необходим е собственик.");
+      const period = z
+        .string()
+        .date()
+        .refine((v) => v.endsWith("-01"))
+        .parse(body.period);
+      const sql = db();
+      if (body.action === "budget") {
+        const amount = z
+          .string()
+          .regex(/^\d{1,9}(\.\d{1,2})?$/)
+          .parse(body.amount);
+        await sql`INSERT INTO staff_month_budgets VALUES(${period},${amount},${user.email})
+          ON CONFLICT(period) DO UPDATE SET amount=excluded.amount,actor=excluded.actor`;
+      } else {
+        const employee = z.string().uuid().parse(body.employee),
+          due = z.string().date().parse(body.due);
+        await sql`INSERT INTO staff_pay_dates VALUES(${employee},${period},${due},${user.email})
+          ON CONFLICT(employee_id,period) DO UPDATE SET due=excluded.due,actor=excluded.actor`;
+      }
+      return json({ ok: true });
+    }
     if (body.action === "copyWeek") {
       const copy = z
         .object({ date: z.string().date(), request: z.string().uuid() })
@@ -114,10 +137,15 @@ export async function GET(req: Request) {
     const warnings =
       await sql`SELECT employee_id,work_day::text,kind,hours,minimum FROM staff_rest_warnings(${month})`;
     const payroll = user.owner
-      ? await sql`SELECT e.id,staff_statement(e.id,${month}::date) slip,c.mode,c.rate FROM staff_employees e
+      ? await sql`SELECT e.id,staff_statement(e.id,${month}::date) slip,c.mode,c.rate,d.due::text,staff_planned_extra(e.id,${month}) planned FROM staff_employees e LEFT JOIN staff_pay_dates d ON d.employee_id=e.id AND d.period=${month}
       LEFT JOIN LATERAL (SELECT mode,rate FROM staff_contracts WHERE employee_id=e.id AND effective<${month}::date+interval '1 month' ORDER BY effective DESC LIMIT 1)c ON true`
       : [];
     return json({
+      budget: user.owner
+        ? ((
+            await sql`SELECT amount FROM staff_month_budgets WHERE period=${month}`
+          )[0]?.amount ?? null)
+        : null,
       employees,
       shifts,
       leaves,

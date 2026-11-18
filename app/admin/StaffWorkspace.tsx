@@ -15,6 +15,7 @@ import EntryForm, {
   type FormSpec,
   type InputData,
 } from "./staff/EntryForm";
+import PayAgenda, { forecast } from "./staff/PayAgenda";
 import Reports from "./staff/Reports";
 import {
   addDays,
@@ -33,20 +34,30 @@ import {
 } from "./staff/model";
 const endpoint = "/api/admin/staff/workspace";
 const tabs = [
-  ["overview", "Обзор", ChartColumn],
+  ["overview", "Екип", ChartColumn],
   ["people", "Служители", Users],
   ["calendar", "График", CalendarDays],
   ["profile", "Досие и отчети", ClipboardClock],
-  ["reports", "Разходи", Banknote],
+  ["reports", "Плащания", Banknote],
 ] as const;
 type Tab = (typeof tabs)[number][0];
 function salaryForm(profile: Profile, period: string): FormSpec {
   const date = today().startsWith(period) ? today() : period + "-01";
-  const c = profile.contracts?.find(row => row.effective <= date);
-  return {action: "salary", values: {
-    date, mode: "month", ...(c && {employment:c.employment, hours:c.hours,
-      rest:c.rest_hours, weeklyRest:c.weekly_rest, rate:c.mode==="month" ? c.rate : ""})
-  }};
+  const c = profile.contracts?.find((row) => row.effective <= date);
+  return {
+    action: "salary",
+    values: {
+      date,
+      mode: "month",
+      ...(c && {
+        employment: c.employment,
+        hours: c.hours,
+        rest: c.rest_hours,
+        weeklyRest: c.weekly_rest,
+        rate: c.mode === "month" ? c.rate : "",
+      }),
+    },
+  };
 }
 
 export default function StaffWorkspace({
@@ -241,11 +252,20 @@ export default function StaffWorkspace({
       </div>
       <nav aria-label="Персонал">
         {tabs
-          .filter(([t]) => !manager || !["people", "reports"].includes(t))
+          .filter(
+            ([t]) =>
+              !["people", "profile"].includes(t) &&
+              (!manager || t !== "reports"),
+          )
           .map(([t, label, Icon]) => (
             <button
               key={t}
-              aria-current={tab === t ? "page" : undefined}
+              aria-current={
+                tab === t ||
+                (t === "overview" && ["people", "profile"].includes(tab))
+                  ? "page"
+                  : undefined
+              }
               onClick={() => navigate(t)}
             >
               <Icon size={16} />
@@ -267,203 +287,302 @@ export default function StaffWorkspace({
         <>
           {tab === "overview" && (
             <>
-              <div className="sw-cards">
-                {cards.map(([label, value]) => (
-                  <article key={label}>
-                    <small>{label}</small>
-                    <b>{value}</b>
+              <div className="sw-cards sw-summary">
+                {[
+                  ["На смяна сега", data.clock.working],
+                  ["Смени днес", data.clock.today],
+                  ...(data.owner
+                    ? [
+                        [
+                          "Прогнозен остатък за плащане",
+                          money(sum("remaining")),
+                        ],
+                      ]
+                    : []),
+                ].map(([k, v]) => (
+                  <article key={k}>
+                    <small>{k}</small>
+                    <b>{v}</b>
                   </article>
                 ))}
-              </div>
-              <div className="sw-alerts">
-                <span>Непотвърдени отчети · {data.clock.pending}</span>
-                {data.owner && <span>Служители с остатък · {payable}</span>}
-                <span>
-                  Предстоящи отпуски ·{" "}
-                  {
-                    data.leaves.filter(
-                      (l) => l.status === "approved" && l.first_day > today(),
-                    ).length
-                  }
-                </span>
               </div>
               <div className="sw-tools">
                 <h3>Екип</h3>
                 <input
-                  type="search"
-                  placeholder="Име или длъжност"
-                  aria-label="Търси служител"
+                  aria-label="Търси в екипа"
+                  placeholder="Търси по име или длъжност"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                 />
-                <select
-                  aria-label="Статус"
-                  value={status}
-                  onChange={(e) => setStatus(e.target.value)}
-                >
-                  <option value="active">Активни</option>
-                  <option value="archived">Архивирани</option>
-                  <option value="all">Всички</option>
-                </select>
-                <select
-                  aria-label="Подредба"
-                  value={sort}
-                  onChange={(e) => setSort(e.target.value)}
-                >
-                  <option value="name">По име</option>
-                  <option value="position">По длъжност</option>
-                </select>
-                {data.owner &&
-                  (["CSV", "Excel"] as const).map((fmt) => (
-                    <button
-                      key={fmt}
-                      onClick={() =>
-                        (fmt === "Excel" ? excel : csv)("ekip-" + period, [
-                          [
-                            "Служител",
-                            "Длъжност",
-                            "Дни",
-                            "Часове",
-                            "Бонуси",
-                            "Аванси",
-                            "Остатък",
-                          ],
-                          ...rows.map((e) => {
-                            const s = data.payroll.find(
-                              (p) => p.id === e.id,
-                            )?.slip;
-                            return [
-                              e.name,
-                              e.position,
-                              s?.days ?? 0,
-                              s?.hours ?? 0,
-                              s?.bonus ?? 0,
-                              s?.advances ?? 0,
-                              s?.remaining ?? 0,
-                            ];
-                          }),
-                        ])
-                      }
-                    >
-                      {fmt}
-                    </button>
-                  ))}
+                {data.owner && (
+                  <button onClick={() => navigate("people")}>
+                    Управление на служители
+                  </button>
+                )}
               </div>
-              <div className="sw-scroll">
-                <table>
-                  <thead>
-                    <tr>
-                      {[
-                        "Служител",
-                        "Длъжност",
-                        "Статус",
-                        ...(data.owner
-                          ? [
+              {data.employees
+                .filter(
+                  (e) =>
+                    e.active &&
+                    (e.name + " " + e.position)
+                      .toLocaleLowerCase("bg")
+                      .includes(search.toLocaleLowerCase("bg")),
+                )
+                .map((e) => (
+                  <div key={e.id} className="sw-payrow">
+                    <div>
+                      <button onClick={() => pick(e.id)}>{e.name}</button>
+                      <small>{e.position}</small>
+                    </div>
+                    {data.owner && (
+                      <button onClick={() => salary(e.id)}>
+                        Въведи заплата
+                      </button>
+                    )}
+                  </div>
+                ))}
+              {!data.employees.some(
+                (e) =>
+                  e.active &&
+                  (e.name + " " + e.position)
+                    .toLocaleLowerCase("bg")
+                    .includes(search.toLocaleLowerCase("bg")),
+              ) && <p>Няма намерени активни служители.</p>}
+              <details>
+                <summary>Подробна справка и експорт</summary>
+                <div className="sw-cards">
+                  {cards.map(([label, value]) => (
+                    <article key={label}>
+                      <small>{label}</small>
+                      <b>{value}</b>
+                    </article>
+                  ))}
+                </div>
+                <div className="sw-alerts">
+                  <span>Непотвърдени отчети · {data.clock.pending}</span>
+                  {data.owner && <span>Служители с остатък · {payable}</span>}
+                  <span>
+                    Предстоящи отпуски ·{" "}
+                    {
+                      data.leaves.filter(
+                        (l) => l.status === "approved" && l.first_day > today(),
+                      ).length
+                    }
+                  </span>
+                </div>
+                <div className="sw-tools">
+                  <h3>Екип</h3>
+                  <input
+                    type="search"
+                    placeholder="Име или длъжност"
+                    aria-label="Търси служител"
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                  />
+                  <select
+                    aria-label="Статус"
+                    value={status}
+                    onChange={(e) => setStatus(e.target.value)}
+                  >
+                    <option value="active">Активни</option>
+                    <option value="archived">Архивирани</option>
+                    <option value="all">Всички</option>
+                  </select>
+                  <select
+                    aria-label="Подредба"
+                    value={sort}
+                    onChange={(e) => setSort(e.target.value)}
+                  >
+                    <option value="name">По име</option>
+                    <option value="position">По длъжност</option>
+                  </select>
+                  {data.owner &&
+                    (["CSV", "Excel"] as const).map((fmt) => (
+                      <button
+                        key={fmt}
+                        onClick={() =>
+                          (fmt === "Excel" ? excel : csv)("ekip-" + period, [
+                            [
+                              "Служител",
+                              "Длъжност",
                               "Дни",
                               "Часове",
-                              "Дневна ставка",
-                              "Месечна заплата",
                               "Бонуси",
                               "Аванси",
-                              "Остатък¹",
-                            ]
-                          : []),
-                      ].map((x) => (
-                        <th key={x}>{x}</th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {rows.map((e) => {
-                      const entry = data.payroll.find((p) => p.id === e.id);
-                      const s = entry?.slip;
-                      return (
-                        <tr key={e.id}>
-                          <td>
-                            <button onClick={() => pick(e.id)}>{e.name}</button>
-                            {data.owner && <button className="sw-pay-action" onClick={() => salary(e.id)}>Въведи заплата</button>}
-                          </td>
-                          <td>{e.position}</td>
-                          <td>
-                            {!e.active
-                              ? "Архивиран"
-                              : data.leaves.some(
-                                    (l) =>
-                                      l.employee_id === e.id &&
-                                      l.status === "approved" &&
-                                      l.first_day <= today() &&
-                                      l.last_day >= today(),
-                                  )
-                                ? "Отсъства"
-                                : "Активен"}
-                          </td>
-                          {s &&
-                            [
-                              s.days,
-                              s.hours,
-                              entry?.mode === "day"
-                                ? money(Number(entry.rate))
-                                : "—",
-                              entry?.mode === "month"
-                                ? money(Number(entry.rate))
-                                : "—",
-                              money(s.bonus),
-                              money(s.advances),
-                              money(s.remaining),
-                            ].map((v, i) => <td key={i}>{v}</td>)}
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-              {!rows.length && <p>Няма служители за избрания филтър.</p>}
-              {data.owner && (
-                <small>
-                  ¹ За отворените периоди остатъкът е прогнозен. При приключване
-                  се използва потвърденото нетно възнаграждение.
-                </small>
-              )}
+                              "Остатък",
+                            ],
+                            ...rows.map((e) => {
+                              const s = data.payroll.find(
+                                (p) => p.id === e.id,
+                              )?.slip;
+                              return [
+                                e.name,
+                                e.position,
+                                s?.days ?? 0,
+                                s?.hours ?? 0,
+                                s?.bonus ?? 0,
+                                s?.advances ?? 0,
+                                s?.remaining ?? 0,
+                              ];
+                            }),
+                          ])
+                        }
+                      >
+                        {fmt}
+                      </button>
+                    ))}
+                </div>
+                <div className="sw-scroll">
+                  <table>
+                    <thead>
+                      <tr>
+                        {[
+                          "Служител",
+                          "Длъжност",
+                          "Статус",
+                          ...(data.owner
+                            ? [
+                                "Дни",
+                                "Часове",
+                                "Дневна ставка",
+                                "Месечна заплата",
+                                "Бонуси",
+                                "Аванси",
+                                "Остатък¹",
+                              ]
+                            : []),
+                        ].map((x) => (
+                          <th key={x}>{x}</th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {rows.map((e) => {
+                        const entry = data.payroll.find((p) => p.id === e.id);
+                        const s = entry?.slip;
+                        return (
+                          <tr key={e.id}>
+                            <td>
+                              <button onClick={() => pick(e.id)}>
+                                {e.name}
+                              </button>
+                              {data.owner && (
+                                <button
+                                  className="sw-pay-action"
+                                  onClick={() => salary(e.id)}
+                                >
+                                  Въведи заплата
+                                </button>
+                              )}
+                            </td>
+                            <td>{e.position}</td>
+                            <td>
+                              {!e.active
+                                ? "Архивиран"
+                                : data.leaves.some(
+                                      (l) =>
+                                        l.employee_id === e.id &&
+                                        l.status === "approved" &&
+                                        l.first_day <= today() &&
+                                        l.last_day >= today(),
+                                    )
+                                  ? "Отсъства"
+                                  : "Активен"}
+                            </td>
+                            {s &&
+                              [
+                                s.days,
+                                s.hours,
+                                entry?.mode === "day"
+                                  ? money(Number(entry.rate))
+                                  : "—",
+                                entry?.mode === "month"
+                                  ? money(Number(entry.rate))
+                                  : "—",
+                                money(s.bonus),
+                                money(s.advances),
+                                money(s.remaining),
+                              ].map((v, i) => <td key={i}>{v}</td>)}
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+                {!rows.length && <p>Няма служители за избрания филтър.</p>}
+                {data.owner && (
+                  <small>
+                    ¹ За отворените периоди остатъкът е прогнозен. При
+                    приключване се използва потвърденото нетно възнаграждение.
+                  </small>
+                )}
+              </details>
             </>
           )}
           {tab === "calendar" && (
-            <Calendar
-              data={data}
-              period={period}
-              setPeriod={setPeriod}
-              edit={editShift}
-              copy={(day) => {
-                if (
-                  confirm(
-                    "Копиране на графика за седмицата от " +
-                      dateLabel(day) +
-                      "?",
+            <>
+              <div>
+                {data.owner && data.budget !== null && (
+                  <p>
+                    Прогнозен разход по график · {money(forecast(data))} от{" "}
+                    {money(Number(data.budget))} бюджет
+                  </p>
+                )}
+              </div>
+              <Calendar
+                data={data}
+                period={period}
+                setPeriod={setPeriod}
+                edit={editShift}
+                copy={(day) => {
+                  if (
+                    confirm(
+                      "Копиране на графика за седмицата от " +
+                        dateLabel(day) +
+                        "?",
+                    )
                   )
-                )
-                  void mutate("copyWeek", { date: day });
-              }}
-              move={(s, day) => {
-                const a = local(s.starts),
-                  b = local(s.ends),
-                  offset = Math.round(
-                    (Date.parse(b.slice(0, 10)) - Date.parse(a.slice(0, 10))) /
-                      86400000,
-                  );
-                select(s.employee_id);
-                setTab("profile");
-                open("shift", {
-                  id: s.id,
-                  version: s.version,
-                  start: day + a.slice(10),
-                  end: addDays(day, offset) + b.slice(10),
-                  pause: s.pause,
-                  reason: "Преместване в графика",
-                });
-              }}
-            />
+                    void mutate("copyWeek", { date: day });
+                }}
+                move={(s, day) => {
+                  const a = local(s.starts),
+                    b = local(s.ends),
+                    offset = Math.round(
+                      (Date.parse(b.slice(0, 10)) -
+                        Date.parse(a.slice(0, 10))) /
+                        86400000,
+                    );
+                  select(s.employee_id);
+                  setTab("profile");
+                  open("shift", {
+                    id: s.id,
+                    version: s.version,
+                    start: day + a.slice(10),
+                    end: addDays(day, offset) + b.slice(10),
+                    pause: s.pause,
+                    reason: "Преместване в графика",
+                  });
+                }}
+              />
+            </>
           )}
           {tab === "reports" && data.owner && (
-            <Reports data={data} period={period} />
+            <>
+              <PayAgenda
+                key={period}
+                data={data}
+                period={period}
+                reload={() => refresh((v) => v + 1)}
+                pay={(emp) => {
+                  pick(emp);
+                  open("money", { kind: "payment" });
+                }}
+              />
+              <details>
+                <summary>Подробни финансови справки</summary>
+                <Reports data={data} period={period} />
+              </details>
+            </>
           )}
           {tab === "profile" && (
             <>
@@ -494,27 +613,52 @@ export default function StaffWorkspace({
                   {spec ? (
                     <EntryForm
                       key={spec.action + String(spec.values?.id || "") + id}
-                      spec={spec.action === "salary" ? salaryForm(profile, period) : spec}
+                      spec={
+                        spec.action === "salary"
+                          ? salaryForm(profile, period)
+                          : spec
+                      }
                       period={period}
                       employee={selected.name}
                       busy={busy}
                       cancel={() => form(null)}
-                      save={(v) => mutate(spec.action === "salary" ? "contract" : spec.action, v)}
+                      save={(v) =>
+                        mutate(
+                          spec.action === "salary" ? "contract" : spec.action,
+                          v,
+                        )
+                      }
                     />
                   ) : (
                     <div className="sw-tools">
-                      {[
-                        "shift",
-                        "time",
-                        "leave",
-                        ...(data.owner
-                          ? ["contract", "bonusRequest", "money", "close"]
-                          : []),
-                      ].map((a) => (
-                        <button disabled={busy} key={a} onClick={() => open(a)}>
-                          {titles[a]}
+                      <button onClick={() => open("shift")}>
+                        Добави смяна
+                      </button>
+                      {data.owner && (
+                        <button onClick={() => open("salary")}>
+                          Въведи заплата
                         </button>
-                      ))}
+                      )}
+                      <details>
+                        <summary>Други действия</summary>
+                        <div className="sw-tools">
+                          {[
+                            "time",
+                            "leave",
+                            ...(data.owner
+                              ? ["contract", "bonusRequest", "money", "close"]
+                              : []),
+                          ].map((a) => (
+                            <button
+                              key={a}
+                              disabled={busy}
+                              onClick={() => open(a)}
+                            >
+                              {titles[a]}
+                            </button>
+                          ))}
+                        </div>
+                      </details>
                       {profile.times?.find((t) => !t.ends) ? (
                         <button
                           onClick={() => {
@@ -572,119 +716,125 @@ export default function StaffWorkspace({
                       )}
                     </>
                   )}
-                  <h3>Планирани смени</h3>
-                  {profile.shifts?.map((s) => (
-                    <p key={s.id}>
-                      <button onClick={() => editShift(id, s)}>
-                        {local(s.starts).replace("T", " ")} →{" "}
-                        {local(s.ends).replace("T", " ")}
-                      </button>{" "}
-                      · почивка {s.pause} мин{" "}
-                      <button
-                        onClick={() =>
-                          open("cancel", { id: s.id, version: s.version })
-                        }
-                      >
-                        Отмени смяната
-                      </button>
-                    </p>
-                  )) || <p>Няма смени.</p>}
-                  <h3>Реално присъствие</h3>
-                  {profile.times?.map((t) => (
-                    <p key={t.id}>
-                      {local(t.starts).replace("T", " ")} →{" "}
-                      {t.ends
-                        ? local(t.ends).replace("T", " ")
-                        : "Отворена смяна"}{" "}
-                      · {variance(t, profile.shifts || [])} ·{" "}
-                      {t.confirmed ? "Потвърдено" : "За потвърждение"}{" "}
-                      {t.ends && (
+                  <details>
+                    <summary>Смени, присъствия и отпуски</summary>
+                    <h3>Планирани смени</h3>
+                    {profile.shifts?.map((s) => (
+                      <p key={s.id}>
+                        <button onClick={() => editShift(id, s)}>
+                          {local(s.starts).replace("T", " ")} →{" "}
+                          {local(s.ends).replace("T", " ")}
+                        </button>{" "}
+                        · почивка {s.pause} мин{" "}
                         <button
                           onClick={() =>
-                            open("time", {
-                              id: t.id,
-                              version: t.version,
-                              start: local(t.starts),
-                              end: local(t.ends!),
-                              pause: t.pause,
-                              confirmed: t.confirmed,
-                            })
+                            open("cancel", { id: s.id, version: s.version })
                           }
                         >
-                          Корекция
+                          Отмени смяната
                         </button>
-                      )}
-                    </p>
-                  )) || <p>Няма отчети.</p>}
-                  <h3>Отпуски и почивки</h3>
-                  {profile.leaves?.map((l) => (
-                    <p key={l.id}>
-                      {kinds[l.kind]} · {dateLabel(l.first_day)} –{" "}
-                      {dateLabel(l.last_day)} · {kinds[l.status]}{" "}
-                      {l.status === "pending" &&
-                        ["approved", "declined"].map((s) => (
+                      </p>
+                    )) || <p>Няма смени.</p>}
+                    <h3>Реално присъствие</h3>
+                    {profile.times?.map((t) => (
+                      <p key={t.id}>
+                        {local(t.starts).replace("T", " ")} →{" "}
+                        {t.ends
+                          ? local(t.ends).replace("T", " ")
+                          : "Отворена смяна"}{" "}
+                        · {variance(t, profile.shifts || [])} ·{" "}
+                        {t.confirmed ? "Потвърдено" : "За потвърждение"}{" "}
+                        {t.ends && (
                           <button
-                            disabled={busy}
-                            key={s}
                             onClick={() =>
-                              mutate("decision", { id: l.id, status: s })
+                              open("time", {
+                                id: t.id,
+                                version: t.version,
+                                start: local(t.starts),
+                                end: local(t.ends!),
+                                pause: t.pause,
+                                confirmed: t.confirmed,
+                              })
                             }
                           >
-                            {s === "approved" ? "Одобри" : "Откажи"}
+                            Корекция
                           </button>
-                        ))}
-                    </p>
-                  )) || <p>Няма отсъствия.</p>}
+                        )}
+                      </p>
+                    )) || <p>Няма отчети.</p>}
+                    <h3>Отпуски и почивки</h3>
+                    {profile.leaves?.map((l) => (
+                      <p key={l.id}>
+                        {kinds[l.kind]} · {dateLabel(l.first_day)} –{" "}
+                        {dateLabel(l.last_day)} · {kinds[l.status]}{" "}
+                        {l.status === "pending" &&
+                          ["approved", "declined"].map((s) => (
+                            <button
+                              disabled={busy}
+                              key={s}
+                              onClick={() =>
+                                mutate("decision", { id: l.id, status: s })
+                              }
+                            >
+                              {s === "approved" ? "Одобри" : "Откажи"}
+                            </button>
+                          ))}
+                      </p>
+                    )) || <p>Няма отсъствия.</p>}
+                  </details>
                   {data.owner && (
                     <>
-                      <h3>Договори и ставки</h3>
-                      {profile.contracts?.map((c) => (
-                        <p key={c.effective}>
-                          {c.effective} · {c.employment} · {c.hours} ч/седм. ·{" "}
-                          {modes[c.mode]} · {money(c.rate)}
-                        </p>
-                      )) || <p>Няма договорена ставка.</p>}
-                      <h3>Предложени бонуси</h3>
-                      {profile.bonuses?.map((b) => (
-                        <p key={b.id}>
-                          {b.booked} · {b.reason} · {money(b.amount)} ·{" "}
-                          {kinds[b.status]} · {b.decided_by || b.actor}{" "}
-                          {b.status === "pending" &&
-                            ["approved", "declined"].map((s) => (
-                              <button
-                                key={s}
-                                disabled={busy}
-                                onClick={() =>
-                                  mutate("bonusDecision", {
-                                    id: b.id,
-                                    status: s,
-                                  })
-                                }
-                              >
-                                {s === "approved" ? "Одобри" : "Откажи"}
-                              </button>
-                            ))}
-                        </p>
-                      )) || <p>Няма предложения.</p>}
-                      <h3>Бонуси, корекции и плащания</h3>
-                      {profile.amounts?.map((a) => (
-                        <p key={a.id}>
-                          {a.booked} · {kinds[a.kind]} · {money(a.amount)} ·{" "}
-                          {a.reason} {a.method && " · " + kinds[a.method]} ·{" "}
-                          {a.actor}
-                        </p>
-                      )) || <p>Няма финансови записи.</p>}
                       <details>
-                        <summary>История на операциите</summary>
-                        {profile.history?.map((h, i) => (
-                          <p key={i}>
-                            {local(h.changed_at).replace("T", " ")} ·{" "}
-                            {titles[h.action]} · {h.actor}{" "}
-                            {h.payload.reason
-                              ? " · " + String(h.payload.reason)
-                              : ""}
+                        <summary>Договори, бонуси и история</summary>
+                        <h3>Договори и ставки</h3>
+                        {profile.contracts?.map((c) => (
+                          <p key={c.effective}>
+                            {c.effective} · {c.employment} · {c.hours} ч/седм. ·{" "}
+                            {modes[c.mode]} · {money(c.rate)}
                           </p>
-                        )) || <p>Няма операции.</p>}
+                        )) || <p>Няма договорена ставка.</p>}
+                        <h3>Предложени бонуси</h3>
+                        {profile.bonuses?.map((b) => (
+                          <p key={b.id}>
+                            {b.booked} · {b.reason} · {money(b.amount)} ·{" "}
+                            {kinds[b.status]} · {b.decided_by || b.actor}{" "}
+                            {b.status === "pending" &&
+                              ["approved", "declined"].map((s) => (
+                                <button
+                                  key={s}
+                                  disabled={busy}
+                                  onClick={() =>
+                                    mutate("bonusDecision", {
+                                      id: b.id,
+                                      status: s,
+                                    })
+                                  }
+                                >
+                                  {s === "approved" ? "Одобри" : "Откажи"}
+                                </button>
+                              ))}
+                          </p>
+                        )) || <p>Няма предложения.</p>}
+                        <h3>Бонуси, корекции и плащания</h3>
+                        {profile.amounts?.map((a) => (
+                          <p key={a.id}>
+                            {a.booked} · {kinds[a.kind]} · {money(a.amount)} ·{" "}
+                            {a.reason} {a.method && " · " + kinds[a.method]} ·{" "}
+                            {a.actor}
+                          </p>
+                        )) || <p>Няма финансови записи.</p>}
+                        <details>
+                          <summary>История на операциите</summary>
+                          {profile.history?.map((h, i) => (
+                            <p key={i}>
+                              {local(h.changed_at).replace("T", " ")} ·{" "}
+                              {titles[h.action]} · {h.actor}{" "}
+                              {h.payload.reason
+                                ? " · " + String(h.payload.reason)
+                                : ""}
+                            </p>
+                          )) || <p>Няма операции.</p>}
+                        </details>
                       </details>
                     </>
                   )}

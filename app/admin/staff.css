@@ -310,3 +310,4 @@
   outline: 2px solid #ed8076;
   outline-offset: 2px;
 }
+.sw-budget,.sw-payrow{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:14px 0;border-bottom:1px solid #393c3b}.sw-budget{padding:18px;background:#1b2020;border-radius:12px}.sw-payrow>div,.sw-budget>div{margin-right:auto}.sw-payrow small{display:block;margin-top:4px}.sw-summary{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}.sw details>summary{padding:10px 0}.sw-payrow strong{font-size:16px}
