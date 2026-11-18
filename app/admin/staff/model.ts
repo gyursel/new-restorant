@@ -1,4 +1,5 @@
 export type Employee = {
+  has_photo?: boolean;
   id: string;
   name: string;
   position: string;
@@ -70,6 +71,8 @@ export type Dashboard = {
   owner: boolean;
 };
 export type Profile = {
+  contact?: { phone: string; address: string };
+  pages?: number[];
   shifts: Shift[] | null;
   times: Time[] | null;
   leaves: Leave[] | null;

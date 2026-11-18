@@ -113,6 +113,8 @@ export async function GET(req: Request) {
       const finance = user.owner
         ? (
             await sql`SELECT staff_statement(${emp},${month}) slip,
+        (SELECT jsonb_build_object('phone',phone,'address',address) FROM staff_employees WHERE id=${emp}) contact,
+        (SELECT coalesce(jsonb_agg(slot ORDER BY slot),'[]') FROM staff_contract_photos WHERE employee_id=${emp}) pages,
         (SELECT jsonb_agg(to_jsonb(c) ORDER BY effective DESC) FROM staff_contracts c WHERE employee_id=${emp}) contracts,
         (SELECT jsonb_agg(to_jsonb(b) ORDER BY booked DESC) FROM staff_bonus_requests b WHERE employee_id=${emp} AND period=${month}) bonuses,
         (SELECT jsonb_agg(to_jsonb(a) ORDER BY booked DESC) FROM staff_amounts a WHERE employee_id=${emp} AND period=${month}) amounts,
@@ -122,7 +124,7 @@ export async function GET(req: Request) {
       return json({ ...operational[0], ...finance });
     }
     const employees =
-      await sql`SELECT id,name,position,active FROM staff_employees ORDER BY name,id`;
+      await sql`SELECT id,name,position,active,(${user.owner}::boolean AND photo<>'') AS has_photo FROM staff_employees ORDER BY name,id`;
     const shifts =
       await sql`SELECT * FROM staff_shifts WHERE staff_day(ends)>=${month}::date-7 AND staff_day(starts)<${month}::date+interval '1 month 7 days' ORDER BY starts`;
     const leaves =

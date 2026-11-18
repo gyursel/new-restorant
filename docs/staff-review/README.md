@@ -24,7 +24,7 @@
 Приложи миграциите в една и съща база в следния ред. Примерът очаква PREVIEW_DATABASE_URL да съдържа адреса на изолираната база.
 
 ```sh
-for file in database/staff-00{1,2,3,4,5,6}.sql; do
+for file in database/staff-00{1,2,3,4,5,6,7}.sql; do
   psql "$PREVIEW_DATABASE_URL" -v ON_ERROR_STOP=1 -f "$file" || exit 1
 done
 ```
@@ -55,5 +55,7 @@ done
 | app/admin/staff/Calendar.tsx, EntryForm.tsx, Reports.tsx, attendance.ts, model.ts | Календар, форми, справки, отклонения и експорт |
 | app/api/admin/staff/route.ts и workspace/route.ts | Сървърни четения и записи |
 | server/auth.ts и server/staff-input.ts | Подписани сесии и валидация |
-| database/staff-001.sql до staff-006.sql | Данни, изчисления и защита на приключени периоди |
+| database/staff-001.sql до staff-007.sql | Данни, изчисления и защита на приключени периоди |
 | scripts/staff-review/, scripts/staff-review-prebuild.mjs, package.json, .gitignore | Изолирана демонстрация и тестове |
+
+Миграция 007 добавя телефон, адрес и до шест отделни снимки на трудов договор. Портретите са до 1 MiB, а всяка страница на договора до 2 MiB. Снимките на договора се четат поотделно с достъп на собственик.

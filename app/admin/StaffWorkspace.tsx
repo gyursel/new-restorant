@@ -7,6 +7,7 @@ import {
   ClipboardClock,
   Users,
 } from "lucide-react";
+import { Avatar, ContractPages } from "./staff/StaffPhotos";
 import StaffPanel from "./StaffPanel";
 import { variance } from "./staff/attendance";
 import Calendar from "./staff/Calendar";
@@ -145,6 +146,8 @@ export default function StaffWorkspace({
             : { employee: emp, action, data: values, request: key },
         ),
       });
+      if (action === "contract" && typeof values.date === "string")
+        setPeriod(values.date.slice(0, 7));
       form(null);
       setRetry(null);
       setNotice("Промяната е запазена.");
@@ -211,6 +214,12 @@ export default function StaffWorkspace({
         ? a.position.localeCompare(b.position, "bg")
         : a.name.localeCompare(b.name, "bg"),
     );
+  function salaryLabel(emp: string) {
+    const p = data?.payroll.find((row) => row.id === emp);
+    return p?.mode === "month" && p.rate != null
+      ? money(Number(p.rate)) + " / месец"
+      : "Въведи заплата";
+  }
   function salary(emp: string) {
     pick(emp);
     open("salary");
@@ -280,7 +289,7 @@ export default function StaffWorkspace({
       )}
       {notice && <p role="status">{notice}</p>}
       {tab === "people" ? (
-        <StaffPanel onSalary={salary} />
+        <StaffPanel onSalary={salary} salaryLabel={salaryLabel} />
       ) : !data ? (
         !error && <p role="status">Зареждане…</p>
       ) : (
@@ -320,27 +329,34 @@ export default function StaffWorkspace({
                   </button>
                 )}
               </div>
-              {data.employees
-                .filter(
-                  (e) =>
-                    e.active &&
-                    (e.name + " " + e.position)
-                      .toLocaleLowerCase("bg")
-                      .includes(search.toLocaleLowerCase("bg")),
-                )
-                .map((e) => (
-                  <div key={e.id} className="sw-payrow">
-                    <div>
-                      <button onClick={() => pick(e.id)}>{e.name}</button>
-                      <small>{e.position}</small>
+              <div className="staff-cards">
+                {data.employees
+                  .filter(
+                    (e) =>
+                      e.active &&
+                      (e.name + " " + e.position)
+                        .toLocaleLowerCase("bg")
+                        .includes(search.toLocaleLowerCase("bg")),
+                  )
+                  .map((e) => (
+                    <div key={e.id} className="staff-card">
+                      <Avatar
+                        id={e.id}
+                        name={e.name}
+                        available={!!e.has_photo}
+                      />
+                      <div>
+                        <button onClick={() => pick(e.id)}>{e.name}</button>
+                        <small>{e.position}</small>
+                      </div>
+                      {data.owner && (
+                        <button onClick={() => salary(e.id)}>
+                          {salaryLabel(e.id)}
+                        </button>
+                      )}
                     </div>
-                    {data.owner && (
-                      <button onClick={() => salary(e.id)}>
-                        Въведи заплата
-                      </button>
-                    )}
-                  </div>
-                ))}
+                  ))}
+              </div>
               {!data.employees.some(
                 (e) =>
                   e.active &&
@@ -471,7 +487,7 @@ export default function StaffWorkspace({
                                   className="sw-pay-action"
                                   onClick={() => salary(e.id)}
                                 >
-                                  Въведи заплата
+                                  {salaryLabel(e.id)}
                                 </button>
                               )}
                             </td>
@@ -610,7 +626,50 @@ export default function StaffWorkspace({
                 <p>Зареждане на досието…</p>
               ) : (
                 <>
-                  {spec ? (
+                  {data.owner && !spec && (
+                    <section className="staff-contact">
+                      <Avatar
+                        id={id}
+                        name={selected.name}
+                        available={!!selected.has_photo}
+                      />
+                      <div>
+                        <h3>{selected.name}</h3>
+                        <small>{selected.position}</small>
+                        {profile.contact?.phone && (
+                          <p>
+                            Телефон ·{" "}
+                            <a
+                              href={
+                                "tel:" +
+                                profile.contact.phone.replace(/[^+0-9]/g, "")
+                              }
+                            >
+                              {profile.contact.phone}
+                            </a>
+                          </p>
+                        )}
+                        {profile.contact?.address && (
+                          <p>Адрес · {profile.contact.address}</p>
+                        )}
+                      </div>
+                      <button onClick={() => open("personal")}>
+                        Редактирай профила
+                      </button>
+                    </section>
+                  )}
+                  {spec?.action === "personal" ? (
+                    <StaffPanel
+                      key={id}
+                      initialId={id}
+                      onSalary={salary}
+                      salaryLabel={salaryLabel}
+                      onDone={() => {
+                        form(null);
+                        refresh((v) => v + 1);
+                      }}
+                    />
+                  ) : spec ? (
                     <EntryForm
                       key={spec.action + String(spec.values?.id || "") + id}
                       spec={
@@ -636,7 +695,7 @@ export default function StaffWorkspace({
                       </button>
                       {data.owner && (
                         <button onClick={() => open("salary")}>
-                          Въведи заплата
+                          {salaryLabel(id)}
                         </button>
                       )}
                       <details>
@@ -715,6 +774,16 @@ export default function StaffWorkspace({
                         </p>
                       )}
                     </>
+                  )}
+                  {data.owner && !spec && (
+                    <details>
+                      <summary>Снимки на трудовия договор</summary>
+                      <ContractPages
+                        key={id}
+                        id={id}
+                        initial={profile.pages || []}
+                      />
+                    </details>
                   )}
                   <details>
                     <summary>Смени, присъствия и отпуски</summary>

@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useState, type FormEvent } from "react";
 
+import { ContractPages, readImage, acceptImages } from "./staff/StaffPhotos";
+import { request } from "./staff/model";
 type Employee = {
   id: string;
   version: number;
@@ -9,10 +11,22 @@ type Employee = {
   hired_on: string;
   active: boolean;
   notes?: string;
+  phone?: string;
+  address?: string;
   photo?: string;
 };
 
-export default function StaffPanel({onSalary}: {onSalary:(id:string)=>void}) {
+export default function StaffPanel({
+  onSalary,
+  salaryLabel,
+  initialId,
+  onDone,
+}: {
+  onSalary: (id: string) => void;
+  salaryLabel: (id: string) => string;
+  initialId?: string;
+  onDone?: () => void;
+}) {
   const [rows, setRows] = useState<Employee[]>([]);
   const [draft, setDraft] = useState<Employee | null>(null);
   const [query, setQuery] = useState("");
@@ -22,7 +36,28 @@ export default function StaffPanel({onSalary}: {onSalary:(id:string)=>void}) {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
+  const [pages, setPages] = useState<number[]>([]),
+    [reading, setReading] = useState(false);
+  async function edit(id: string) {
+    setLoading(true);
+    setError("");
+    try {
+      const r = await request<{ employee: Employee; pages: number[] }>(
+        "/api/admin/staff?id=" + id,
+      );
+      setDraft(r.employee);
+      setPages(r.pages);
+    } catch (e) {
+      setError((e as Error).message);
+    } finally {
+      setLoading(false);
+    }
+  }
   useEffect(() => {
+    if (initialId) void edit(initialId);
+  }, [initialId]);
+  useEffect(() => {
+    if (initialId) return;
     const controller = new AbortController();
     setLoading(true);
     setError("");
@@ -51,7 +86,7 @@ export default function StaffPanel({onSalary}: {onSalary:(id:string)=>void}) {
       clearTimeout(timer);
       controller.abort();
     };
-  }, [query, page, revision]);
+  }, [query, page, revision, initialId]);
 
   async function save(event: FormEvent) {
     event.preventDefault();
@@ -71,6 +106,12 @@ export default function StaffPanel({onSalary}: {onSalary:(id:string)=>void}) {
         body: JSON.stringify(draft),
       });
       if (!res.ok) throw new Error((await res.json()).error);
+      if (draft.version === 0) {
+        await edit(draft.id);
+        refresh((v) => v + 1);
+        return;
+      }
+      if (onDone) onDone();
       setDraft(null);
       refresh((v) => v + 1);
     } catch (err) {
@@ -92,7 +133,7 @@ export default function StaffPanel({onSalary}: {onSalary:(id:string)=>void}) {
       {draft ? (
         <form onSubmit={save}>
           <h2>{draft.version ? "Профил на служителя" : "Нов служител"}</h2>
-          <fieldset disabled={saving}>
+          <fieldset disabled={saving || reading}>
             <label>
               Име и фамилия
               <input
@@ -127,6 +168,25 @@ export default function StaffPanel({onSalary}: {onSalary:(id:string)=>void}) {
               />
             </label>
             <label>
+              Телефон за връзка
+              <input
+                type="tel"
+                maxLength={48}
+                value={draft.phone || ""}
+                onChange={(e) => setDraft({ ...draft, phone: e.target.value })}
+              />
+            </label>
+            <label>
+              Адрес за връзка
+              <input
+                maxLength={350}
+                value={draft.address || ""}
+                onChange={(e) =>
+                  setDraft({ ...draft, address: e.target.value })
+                }
+              />
+            </label>
+            <label>
               Служебни бележки (само собственик)
               <textarea
                 maxLength={1000}
@@ -135,28 +195,27 @@ export default function StaffPanel({onSalary}: {onSalary:(id:string)=>void}) {
               />
             </label>
             <label>
-              Снимка · JPG, PNG или WebP до 128 KB
+              Портрет · до 1 MB
               <input
                 type="file"
-                accept="image/jpeg,image/png,image/webp"
+                accept={acceptImages}
                 onChange={async (e) => {
                   const f = e.target.files?.[0];
                   if (!f) return;
-                  if (
-                    f.size > 131072 ||
-                    !["image/jpeg", "image/png", "image/webp"].includes(f.type)
-                  ) {
-                    setError("Избери снимка до 128 KB.");
-                    return;
-                  }
-                  const reader = new FileReader();
-                  reader.onload = () =>
+                  setReading(true);
+                  try {
+                    const image = await readImage(f, 1048576);
                     setDraft((prev) =>
                       prev && prev.id === draft.id
-                        ? { ...prev, photo: String(reader.result) }
+                        ? { ...prev, photo: image }
                         : prev,
                     );
-                  reader.readAsDataURL(f);
+                    setError("");
+                  } catch (e) {
+                    setError((e as Error).message);
+                  } finally {
+                    setReading(false);
+                  }
                 }}
               />
             </label>
@@ -194,11 +253,14 @@ export default function StaffPanel({onSalary}: {onSalary:(id:string)=>void}) {
             <button
               type="button"
               className="cms-btn"
-              onClick={() => setDraft(null)}
+              onClick={() => (onDone ? onDone() : setDraft(null))}
             >
               Назад
             </button>
           </fieldset>
+          {draft.version > 0 && (
+            <ContractPages key={draft.id} id={draft.id} initial={pages} />
+          )}
         </form>
       ) : (
         <>
@@ -240,20 +302,32 @@ export default function StaffPanel({onSalary}: {onSalary:(id:string)=>void}) {
                     <th>Служител</th>
                     <th>Длъжност</th>
                     <th>Назначен на</th>
-                    <th>Статус</th><th>Възнаграждение</th>
+                    <th>Статус</th>
+                    <th>Възнаграждение</th>
                   </tr>
                 </thead>
                 <tbody>
                   {rows.map((e) => (
                     <tr key={e.id}>
                       <td>
-                        <button className="cms-btn" onClick={() => setDraft(e)}>
+                        <button
+                          className="cms-btn"
+                          onClick={() => void edit(e.id)}
+                        >
                           {e.name}
                         </button>
                       </td>
                       <td>{e.position}</td>
                       <td>{e.hired_on.split("-").reverse().join(".")}</td>
-                      <td>{e.active ? "Активен" : "Архивиран"}</td><td><button className="cms-btn" onClick={()=>onSalary(e.id)}>Въведи заплата</button></td>
+                      <td>{e.active ? "Активен" : "Архивиран"}</td>
+                      <td>
+                        <button
+                          className="cms-btn"
+                          onClick={() => onSalary(e.id)}
+                        >
+                          {salaryLabel(e.id)}
+                        </button>
+                      </td>
                     </tr>
                   ))}
                 </tbody>
