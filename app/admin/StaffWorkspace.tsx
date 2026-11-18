@@ -2,6 +2,9 @@
 import { useEffect, useState } from "react";
 import {
   Banknote,
+  ArrowUpRight,
+  Clock3,
+  Search,
   CalendarDays,
   ChartColumn,
   ClipboardClock,
@@ -231,9 +234,10 @@ export default function StaffWorkspace({
   return (
     <div className="sw">
       <div className="sw-head">
+        <img className="sw-chef" src="/images/head-chef-monochrome.webp" alt="" />
         <div>
-          <small>CHEF’S BURGER</small>
-          <h2>Управление на персонала</h2>
+          <small>CHEF’S <em>BURGER.</em></small>
+          <h2>Персонал<span>.</span></h2>
         </div>
         <label>
           Отчетен месец
@@ -308,21 +312,23 @@ export default function StaffWorkspace({
                         ],
                       ]
                     : []),
-                ].map(([k, v]) => (
+                ].map(([k, v], index) => (
                   <article key={k}>
+                    {index===0?<Users aria-hidden="true"/>:index===1?<CalendarDays aria-hidden="true"/>:<Banknote aria-hidden="true"/>}
                     <small>{k}</small>
                     <b>{v}</b>
                   </article>
                 ))}
               </div>
-              <div className="sw-tools">
-                <h3>Екип</h3>
+              <div className="sw-tools sw-team-tools">
+                <h3>Екип <span>{data.employees.filter(e=>e.active).length}</span></h3>
+                <div className="sw-find"><Search size={16} aria-hidden="true"/>
                 <input
                   aria-label="Търси в екипа"
                   placeholder="Търси по име или длъжност"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                />
+                /></div>
                 {data.owner && (
                   <button onClick={() => navigate("people")}>
                     Управление на служители
@@ -338,7 +344,9 @@ export default function StaffWorkspace({
                         .toLocaleLowerCase("bg")
                         .includes(search.toLocaleLowerCase("bg")),
                   )
-                  .map((e) => (
+                  .map((e) => {
+                    const shift=data.shifts.find(s=>s.employee_id===e.id && local(s.starts).slice(0,10)===today());
+                    return (
                     <div key={e.id} className="staff-card">
                       <Avatar
                         id={e.id}
@@ -349,13 +357,14 @@ export default function StaffWorkspace({
                         <button onClick={() => pick(e.id)}>{e.name}</button>
                         <small>{e.position}</small>
                       </div>
+                      <p className="staff-duty"><Clock3 size={14}/>{shift ? "Днес · "+local(shift.starts).slice(11)+" – "+local(shift.ends).slice(11) : "Без планирана смяна днес"}</p>
                       {data.owner && (
                         <button onClick={() => salary(e.id)}>
-                          {salaryLabel(e.id)}
+                          {salaryLabel(e.id)} <ArrowUpRight size={15} aria-hidden="true"/>
                         </button>
                       )}
                     </div>
-                  ))}
+                  );})}
               </div>
               {!data.employees.some(
                 (e) =>
