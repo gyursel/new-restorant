@@ -331,3 +331,44 @@
 .sw .sw-budget{padding:24px;color:#251d18;background:var(--paper);border-radius:10px}.sw .sw-budget small{color:#6a5849}.sw .sw-budget h3{font:500 36px Georgia,serif;margin:5px 0 10px}.sw .sw-budget button{background:#872b23;color:white;border:0}.sw .sw-day>strong{display:block;padding-bottom:5px;color:#e8d7c5}.sw .sw-shift{border-left-color:#d86c55;background:#352722}
 @media(max-width:650px){.sw .sw-head{min-height:165px;padding:15px}.sw-head .sw-chef{width:55%;object-position:52% 22%}.sw-head:before{background:linear-gradient(90deg,#201d19 35%,transparent 90%)}.sw nav{width:100%}.sw nav button{justify-content:center;flex:1;padding:8px 4px}.sw .sw-summary{grid-template-columns:1fr 1fr}.sw .sw-summary article{padding:11px 12px}.sw .sw-summary article>svg{display:none}.sw .sw-summary article:last-child:nth-child(3){grid-column:1/-1;border-top:1px solid #423d37}.sw .sw-team-tools h3{width:100%}.sw-find{width:100%}.sw .staff-cards{grid-template-columns:1fr}.sw .sw-team-tools{gap:8px}}
 @media(prefers-reduced-motion:no-preference){.sw .staff-card{transition:transform .16s ease}.sw .staff-card:focus-within{transform:translateY(-2px)}}
+
+/* Give the employee portrait its own space above the card details. */
+.sw .staff-card {
+  grid-template-columns: minmax(0, 1fr);
+}
+.sw .staff-card .staff-avatar {
+  width: min(100%, 176px);
+  height: auto;
+  aspect-ratio: 1;
+  justify-self: center;
+  font-size: 48px;
+}
+.sw .staff-card > div {
+  text-align: center;
+}
+.sw .staff-card > div > button {
+  margin-inline: auto;
+  text-align: center;
+}
+.sw .staff-contact {
+  grid-template-columns: minmax(0, 220px) minmax(0, 1fr) auto;
+}
+.sw .staff-contact .staff-avatar,
+.sw .staff-register img[alt]:not(.contract-pages img) {
+  width: min(100%, 220px);
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  font-size: 60px;
+}
+.sw .staff-avatar img {
+  object-position: center 35%;
+}
+@media (max-width: 760px) {
+  .sw .staff-contact {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sw .staff-contact .staff-avatar {
+    justify-self: center;
+  }
+}
