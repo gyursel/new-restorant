@@ -23,18 +23,29 @@ export function createSession(email: string) {
 export function cookieOptions() {
   return {httpOnly:true,secure:process.env.NODE_ENV==='production',sameSite:'lax' as const,path:'/',maxAge:TTL_SECONDS};
 }
-export function isSessionValid(cookie: string|undefined) {
+function sessionEmail(cookie: string|undefined): string | false {
   if (!cookie) return false;
   let settings;
   try {settings=config();} catch {return false;}
   const [payload,mac,other] = cookie.split('.');
-  if (!payload || !mac || other || mac.length !== 43) return false;
+  if (!payload || !mac || other || !/^[A-Za-z0-9_-]{43}$/.test(mac)) return false;
   const expected = sign(payload,settings.secret);
   if (!timingSafeEqual(Buffer.from(mac),Buffer.from(expected))) return false;
   try {
     const decoded = JSON.parse(Buffer.from(payload,'base64url').toString('utf8'));
-    return decoded.email===settings.email && Number.isInteger(decoded.exp) && decoded.exp>Math.floor(Date.now()/1000);
+    return typeof decoded.email==='string' && Number.isInteger(decoded.exp) && decoded.exp>Math.floor(Date.now()/1000) && decoded.email;
   } catch {return false;}
+}
+export function isSessionValid(cookie: string|undefined) {
+  const email=sessionEmail(cookie);
+  return Boolean(email && email===config().email);
+}
+export async function staffIdentity() {
+  const email=sessionEmail((await cookies()).get(COOKIE_NAME)?.value);
+  if (!email) throw new HttpError(401,'Необходимо е влизане.');
+  if (email===config().email) return {email,owner:true};
+  if (email===process.env.STAFF_MANAGER_EMAIL?.trim().toLowerCase() && process.env.STAFF_MANAGER_PASSWORD_HASH) return {email,owner:false};
+  throw new HttpError(403,'Липсва достъп до персонала.');
 }
 export async function getAdmin() {
   const cookie=(await cookies()).get(COOKIE_NAME)?.value;
@@ -47,11 +58,13 @@ export async function requireAdmin() {
 }
 export async function verifyPassword(email: string, password: string) {
   const settings=config();
-  const encoded=process.env.ADMIN_PASSWORD_HASH||'';
+  const normalized=email.trim().toLowerCase();
+  const manager=normalized!==settings.email && normalized===process.env.STAFF_MANAGER_EMAIL?.trim().toLowerCase() && Boolean(process.env.STAFF_MANAGER_PASSWORD_HASH);
+  const encoded=(manager ? process.env.STAFF_MANAGER_PASSWORD_HASH : process.env.ADMIN_PASSWORD_HASH)||'';
   const [scheme,saltHex,hashHex]=encoded.split(':');
   if(scheme!=='scrypt'||!/^[0-9a-f]{32}$/.test(saltHex||'')||!/^[0-9a-f]{128}$/.test(hashHex||'')) throw new HttpError(503,'ADMIN_PASSWORD_HASH не е настроен коректно.');
   if(password.length>1024) return false;
   const derived=await scrypt(password,Buffer.from(saltHex,'hex'),64) as Buffer;
   const correct=timingSafeEqual(derived,Buffer.from(hashHex,'hex'));
-  return correct && email.trim().toLowerCase()===settings.email;
+  return correct && (normalized===settings.email || manager);
 }

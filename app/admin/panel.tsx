@@ -5,7 +5,7 @@ import './panel.css';
 import {elementStylesSchema} from '../../src/cms/element-design';
 import './lily-admin.css';
 import {lilyContent} from '../../src/cms/lily-content';
-import StaffPanel from './StaffPanel';
+import StaffWorkspace from './StaffWorkspace';
 import './staff.css';
 import OrdersPanel from './OrdersPanel';
 import ProfessionalPanel from './ProfessionalPanel';
@@ -61,7 +61,7 @@ return <div className={'cms-app '+(focus&&tab==='visual'?'cms-focus-mode':'')}><
 <Toggle label="Показвай видеофон" value={doc.settings.media.video_enabled} onChange={(v:boolean)=>update(['settings','media','video_enabled'],v)}/></div><div className="cms-card"><h2>Основна навигация</h2>{doc.navigation.header.map((n:any,i:number)=><div className="cms-two-col" key={i}><Field label="Текст на връзката" value={n.label} onChange={(v:string)=>update(['navigation','header',i,'label'],v)}/><Field label="Адрес" value={n.to} onChange={(v:string)=>update(['navigation','header',i,'to'],v)}/></div>)}<h2>Дизайн на сайта</h2><button className="cms-btn" onClick={()=>setTab('appearance')}>Цветове, шрифтове и отстояния</button></div></div>}
 {tab==='buttons'&&<ButtonsPanel key={buttonSlot} initialSlot={buttonSlot} doc={doc} update={update} upload={upload} busy={busy} preview={()=>setTab('visual')}/>}
 {tab==='appearance'&&<AppearancePanel doc={doc} update={update} upload={upload} setPicker={setPicker} busy={busy}/>}
-{tab==='staff'&&<StaffPanel/>}
+{tab==='staff'&&<StaffWorkspace/>}
 {tab==='orders'&&<OrdersPanel/>}
 {tab==='tools'&&<ProfessionalPanel doc={doc} publishedDoc={publishedDoc} update={update} notify={setNotice} navigate={(item:any)=>{setTab(item.tab);setSearch('');if(item.product)setProductId(item.product)}}/>}
 {tab==='history'&&<div className="cms-card"><div className="cms-history-heading"><span>ВЕРСИЯ</span><span>ПУБЛИКУВАНА НА</span><span>ДЕЙСТВИЕ</span></div>{history.map(h=><div className="cms-history-row" key={h.version}><strong>Версия {h.version}{h.version===published&&<small>Текуща</small>}</strong><span>{new Date(h.created_at).toLocaleString('bg-BG',{timeZone:'Europe/Sofia'})}</span><button className="cms-btn" disabled={busy} onClick={async()=>{const run=async()=>{if(operation.current)return;operation.current=true;setBusy(true);try{await api('restore',{version,restoreVersion:h.version});await load();setNotice('Версията е възстановена като чернова. Прегледайте я преди публикуване.')}catch(e:any){setError(e.message)}finally{operation.current=false;setBusy(false)}};if(dirty){setConfirmation({message:'Незапазените промени ще бъдат заменени с избраната версия.',action:'Възстанови чернова',run});return}await run()}}>Възстанови чернова</button></div>)}</div>}
