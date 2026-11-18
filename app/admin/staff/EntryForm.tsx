@@ -114,6 +114,7 @@ export const titles: Record<string, string> = {
   bonusRequest: "Предложи бонус",
   bonusDecision: "Решение за бонус",
   cancel: "Отмяна на смяна",
+  salary: "Месечна заплата",
   contract: "Договор и ставка",
   shift: "Планирана смяна",
   time: "Отчет на часове",
@@ -141,7 +142,9 @@ export default function EntryForm({
 }) {
   const { action, values = {} } = spec;
   const [kind, setKind] = useState(String(values.kind || "bonus"));
-  const list = [...(fields[action] || [])];
+  const list = action === "salary"
+    ? fields.contract.filter(f => f.key !== "mode").map(f => f.key === "rate" ? {...f, label:"Договорена брутна месечна заплата (€)"} : f)
+    : [...(fields[action] || [])];
   if (action === "shift")
     list.push(
       values.id

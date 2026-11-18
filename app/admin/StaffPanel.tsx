@@ -12,7 +12,7 @@ type Employee = {
   photo?: string;
 };
 
-export default function StaffPanel() {
+export default function StaffPanel({onSalary}: {onSalary:(id:string)=>void}) {
   const [rows, setRows] = useState<Employee[]>([]);
   const [draft, setDraft] = useState<Employee | null>(null);
   const [query, setQuery] = useState("");
@@ -240,7 +240,7 @@ export default function StaffPanel() {
                     <th>Служител</th>
                     <th>Длъжност</th>
                     <th>Назначен на</th>
-                    <th>Статус</th>
+                    <th>Статус</th><th>Възнаграждение</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -253,7 +253,7 @@ export default function StaffPanel() {
                       </td>
                       <td>{e.position}</td>
                       <td>{e.hired_on.split("-").reverse().join(".")}</td>
-                      <td>{e.active ? "Активен" : "Архивиран"}</td>
+                      <td>{e.active ? "Активен" : "Архивиран"}</td><td><button className="cms-btn" onClick={()=>onSalary(e.id)}>Въведи заплата</button></td>
                     </tr>
                   ))}
                 </tbody>

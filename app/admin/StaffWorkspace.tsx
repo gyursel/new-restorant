@@ -40,6 +40,15 @@ const tabs = [
   ["reports", "Разходи", Banknote],
 ] as const;
 type Tab = (typeof tabs)[number][0];
+function salaryForm(profile: Profile, period: string): FormSpec {
+  const date = today().startsWith(period) ? today() : period + "-01";
+  const c = profile.contracts?.find(row => row.effective <= date);
+  return {action: "salary", values: {
+    date, mode: "month", ...(c && {employment:c.employment, hours:c.hours,
+      rest:c.rest_hours, weeklyRest:c.weekly_rest, rate:c.mode==="month" ? c.rate : ""})
+  }};
+}
+
 export default function StaffWorkspace({
   manager = false,
 }: {
@@ -191,6 +200,10 @@ export default function StaffWorkspace({
         ? a.position.localeCompare(b.position, "bg")
         : a.name.localeCompare(b.name, "bg"),
     );
+  function salary(emp: string) {
+    pick(emp);
+    open("salary");
+  }
   function pick(emp: string) {
     select(emp);
     navigate("profile");
@@ -247,7 +260,7 @@ export default function StaffWorkspace({
       )}
       {notice && <p role="status">{notice}</p>}
       {tab === "people" ? (
-        <StaffPanel />
+        <StaffPanel onSalary={salary} />
       ) : !data ? (
         !error && <p role="status">Зареждане…</p>
       ) : (
@@ -368,6 +381,7 @@ export default function StaffWorkspace({
                         <tr key={e.id}>
                           <td>
                             <button onClick={() => pick(e.id)}>{e.name}</button>
+                            {data.owner && <button className="sw-pay-action" onClick={() => salary(e.id)}>Въведи заплата</button>}
                           </td>
                           <td>{e.position}</td>
                           <td>
@@ -460,7 +474,7 @@ export default function StaffWorkspace({
                     value={id}
                     onChange={(e) => {
                       select(e.target.value);
-                      if (spec?.values?.id) form(null);
+                      if (spec) form(null);
                     }}
                   >
                     {data.employees.map((e) => (
@@ -480,12 +494,12 @@ export default function StaffWorkspace({
                   {spec ? (
                     <EntryForm
                       key={spec.action + String(spec.values?.id || "") + id}
-                      spec={spec}
+                      spec={spec.action === "salary" ? salaryForm(profile, period) : spec}
                       period={period}
                       employee={selected.name}
                       busy={busy}
                       cancel={() => form(null)}
-                      save={(v) => mutate(spec.action, v)}
+                      save={(v) => mutate(spec.action === "salary" ? "contract" : spec.action, v)}
                     />
                   ) : (
                     <div className="sw-tools">
