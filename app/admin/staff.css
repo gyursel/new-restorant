@@ -1,0 +1,8 @@
+.staff-register {padding:clamp(16px,3vw,32px);background:#121415;color:#f5f0e8;border:1px solid #363637;border-radius:16px;min-width:0}
+.staff-register label {display:grid;gap:6px;font-size:.85rem;color:#cec8c2}
+.staff-register input,.staff-register select {padding:10px;border:1px solid #504c49;border-radius:8px;background:#191b1c;color:#fff;min-width:0}
+.staff-toolbar,.staff-register fieldset {display:flex;align-items:end;flex-wrap:wrap;gap:16px;border:0;padding:0}
+.staff-table {overflow:auto;margin-block:20px}
+.staff-table table {width:100%;border-collapse:collapse;text-align:left}
+.staff-table td,.staff-table th {padding:12px;border-bottom:1px solid #373839;white-space:nowrap}
+.staff-register [role=alert] {color:#ffc4bf}
