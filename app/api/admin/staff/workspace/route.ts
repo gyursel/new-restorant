@@ -124,7 +124,7 @@ export async function GET(req: Request) {
       return json({ ...operational[0], ...finance });
     }
     const employees =
-      await sql`SELECT id,name,position,active,(${user.owner}::boolean AND photo<>'') AS has_photo FROM staff_employees ORDER BY name,id`;
+      await sql`SELECT id,name,position,active,CASE WHEN ${user.owner}::boolean THEN phone END AS phone,(${user.owner}::boolean AND photo<>'') AS has_photo FROM staff_employees ORDER BY name,id`;
     const shifts =
       await sql`SELECT * FROM staff_shifts WHERE staff_day(ends)>=${month}::date-7 AND staff_day(starts)<${month}::date+interval '1 month 7 days' ORDER BY starts`;
     const leaves =

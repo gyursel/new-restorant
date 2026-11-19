@@ -1,4 +1,5 @@
 export type Employee = {
+  phone?: string | null;
   has_photo?: boolean;
   id: string;
   name: string;

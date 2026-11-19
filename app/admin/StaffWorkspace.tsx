@@ -11,6 +11,8 @@ import {
   Users,
 } from "lucide-react";
 import { Avatar, ContractPages } from "./staff/StaffPhotos";
+import { MenuCardFrame } from "../../src/components/site/MenuCardFrame";
+import "../../src/ember-glass.css";
 import StaffPanel from "./StaffPanel";
 import { variance } from "./staff/attendance";
 import Calendar from "./staff/Calendar";
@@ -347,23 +349,19 @@ export default function StaffWorkspace({
                   .map((e) => {
                     const shift=data.shifts.find(s=>s.employee_id===e.id && local(s.starts).slice(0,10)===today());
                     return (
-                    <div key={e.id} className="staff-card">
-                      <Avatar
-                        id={e.id}
-                        name={e.name}
-                        available={!!e.has_photo}
-                      />
-                      <div>
-                        <button onClick={() => pick(e.id)}>{e.name}</button>
-                        <small>{e.position}</small>
-                      </div>
-                      <p className="staff-duty"><Clock3 size={14}/>{shift ? "Днес · "+local(shift.starts).slice(11)+" – "+local(shift.ends).slice(11) : "Без планирана смяна днес"}</p>
-                      {data.owner && (
-                        <button onClick={() => salary(e.id)}>
-                          {salaryLabel(e.id)} <ArrowUpRight size={15} aria-hidden="true"/>
-                        </button>
-                      )}
-                    </div>
+                    <MenuCardFrame key={e.id} className="staff-menu-card" photo={
+                      <button className="food-card-photo" aria-label={"Досие · "+e.name} onClick={()=>pick(e.id)}>
+                        <Avatar id={e.id} name={e.name} available={!!e.has_photo}/>
+                      </button>}>
+                      <button className="staff-name-link" onClick={()=>pick(e.id)}><h3>{e.name}</h3></button>
+                      <span className="food-card-badge">{e.position}</span>
+                      {data.owner && (e.phone ? <a className="staff-phone" href={"tel:"+e.phone.replace(/[^+0-9]/g,"")}>{e.phone}</a> : <span className="staff-phone">Няма въведен телефон</span>)}
+                      <p className="staff-duty">{shift ? "Днес · "+local(shift.starts).slice(11)+" – "+local(shift.ends).slice(11) : "Без планирана смяна днес"}</p>
+                      <footer className="staff-card-footer">
+                        {data.owner && <button className="price" onClick={()=>salary(e.id)}>{salaryLabel(e.id)}</button>}
+                        <button className="food-add-button" aria-label={"Отвори досието на "+e.name} onClick={()=>pick(e.id)}>+</button>
+                      </footer>
+                    </MenuCardFrame>
                   );})}
               </div>
               {!data.employees.some(
