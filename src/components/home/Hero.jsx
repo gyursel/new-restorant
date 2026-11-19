@@ -23,7 +23,7 @@ const FeaturedMenu = ({
   </div>;
 const Line = ({ children, delay, reduce, className = "" }) => <span className={`eg-line ${className}`}><motion.span className="eg-line-inner" initial={reduce ? false : { y: "110%", rotate: 2 }} animate={{ y: "0%", rotate: 0 }} transition={{ duration: 1.15, delay, ease: [0.16, 1, 0.3, 1] }}>{children}</motion.span></span>;
 const Embers = () => <div className="eg-embers" aria-hidden="true">{Array.from({ length: 13 }).map((_, i) => <i key={i} style={{ "--i": i }} />)}</div>;
-const Marquee = ({ items }) => items.length ? <div className="eg-marquee" aria-hidden="true" data-testid="hero-marquee"><div className="eg-marquee-track">{[...items, ...items].map((t, i) => <span key={i}>{t}<i /></span>)}</div></div> : null;
+const Marquee = ({ items }) => items.length ? <div className="eg-marquee" aria-hidden="true" data-testid="hero-marquee"><div className="eg-marquee-track">{[0, 1].map(copy => <div className="eg-marquee-group" key={copy}>{items.map((t, i) => <span key={i}>{t}<i /></span>)}</div>)}</div></div> : null;
 export const Hero = () => {
   const frame = useRef(null);
   const { scrollYProgress } = useScroll({ target: frame, offset: ["start start", "end start"] });
@@ -38,6 +38,7 @@ export const Hero = () => {
   const {
     products
   } = useMenu();
+  const marquee = <Marquee items={products.filter(p => p.available).slice(0, 10).map(p => p.name)} />;
   const featured = products.filter(p => p.popular && p.available).slice(0, 4);
   const rise = delay => reduce ? {} : {
     initial: {
@@ -64,7 +65,7 @@ export const Hero = () => {
             <motion.p {...rise(0.1)} className="eyebrow flex items-center gap-3"><span className="h-px w-8 bg-current" /><CmsText field="Hero_jsx_4"/></motion.p>
             <motion.h1 {...rise(0.2)} id="hero-title" data-testid="hero-title" className="font-editorial mt-6 text-4xl sm:text-5xl lg:text-6xl leading-[1.13]">{section.title?<Line reduce={reduce} delay={0.25}>{section.title}</Line>:<><Line reduce={reduce} delay={0.25}><CmsText field="Hero_jsx_5"/></Line><Line reduce={reduce} delay={0.37}><CmsText field="Hero_jsx_6"/></Line><Line reduce={reduce} delay={0.49}><span className="hero-title-last"><CmsText field="Hero_jsx_7"/></span></Line></>}
             </motion.h1>
-            <motion.p {...rise(0.3)} className="mt-6 max-w-sm text-sm sm:text-base text-slate-400 leading-relaxed" data-testid="hero-subtitle">{section.description||<><CmsText field="Hero_jsx_8"/><br /><CmsText field="Hero_jsx_9"/></>}</motion.p>
+            {compact ? marquee : <motion.p {...rise(0.3)} className="mt-6 max-w-sm text-sm sm:text-base text-slate-400 leading-relaxed" data-testid="hero-subtitle">{section.description||<><CmsText field="Hero_jsx_8"/><br /><CmsText field="Hero_jsx_9"/></>}</motion.p>}
             <motion.div {...rise(0.4)} className="hero-actions mt-8 flex flex-wrap gap-3">
               <ConfigurableButton slot="hero-primary" to={copy["Hero_jsx_10"]} className="btn-primary" data-testid="hero-order-now-button"><CmsText field="Hero_jsx_11"/><ArrowRight className="h-4 w-4" /></ConfigurableButton>
               <ConfigurableButton slot="hero-secondary" to={copy["Hero_jsx_12"]} className="btn-cream" data-testid="hero-location-button"><CmsText field="Hero_jsx_13"/></ConfigurableButton>
@@ -78,7 +79,7 @@ export const Hero = () => {
         </div>
         <div className="hero-caption"><span><CmsText field="Hero_jsx_18"/></span><Link to={copy["Hero_jsx_21"]} aria-label={copy["Hero_jsx_22"]}><ArrowDownRight size={24}/></Link></div>
       </div>
-      <Marquee items={products.filter(p => p.available).slice(0, 10).map(p => p.name)} />
+      {!compact && marquee}
       <div className="hero-featured-shell">
         {featured.length > 0 && <FeaturedMenu products={featured} />}
       </div>

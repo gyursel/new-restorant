@@ -144,7 +144,8 @@
   html .site-experience.lily-experience .hero-caption > span { max-width: 75%; }
   html .site-experience.lily-experience .hero-caption a { width: 44px; height: 44px; }
   html .site-experience.lily-experience .hero-video-toggle { bottom: auto; top: calc(var(--mobile-header) + 12px); right: var(--mobile-gutter); z-index: 5; min-height: 44px; }
-  html .site-experience.lily-experience .eg-marquee { padding: 12px 0; }
+  html .site-experience.lily-experience .hero-copy .eg-marquee { margin: 14px calc(-1 * var(--mobile-gutter)) 0; padding: 7px 0; contain: paint; }
+  .hero-copy .eg-marquee-track { animation-duration: 95s; will-change: transform; }
   html .site-experience.lily-experience .hero-featured-shell { padding: 32px var(--mobile-gutter) 0; }
   html .site-experience.lily-experience .hero-favorites { margin: 0; padding: 0; }
   html .site-experience.lily-experience .hero-favorites > div:first-child { align-items: start; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
