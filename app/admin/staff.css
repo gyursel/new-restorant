@@ -388,8 +388,23 @@
 .sw .staff-card-footer .price {font-size:18px}
 .sw .food-add-button {margin-left:auto;padding:0;font-size:26px}
 
-/* Keep the complete homepage portrait in the masthead on every screen. */
-.sw .sw-head .sw-chef {object-fit:contain;object-position:75% center}
+/* Blend the complete figure into one continuous backdrop. */
+.sw .sw-head {
+  min-height:clamp(250px,23vw,330px);
+  background:linear-gradient(100deg,#241f1b 0%,#201c19 42%,#151311 74%,#100f0e 100%);
+}
+.sw .sw-head::before {content:none}
+.sw .sw-head .sw-chef {
+  inset:0 5% 0 auto;
+  width:auto;
+  height:100%;
+  max-width:48%;
+  object-fit:contain;
+  object-position:center bottom;
+  mix-blend-mode:lighten;
+  mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent);
+}
+
 .sw .staff-dossier {
   grid-template-columns:minmax(200px,.8fr) minmax(0,1.8fr);
   align-items:start;
@@ -404,7 +419,9 @@
 .sw .staff-dossier>.dossier-section,.sw .staff-dossier>.sw-form,.sw .staff-dossier>.staff-register {grid-column:1/-1}
 .sw .staff-dossier>.dossier-section>summary {padding:0;font-weight:650;color:var(--eg-text)}
 @media(max-width:680px){
-  .sw .sw-head .sw-chef {object-position:right center;width:46%}
+  .sw .sw-head {min-height:214px}
+  .sw .sw-head .sw-chef {right:0;width:40%;object-position:center bottom}
+  .sw .sw-head label {flex-direction:column;align-items:flex-start;gap:4px}
   .sw .staff-dossier {grid-template-columns:minmax(0,1fr)}
   .sw .dossier-identity {grid-row:auto}
 }
