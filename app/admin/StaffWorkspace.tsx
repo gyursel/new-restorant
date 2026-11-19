@@ -359,7 +359,6 @@ export default function StaffWorkspace({
                       <p className="staff-duty">{shift ? "Днес · "+local(shift.starts).slice(11)+" – "+local(shift.ends).slice(11) : "Без планирана смяна днес"}</p>
                       <footer className="staff-card-footer">
                         {data.owner && <button className="price" onClick={()=>salary(e.id)}>{salaryLabel(e.id)}</button>}
-                        <button className="food-add-button" aria-label={"Отвори досието на "+e.name} onClick={()=>pick(e.id)}>+</button>
                       </footer>
                     </MenuCardFrame>
                   );})}
@@ -632,38 +631,17 @@ export default function StaffWorkspace({
               ) : !profile ? (
                 <p>Зареждане на досието…</p>
               ) : (
-                <>
-                  {data.owner && !spec && (
-                    <section className="staff-contact">
-                      <Avatar
-                        id={id}
-                        name={selected.name}
-                        available={!!selected.has_photo}
-                      />
-                      <div>
-                        <h3>{selected.name}</h3>
-                        <small>{selected.position}</small>
-                        {profile.contact?.phone && (
-                          <p>
-                            Телефон ·{" "}
-                            <a
-                              href={
-                                "tel:" +
-                                profile.contact.phone.replace(/[^+0-9]/g, "")
-                              }
-                            >
-                              {profile.contact.phone}
-                            </a>
-                          </p>
-                        )}
-                        {profile.contact?.address && (
-                          <p>Адрес · {profile.contact.address}</p>
-                        )}
-                      </div>
-                      <button onClick={() => open("personal")}>
-                        Редактирай профила
-                      </button>
-                    </section>
+                <div className="staff-cards staff-dossier">
+                  {!spec && (
+                    <MenuCardFrame className="staff-menu-card dossier-identity" photo={
+                      <div className="food-card-photo"><Avatar id={id} name={selected.name} available={!!selected.has_photo}/></div>
+                    }>
+                      <h3>{selected.name}</h3>
+                      <span className="food-card-badge">{selected.position}</span>
+                      {profile.contact?.phone && <a className="staff-phone" href={"tel:"+profile.contact.phone.replace(/[^+0-9]/g,"")}>{profile.contact.phone}</a>}
+                      {profile.contact?.address && <p>{profile.contact.address}</p>}
+                      {data.owner && <button className="dossier-edit" onClick={()=>open("personal")}>Редактирай профила</button>}
+                    </MenuCardFrame>
                   )}
                   {spec?.action === "personal" ? (
                     <StaffPanel
@@ -696,7 +674,7 @@ export default function StaffWorkspace({
                       }
                     />
                   ) : (
-                    <div className="sw-tools">
+                    <section className="food-card dossier-actions"><h3>Работно време и действия</h3><div className="sw-tools">
                       <button onClick={() => open("shift")}>
                         Добави смяна
                       </button>
@@ -746,10 +724,10 @@ export default function StaffWorkspace({
                           Начало на смяна
                         </button>
                       )}
-                    </div>
+                    </div></section>
                   )}
                   {slip && (
-                    <>
+                    <section className="food-card dossier-pay">
                       <h3>
                         {slip.closed
                           ? "Приключена ведомост"
@@ -780,10 +758,10 @@ export default function StaffWorkspace({
                           Дни с отчет без ставка · {slip.missing}
                         </p>
                       )}
-                    </>
+                    </section>
                   )}
                   {data.owner && !spec && (
-                    <details>
+                    <details className="food-card dossier-section">
                       <summary>Снимки на трудовия договор</summary>
                       <ContractPages
                         key={id}
@@ -792,7 +770,7 @@ export default function StaffWorkspace({
                       />
                     </details>
                   )}
-                  <details>
+                  <details className="food-card dossier-section">
                     <summary>Смени, присъствия и отпуски</summary>
                     <h3>Планирани смени</h3>
                     {profile.shifts?.map((s) => (
@@ -860,7 +838,7 @@ export default function StaffWorkspace({
                   </details>
                   {data.owner && (
                     <>
-                      <details>
+                      <details className="food-card dossier-section">
                         <summary>Договори, бонуси и история</summary>
                         <h3>Договори и ставки</h3>
                         {profile.contracts?.map((c) => (
@@ -914,7 +892,7 @@ export default function StaffWorkspace({
                       </details>
                     </>
                   )}
-                </>
+                </div>
               )}
             </>
           )}

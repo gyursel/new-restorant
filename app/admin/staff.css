@@ -387,3 +387,24 @@
 .sw .staff-card-footer {margin-top:auto;padding-top:16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
 .sw .staff-card-footer .price {font-size:18px}
 .sw .food-add-button {margin-left:auto;padding:0;font-size:26px}
+
+/* Keep the complete homepage portrait in the masthead on every screen. */
+.sw .sw-head .sw-chef {object-fit:contain;object-position:75% center}
+.sw .staff-dossier {
+  grid-template-columns:minmax(200px,.8fr) minmax(0,1.8fr);
+  align-items:start;
+}
+.sw .staff-dossier .food-card {height:auto!important;min-width:0}
+.sw .staff-dossier .food-card:hover {transform:none!important}
+.sw .dossier-identity {grid-column:1;grid-row:span 2}
+.sw .dossier-identity .dossier-edit {margin-top:16px;align-self:flex-start}
+.sw .staff-dossier :is(.dossier-actions,.dossier-pay,.dossier-section) {padding:18px;margin:0}
+.sw .staff-dossier :is(.dossier-actions,.dossier-pay)>h3 {margin:0 0 12px}
+.sw .dossier-pay .sw-cards {grid-template-columns:repeat(auto-fit,minmax(min(100%,125px),1fr))}
+.sw .staff-dossier>.dossier-section,.sw .staff-dossier>.sw-form,.sw .staff-dossier>.staff-register {grid-column:1/-1}
+.sw .staff-dossier>.dossier-section>summary {padding:0;font-weight:650;color:var(--eg-text)}
+@media(max-width:680px){
+  .sw .sw-head .sw-chef {object-position:right center;width:46%}
+  .sw .staff-dossier {grid-template-columns:minmax(0,1fr)}
+  .sw .dossier-identity {grid-row:auto}
+}
