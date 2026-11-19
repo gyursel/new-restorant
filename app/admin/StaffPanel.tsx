@@ -309,7 +309,7 @@ export default function StaffPanel({
                 <tbody>
                   {rows.map((e) => (
                     <tr key={e.id}>
-                      <td>
+                      <td data-label="Служител">
                         <button
                           className="cms-btn"
                           onClick={() => void edit(e.id)}
@@ -317,10 +317,10 @@ export default function StaffPanel({
                           {e.name}
                         </button>
                       </td>
-                      <td>{e.position}</td>
-                      <td>{e.hired_on.split("-").reverse().join(".")}</td>
-                      <td>{e.active ? "Активен" : "Архивиран"}</td>
-                      <td>
+                      <td data-label="Длъжност">{e.position}</td>
+                      <td data-label="Назначен на">{e.hired_on.split("-").reverse().join(".")}</td>
+                      <td data-label="Статус">{e.active ? "Активен" : "Архивиран"}</td>
+                      <td data-label="Възнаграждение">
                         <button
                           className="cms-btn"
                           onClick={() => onSalary(e.id)}

@@ -25,7 +25,7 @@ export default function Calendar({
   move,
   copy,
 }: Props) {
-  const [mode, setMode] = useState("week"),
+  const [mode, setMode] = useState(() => typeof window !== "undefined" && window.matchMedia("(max-width: 680px)").matches ? "day" : "week"),
     [selected, setSelected] = useState(today()),
     [minimum, setMinimum] = useState(""),
     [maximum, setMaximum] = useState("");
@@ -56,7 +56,7 @@ export default function Calendar({
   const span = (v: string) => local(v).slice(11);
   return (
     <section>
-      <div className="sw-tools">
+      <div className="sw-tools sw-calendar-controls">
         <select
           aria-label="Изглед на графика"
           value={mode}
@@ -72,6 +72,11 @@ export default function Calendar({
           value={anchor}
           onChange={(e) => e.target.value && select(e.target.value)}
         />
+        <div className={"sw-day-pager"+(mode==="day"?" is-day":"")}>
+          <button aria-label="Предходен ден" onClick={()=>select(addDays(anchor,-1))}>‹</button>
+          <button onClick={()=>select(today())}>Днес</button>
+          <button aria-label="Следващ ден" onClick={()=>select(addDays(anchor,1))}>›</button>
+        </div>
         <button onClick={() => copy(monday(anchor))}>
           Копирай предходната седмица
         </button>

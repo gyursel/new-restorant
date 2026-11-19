@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { request } from "./model";
 export const acceptImages = "image/jpeg,image/png,image/webp";
 export async function readImage(file: File, max: number) {
@@ -20,22 +20,34 @@ export function Avatar({
   name: string;
   available: boolean;
 }) {
+  const element = useRef<HTMLSpanElement>(null);
   const [src, setSrc] = useState("");
   useEffect(() => {
     setSrc("");
     if (!available) return;
     const c = new AbortController();
-    request<{ photo: string }>("/api/admin/staff?id=" + id + "&portrait=1", {
+    function load() {
+      request<{ photo: string }>("/api/admin/staff?id=" + id + "&portrait=1", {
       signal: c.signal,
     })
       .then((r) => {
         if (!c.signal.aborted) setSrc(r.photo);
       })
       .catch(() => {});
-    return () => c.abort();
+    }
+    const target=element.current;
+    if (!target || typeof IntersectionObserver === "undefined") {
+      load();
+      return () => c.abort();
+    }
+    const observer=new IntersectionObserver(entries=>{
+      if(entries.some(entry=>entry.isIntersecting)){observer.disconnect();load();}
+    },{rootMargin:"200px"});
+    observer.observe(target);
+    return () => {observer.disconnect();c.abort();};
   }, [id, available]);
   return (
-    <span className="staff-avatar" aria-hidden="true">
+    <span ref={element} className="staff-avatar" aria-hidden="true">
       {src ? (
         <img src={src} alt="" />
       ) : (

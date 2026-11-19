@@ -108,7 +108,7 @@ export default function StaffWorkspace({
   useEffect(() => {
     const c = new AbortController();
     setProfile(null);
-    if (id)
+    if (id && tab === "profile")
       request<Profile>(endpoint + "?period=" + period + "-01&employee=" + id, {
         signal: c.signal,
       })
@@ -117,7 +117,7 @@ export default function StaffWorkspace({
           if (!c.signal.aborted) setError(e.message);
         });
     return () => c.abort();
-  }, [id, period, revision]);
+  }, [id, period, revision, tab]);
   const selected = data?.employees.find((e) => e.id === id);
   function navigate(t: Tab) {
     setTab(t);

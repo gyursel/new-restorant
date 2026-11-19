@@ -425,3 +425,48 @@
   .sw .staff-dossier {grid-template-columns:minmax(0,1fr)}
   .sw .dossier-identity {grid-row:auto}
 }
+
+.sw-day-pager {display:none}
+@media screen and (max-width: 680px) {
+  .sw {padding:12px;min-width:0;overflow-wrap:anywhere}
+  .sw .sw-head {min-height:170px;padding:16px}
+  .sw .sw-head h2 {font-size:clamp(34px,10vw,52px)}
+  .sw .sw-head .sw-chef {width:43%}
+  .sw nav {display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));margin:12px 0;gap:2px}
+  .sw nav button {font-size:13px;padding:8px 2px;gap:4px}
+  .sw :is(button,summary,select,input:not([type=checkbox])) {min-height:44px}
+  .sw :is(input,select,textarea) {font-size:16px;min-width:0;max-width:100%}
+  .sw :is(fieldset,form,.staff-table,.sw-scroll,.staff-register,.sw-budget,.sw-payrow,.food-card-content) {min-width:0;max-width:100%}
+  .sw .staff-cards {padding:6px;gap:12px;grid-template-columns:minmax(0,1fr)}
+  .sw .staff-menu-card .food-card-content {gap:2px}
+  .sw .staff-menu-card .staff-phone[href] {display:flex;align-items:center;min-height:44px}
+  .sw .staff-menu-card .staff-name-link h3 {font-size:20px!important}
+  .sw .sw-form,.sw .staff-register {padding:12px}
+  .sw .sw-form fieldset,.sw .staff-register fieldset {display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+  .sw fieldset :is(label,input:not([type=checkbox]),select,textarea) {width:100%;min-width:0}
+  .sw .sw-tools label {max-width:100%}
+  .sw .sw-calendar-controls {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .sw .sw-calendar-controls>button:first-of-type {grid-column:1/-1}
+  .sw .sw-day-pager.is-day {grid-column:1/-1;display:grid;grid-template-columns:44px 1fr 44px;gap:8px}
+  .sw .sw-calendar {grid-template-columns:minmax(0,1fr)}
+  .sw .sw-day {padding:12px;gap:8px}
+  .sw .sw-day .sw-shift {display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:14px}
+  .sw .sw-payrow {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .sw .sw-payrow>div {grid-column:1/-1}.sw .sw-payrow>button:last-child {grid-column:1/-1}
+  .sw .sw-budget {padding:16px}.sw .sw-budget h3 {font-size:30px}
+  .sw .sw-budget>button,.sw .contract-pages input {width:100%}
+  .sw .staff-table table,.sw .staff-table tbody {display:block}
+  .sw .staff-table thead {position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%)}
+  .sw .staff-table tr {display:block;padding:10px 0;border-bottom:1px solid #46403a}
+  .sw .staff-table td {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.45fr);align-items:center;gap:8px;white-space:normal;border:0;padding:5px 0}
+  .sw .staff-table td::before {content:attr(data-label);font-size:12px;color:#c6bdb3}
+  .sw .sw-scroll {overflow-x:auto;overscroll-behavior-x:contain}
+  .sw .sw-bar {grid-template-columns:minmax(0,1fr) auto}.sw .sw-bar meter {grid-row:2;grid-column:1/-1}
+  .sw .staff-dossier>.dossier-section>summary {display:list-item;align-content:center}
+  .sw summary {padding-block:10px}
+}
+@media screen and (max-width:360px) {
+  .sw nav button {flex-direction:column}
+  .sw .sw-calendar-controls {grid-template-columns:minmax(0,1fr)}
+  .sw .sw-summary b {font-size:22px}
+}
