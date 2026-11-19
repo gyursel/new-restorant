@@ -236,7 +236,7 @@ export default function StaffWorkspace({
   return (
     <div className="sw">
       <div className="sw-head">
-        <img className="sw-chef" src="/images/staff-chef-full.webp" alt="" />
+        <img className="sw-chef" src="/images/staff-chef-portrait.webp" alt="" />
         <div>
           <small>CHEF’S <em>BURGER.</em></small>
           <h2>Персонал<span>.</span></h2>
