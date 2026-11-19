@@ -437,10 +437,13 @@
   .sw :is(button,summary,select,input:not([type=checkbox])) {min-height:44px}
   .sw :is(input,select,textarea) {font-size:16px;min-width:0;max-width:100%}
   .sw :is(fieldset,form,.staff-table,.sw-scroll,.staff-register,.sw-budget,.sw-payrow,.food-card-content) {min-width:0;max-width:100%}
-  .sw .staff-cards {padding:6px;gap:12px;grid-template-columns:minmax(0,1fr)}
+  .sw .staff-cards {padding:6px;gap:12px}
+  .sw .staff-cards:not(.staff-dossier) {grid-template-columns:repeat(2,minmax(0,1fr));padding:0;gap:8px}
+  .sw .staff-menu-card .food-card-badge,.sw .staff-card-footer .price {max-width:100%;white-space:normal;overflow-wrap:anywhere}
+  .sw .staff-card-footer {padding-top:4px}
   .sw .staff-menu-card .food-card-content {gap:2px}
   .sw .staff-menu-card .staff-phone[href] {display:flex;align-items:center;min-height:44px}
-  .sw .staff-menu-card .staff-name-link h3 {font-size:20px!important}
+  .sw .staff-menu-card .staff-name-link h3 {font-size:clamp(16px,4vw,20px)!important}
   .sw .sw-form,.sw .staff-register {padding:12px}
   .sw .sw-form fieldset,.sw .staff-register fieldset {display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
   .sw fieldset :is(label,input:not([type=checkbox]),select,textarea) {width:100%;min-width:0}
