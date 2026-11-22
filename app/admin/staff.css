@@ -1,0 +1,475 @@
+.staff-register {
+  padding: clamp(16px, 3vw, 32px);
+  background: #121415;
+  color: #f5f0e8;
+  border: 1px solid #363637;
+  border-radius: 16px;
+  min-width: 0;
+}
+.staff-register label {
+  display: grid;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #cec8c2;
+}
+.staff-register input,
+.staff-register select {
+  padding: 10px;
+  border: 1px solid #504c49;
+  border-radius: 8px;
+  background: #191b1c;
+  color: #fff;
+  min-width: 0;
+}
+.staff-toolbar,
+.staff-register fieldset {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 16px;
+  border: 0;
+  padding: 0;
+}
+.staff-table {
+  overflow: auto;
+  margin-block: 20px;
+}
+.staff-table table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+.staff-table td,
+.staff-table th {
+  padding: 12px;
+  border-bottom: 1px solid #373839;
+  white-space: nowrap;
+}
+.staff-register [role="alert"] {
+  color: #ffc4bf;
+}
+.sw,
+.staff-manager {
+  color: #f5f0e8;
+  background: #121415;
+  padding: clamp(14px, 2.4vw, 32px);
+  border-radius: 18px;
+  min-width: 0;
+  font-family: Onest, system-ui, sans-serif;
+  color-scheme: dark;
+}
+.sw * {
+  box-sizing: border-box;
+}
+.sw-head,
+.sw-tools,
+.sw nav,
+.sw-alerts,
+.sw-form fieldset {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.sw-head {
+  justify-content: space-between;
+}
+.sw-head small {
+  letter-spacing: 0.13em;
+  color: #ed8076;
+  font-weight: 700;
+}
+.sw h2 {
+  font-size: clamp(22px, 3vw, 34px);
+  margin: 5px 0;
+}
+.sw h3 {
+  font-size: 18px;
+  margin: 20px 0 12px;
+}
+.sw nav {
+  border-block: 1px solid #373736;
+  padding: 12px 0;
+  margin: 18px 0;
+}
+.sw button,
+.sw input,
+.sw select {
+  padding: 9px 12px;
+  border: 1px solid #494542;
+  border-radius: 8px;
+  color: #f5f0e8;
+  background: #202222;
+  font: inherit;
+  font-size: 14px;
+}
+.sw button {
+  cursor: pointer;
+}
+.sw button:hover,
+.sw button:focus-visible {
+  border-color: #e4675d;
+}
+.sw button:disabled {
+  opacity: 0.55;
+}
+.sw nav button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.sw nav [aria-current="page"],
+.sw .primary {
+  background: #a82c27;
+  border-color: #ce4944;
+  color: #fff;
+}
+.sw label {
+  display: grid;
+  gap: 5px;
+  font-size: 13px;
+  color: #d3ccc4;
+}
+.sw-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 9px;
+}
+.sw-cards article {
+  background: #1a1d1d;
+  border: 1px solid #363a39;
+  border-radius: 12px;
+  padding: 14px;
+  display: grid;
+  gap: 9px;
+}
+.sw-cards b {
+  font-size: clamp(18px, 2vw, 27px);
+  font-variant-numeric: tabular-nums;
+}
+.sw small,
+.sw summary {
+  color: #c6bdb3;
+}
+.sw-alerts {
+  margin: 16px 0;
+}
+.sw-alerts span {
+  background: #302823;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+.sw-tools {
+  margin: 12px 0;
+  align-items: end;
+}
+.sw-tools h3 {
+  margin-right: auto;
+}
+.sw-scroll {
+  overflow-x: auto;
+}
+.sw table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+}
+.sw td,
+.sw th {
+  padding: 10px;
+  border-bottom: 1px solid #383a39;
+  white-space: nowrap;
+}
+.sw th {
+  color: #c6bdb3;
+  font-size: 13px;
+}
+.sw-form {
+  padding: 16px;
+  border: 1px solid #664440;
+  border-radius: 12px;
+}
+.sw-form fieldset {
+  border: 0;
+  align-items: end;
+  padding: 0;
+}
+.sw [role="alert"] {
+  color: #ffb0a7;
+}
+.sw [role="status"] {
+  color: #b4d4bd;
+}
+.sw-calendar {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+  margin: 14px 0;
+}
+.sw-calendar.day {
+  grid-template-columns: 1fr;
+}
+.sw-day {
+  border: 1px solid #3e4240;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.sw-day > strong {
+  font-size: 13px;
+}
+.sw-day .sw-shift {
+  background: #302523;
+  border-left: 3px solid #dc7464;
+  display: grid;
+  text-align: left;
+  font-size: 12px;
+}
+.sw-bar {
+  display: grid;
+  grid-template-columns: minmax(80px, 1fr) 2fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 0;
+}
+.sw-bar meter {
+  width: 100%;
+  accent-color: #d25e53;
+}
+.sw details {
+  margin: 14px 0;
+}
+.sw summary {
+  cursor: pointer;
+}
+.sw p {
+  line-height: 1.5;
+}
+.sw-manager {
+  min-height: 100vh;
+}
+@media (max-width: 760px) {
+  .sw-calendar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .sw-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .sw-tools > * {
+    max-width: 100%;
+  }
+  .sw-head {
+    align-items: start;
+  }
+  .sw nav {
+    gap: 5px;
+  }
+  .sw nav button {
+    font-size: 12px;
+  }
+  .sw-form label {
+    width: 100%;
+  }
+}
+@media print {
+  .cms-sidebar,
+  .cms-topbar,
+  .cms-page-heading,
+  .sw nav,
+  .sw-tools,
+  .sw details,
+  .sw-day > button:last-child {
+    display: none !important;
+  }
+  .sw-calendar {
+    grid-template-columns: repeat(7, 1fr);
+  }
+  .sw,
+  .sw-day,
+  .sw-day button {
+    background: white !important;
+    color: black !important;
+  }
+  .sw-calendar {
+    break-inside: avoid;
+  }
+}
+.staff-register textarea {
+  background: #191b1c;
+  color: white;
+  border: 1px solid #504c49;
+  border-radius: 8px;
+  padding: 10px;
+}
+.sw button:focus-visible,
+.sw input:focus-visible,
+.sw select:focus-visible {
+  outline: 2px solid #ed8076;
+  outline-offset: 2px;
+}
+.sw-budget,.sw-payrow{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:14px 0;border-bottom:1px solid #393c3b}.sw-budget{padding:18px;background:#1b2020;border-radius:12px}.sw-payrow>div,.sw-budget>div{margin-right:auto}.sw-payrow small{display:block;margin-top:4px}.sw-summary{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}.sw details>summary{padding:10px 0}.sw-payrow strong{font-size:16px}
+.staff-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px;margin:16px 0 24px}.staff-card,.staff-contact{position:relative;display:grid;grid-template-columns:64px minmax(0,1fr);gap:14px;align-items:center;padding:20px;background:linear-gradient(115deg,#222426,#121415 80%);border:1px solid #373738;border-radius:8px;box-shadow:0 8px 20px #0002}.staff-card:before,.staff-contact:before{content:"";position:absolute;left:0;top:20px;height:42px;width:3px;background:#c92b25}.staff-avatar{display:grid;place-items:center;width:64px;height:64px;overflow:hidden;border-radius:50%;background:#33292a;border:1px solid #8c5754;color:#f5f0e8;font:600 21px Georgia,serif}.staff-avatar img{width:100%;height:100%;object-fit:cover}.staff-card>div>button{display:block;text-align:left;padding:0;background:none;border:0;color:#f5f0e8;font:600 21px/1.15 Georgia,serif}.staff-card small,.staff-contact small{display:block;margin-top:6px;color:#b3aba2}.staff-card>button{grid-column:1/-1;justify-self:start;border-color:#78403d;color:#f5f0e8;background:#302021}.staff-contact{margin:16px 0;grid-template-columns:64px 1fr auto}.staff-contact h3{margin:0}.staff-contact p{margin:5px 0}.staff-contact a{color:#f5f0e8}.contract-pages{padding:12px 0}.contract-pages input[type=file]{width:100%;max-width:400px}@media(max-width:580px){.staff-contact{grid-template-columns:64px 1fr}.staff-contact>button{grid-column:1/-1}}
+
+/* Restaurant masthead and staff directory */
+.sw{--paper:#f5eee5;--ink:#191817;--red:#b83329;background:#151515;padding:clamp(14px,2.6vw,36px);border:1px solid #32302e;border-radius:18px}
+.sw-head{position:relative;isolation:isolate;overflow:hidden;min-height:218px;background:#171614;border-radius:10px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:13px;padding:22px clamp(20px,3.5vw,52px);border:1px solid #413c36}
+.sw-head:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(100deg,#211e1a 0%,#201d19 35%,transparent 76%)}
+.sw-head .sw-chef{position:absolute;z-index:-2;right:0;top:0;width:62%;height:100%;object-fit:cover;object-position:50% 12%;filter:sepia(.17)}
+.sw-head small{font:800 12px/1.3 system-ui,sans-serif;letter-spacing:.16em;color:#f2e9df}.sw-head small em{font-style:normal;color:#fa8175}
+.sw .sw-head h2{font:500 clamp(45px,5.4vw,78px)/1 Georgia,serif;letter-spacing:-.048em;margin:8px 0;color:var(--paper)}.sw-head h2 span{color:#e25548}
+.sw-head label{display:flex;align-items:center;color:#e3d8cc;font-size:12px;gap:10px}.sw-head input{background:#211f1c;border:1px solid #625b51;padding:6px 8px;font-size:13px}
+.sw nav{border:0;gap:4px;display:inline-flex;background:#212120;border-radius:10px;padding:4px;margin:17px 0}.sw nav button{background:transparent;border:0;border-radius:7px;padding:10px 19px;color:#c7c2bc}.sw nav [aria-current=page]{background:#f2e9df;color:#261a17;font-weight:650}.sw nav [aria-current=page] svg{color:#af3026}
+.sw .sw-summary{background:#201f1e;border:1px solid #3a3733;border-radius:10px;gap:0;overflow:hidden}.sw .sw-summary article{position:relative;border:0;border-radius:0;border-right:1px solid #423d37;background:transparent;padding:17px 48px 18px 21px}.sw .sw-summary article:last-child{border:0}.sw .sw-summary article>svg{position:absolute;right:16px;top:17px;width:20px;color:#ccaa94}.sw .sw-summary b{font-size:clamp(23px,2.45vw,36px);letter-spacing:-.04em}.sw .sw-summary small{color:#d1c7ba}
+.sw .sw-team-tools{margin:24px 0 15px;align-items:center}.sw-team-tools h3{font:500 32px Georgia,serif;margin:0 auto 0 0}.sw-team-tools h3 span{font:600 13px system-ui;color:#c4b4a3;vertical-align:middle}.sw-find{position:relative}.sw-find svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:#c2b9ad}.sw-find input{padding-left:34px;width:100%}
+.sw .staff-cards{grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:12px}
+.sw .staff-card{border:0;background:var(--paper);color:var(--ink);box-shadow:none;grid-template-columns:62px 1fr;gap:13px;padding:20px;border-radius:10px;align-content:start}.staff-card:before{display:none}
+.sw .staff-card .staff-avatar{width:62px;height:62px;border:0;background:#dfc6b6;color:#532b24;font:500 24px Georgia,serif}.staff-card:nth-child(3n+2) .staff-avatar{background:#d6d5c4;color:#393d31}.staff-card:nth-child(3n) .staff-avatar{background:#d7c9c0;color:#493c35}
+.sw .staff-card>div>button{font:600 21px/1.12 Georgia,serif;color:#201b18}.sw .staff-card small{color:#67594f;margin-top:5px}.sw .staff-card .staff-duty{display:flex;align-items:center;gap:6px;grid-column:1/-1;margin:4px 0 0;padding-top:12px;border-top:1px solid #d6ccc1;font-size:12px;color:#584c43}.sw .staff-card>button{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;border:0;background:#e7d9cd;color:#77271f;font-weight:650;border-radius:5px}.sw .staff-card>button:hover{background:#dfc7b8}
+.sw .sw-budget{padding:24px;color:#251d18;background:var(--paper);border-radius:10px}.sw .sw-budget small{color:#6a5849}.sw .sw-budget h3{font:500 36px Georgia,serif;margin:5px 0 10px}.sw .sw-budget button{background:#872b23;color:white;border:0}.sw .sw-day>strong{display:block;padding-bottom:5px;color:#e8d7c5}.sw .sw-shift{border-left-color:#d86c55;background:#352722}
+@media(max-width:650px){.sw .sw-head{min-height:165px;padding:15px}.sw-head .sw-chef{width:55%;object-position:52% 22%}.sw-head:before{background:linear-gradient(90deg,#201d19 35%,transparent 90%)}.sw nav{width:100%}.sw nav button{justify-content:center;flex:1;padding:8px 4px}.sw .sw-summary{grid-template-columns:1fr 1fr}.sw .sw-summary article{padding:11px 12px}.sw .sw-summary article>svg{display:none}.sw .sw-summary article:last-child:nth-child(3){grid-column:1/-1;border-top:1px solid #423d37}.sw .sw-team-tools h3{width:100%}.sw-find{width:100%}.sw .staff-cards{grid-template-columns:1fr}.sw .sw-team-tools{gap:8px}}
+@media(prefers-reduced-motion:no-preference){.sw .staff-card{transition:transform .16s ease}.sw .staff-card:focus-within{transform:translateY(-2px)}}
+
+/* Give the employee portrait its own space above the card details. */
+.sw .staff-card {
+  grid-template-columns: minmax(0, 1fr);
+}
+.sw .staff-card .staff-avatar {
+  width: min(100%, 176px);
+  height: auto;
+  aspect-ratio: 1;
+  justify-self: center;
+  font-size: 48px;
+}
+.sw .staff-card > div {
+  text-align: center;
+}
+.sw .staff-card > div > button {
+  margin-inline: auto;
+  text-align: center;
+}
+.sw .staff-contact {
+  grid-template-columns: minmax(0, 220px) minmax(0, 1fr) auto;
+}
+.sw .staff-contact .staff-avatar,
+.sw .staff-register img[alt]:not(.contract-pages img) {
+  width: min(100%, 220px);
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  font-size: 60px;
+}
+.sw .staff-avatar img {
+  object-position: center 35%;
+}
+@media (max-width: 760px) {
+  .sw .staff-contact {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sw .staff-contact .staff-avatar {
+    justify-self: center;
+  }
+}
+
+/* Staff information inside the storefront's shared menu card. */
+.sw .staff-cards {grid-template-columns:repeat(auto-fill,minmax(min(100%,264px),1fr));gap:18px;background:#1b1411;padding:12px;border-radius:24px}
+.sw .staff-menu-card {display:flex;flex-direction:column;min-width:0;color:var(--eg-text)}
+.sw .staff-menu-card .food-card-photo {display:block;padding:0}
+.sw .staff-menu-card .staff-avatar {width:100%;height:100%;position:absolute;inset:0;border:0;border-radius:0;color:#edc3a0;background:transparent;font-size:56px}
+.sw .staff-menu-card .food-card-content {display:flex;flex:1;flex-direction:column;align-items:stretch}
+.sw .staff-menu-card .staff-name-link,.sw .staff-menu-card .price {border:0;background:transparent;padding:0;text-align:left}
+.sw .staff-name-link h3 {margin:0 0 7px;color:var(--eg-text)}
+.sw .staff-phone {display:block;color:var(--eg-text);font-size:14px;margin-top:8px;text-decoration:none}
+.sw .staff-phone:hover {text-decoration:underline}
+.sw .staff-duty {margin:7px 0;color:var(--eg-muted);font-size:13px}
+.sw .staff-card-footer {margin-top:auto;padding-top:16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.sw .staff-card-footer .price {font-size:18px}
+.sw .food-add-button {margin-left:auto;padding:0;font-size:26px}
+
+/* Blend the complete figure into one continuous backdrop. */
+.sw .sw-head {
+  min-height:clamp(250px,23vw,330px);
+  background:linear-gradient(100deg,#241f1b 0%,#201c19 42%,#151311 74%,#100f0e 100%);
+}
+.sw .sw-head::before {content:none}
+.sw .sw-head .sw-chef {
+  inset:0 5% 0 auto;
+  width:auto;
+  height:100%;
+  max-width:48%;
+  object-fit:contain;
+  object-position:center bottom;
+  mix-blend-mode:lighten;
+  mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent);
+}
+
+.sw .staff-dossier {
+  grid-template-columns:minmax(200px,.8fr) minmax(0,1.8fr);
+  align-items:start;
+}
+.sw .staff-dossier .food-card {height:auto!important;min-width:0}
+.sw .staff-dossier .food-card:hover {transform:none!important}
+.sw .dossier-identity {grid-column:1;grid-row:span 2}
+.sw .dossier-identity .dossier-edit {margin-top:16px;align-self:flex-start}
+.sw .staff-dossier :is(.dossier-actions,.dossier-pay,.dossier-section) {padding:18px;margin:0}
+.sw .staff-dossier :is(.dossier-actions,.dossier-pay)>h3 {margin:0 0 12px}
+.sw .dossier-pay .sw-cards {grid-template-columns:repeat(auto-fit,minmax(min(100%,125px),1fr))}
+.sw .staff-dossier>.dossier-section,.sw .staff-dossier>.sw-form,.sw .staff-dossier>.staff-register {grid-column:1/-1}
+.sw .staff-dossier>.dossier-section>summary {padding:0;font-weight:650;color:var(--eg-text)}
+@media(max-width:680px){
+  .sw .sw-head {min-height:214px}
+  .sw .sw-head .sw-chef {right:0;width:40%;object-position:center bottom}
+  .sw .sw-head label {flex-direction:column;align-items:flex-start;gap:4px}
+  .sw .staff-dossier {grid-template-columns:minmax(0,1fr)}
+  .sw .dossier-identity {grid-row:auto}
+}
+
+.sw-day-pager {display:none}
+@media screen and (max-width: 680px) {
+  .sw {padding:12px;min-width:0;overflow-wrap:anywhere}
+  .sw .sw-head {min-height:170px;padding:16px}
+  .sw .sw-head h2 {font-size:clamp(34px,10vw,52px)}
+  .sw .sw-head .sw-chef {width:43%}
+  .sw nav {display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));margin:12px 0;gap:2px}
+  .sw nav button {font-size:13px;padding:8px 2px;gap:4px}
+  .sw :is(button,summary,select,input:not([type=checkbox])) {min-height:44px}
+  .sw :is(input,select,textarea) {font-size:16px;min-width:0;max-width:100%}
+  .sw :is(fieldset,form,.staff-table,.sw-scroll,.staff-register,.sw-budget,.sw-payrow,.food-card-content) {min-width:0;max-width:100%}
+  .sw .staff-cards {padding:6px;gap:12px}
+  .sw .staff-cards:not(.staff-dossier) {grid-template-columns:repeat(2,minmax(0,1fr));padding:0;gap:8px}
+  .sw .staff-menu-card .food-card-badge,.sw .staff-card-footer .price {max-width:100%;white-space:normal;overflow-wrap:anywhere}
+  .sw .staff-card-footer {padding-top:4px}
+  .sw .staff-menu-card .food-card-content {gap:2px}
+  .sw .staff-menu-card .staff-phone[href] {display:flex;align-items:center;min-height:44px}
+  .sw .staff-menu-card .staff-name-link h3 {font-size:clamp(16px,4vw,20px)!important}
+  .sw .sw-form,.sw .staff-register {padding:12px}
+  .sw .sw-form fieldset,.sw .staff-register fieldset {display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+  .sw fieldset :is(label,input:not([type=checkbox]),select,textarea) {width:100%;min-width:0}
+  .sw .sw-tools label {max-width:100%}
+  .sw .sw-calendar-controls {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .sw .sw-calendar-controls>button:first-of-type {grid-column:1/-1}
+  .sw .sw-day-pager.is-day {grid-column:1/-1;display:grid;grid-template-columns:44px 1fr 44px;gap:8px}
+  .sw .sw-calendar {grid-template-columns:minmax(0,1fr)}
+  .sw .sw-day {padding:12px;gap:8px}
+  .sw .sw-day .sw-shift {display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:14px}
+  .sw .sw-payrow {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .sw .sw-payrow>div {grid-column:1/-1}.sw .sw-payrow>button:last-child {grid-column:1/-1}
+  .sw .sw-budget {padding:16px}.sw .sw-budget h3 {font-size:30px}
+  .sw .sw-budget>button,.sw .contract-pages input {width:100%}
+  .sw .staff-table table,.sw .staff-table tbody {display:block}
+  .sw .staff-table thead {position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%)}
+  .sw .staff-table tr {display:block;padding:10px 0;border-bottom:1px solid #46403a}
+  .sw .staff-table td {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.45fr);align-items:center;gap:8px;white-space:normal;border:0;padding:5px 0}
+  .sw .staff-table td::before {content:attr(data-label);font-size:12px;color:#c6bdb3}
+  .sw .sw-scroll {overflow-x:auto;overscroll-behavior-x:contain}
+  .sw .sw-bar {grid-template-columns:minmax(0,1fr) auto}.sw .sw-bar meter {grid-row:2;grid-column:1/-1}
+  .sw .staff-dossier>.dossier-section>summary {display:list-item;align-content:center}
+  .sw summary {padding-block:10px}
+}
+@media screen and (max-width:360px) {
+  .sw nav button {flex-direction:column}
+  .sw .sw-calendar-controls {grid-template-columns:minmax(0,1fr)}
+  .sw .sw-summary b {font-size:22px}
+}
